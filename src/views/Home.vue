@@ -15,11 +15,11 @@ export default {
   components: {
     HelloWorld
   },
-  methods:{
+  methods: {
     notificationsPermisionRequest() {
       messaging
         .requestPermission()
-              .then(() => {
+        .then(() => {
           this.getMessagingToken();
         })
         .catch(err => {
@@ -27,8 +27,23 @@ export default {
         });
     },
 
-    //this method goes into our vuex states
+    listenTokenRefresh() {
+      const currentMessageToken = window.localStorage.getItem("messagingToken");
+      if (!!currentMessageToken || currentMessageToken == null) {
+        messaging.onTokenRefresh(function() {
+          messaging
+            .getToken()
+            .then(function(token) {
+              this.saveToken({ token });
+            })
+            .catch(function(err) {
+              console.log("Unable to retrieve refreshed token ", err);
+            });
+        });
+      }
+    }
 
+    //this method goes into our vuex states
   },
   mounted() {
     if (Notification.permission !== "allow") {

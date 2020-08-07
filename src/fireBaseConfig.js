@@ -1,13 +1,13 @@
 import * as firebase from "firebase";
 const firebaseConfig = {
-    apiKey: "AIzaSyDY41Hu7J4jQmMpK3BbsM_uxvE5920qfGs",
-    authDomain: "alajehub-a472c.firebaseapp.com",
-    databaseURL: "https://alajehub-a472c.firebaseio.com",
-    projectId: "alajehub-a472c",
-    storageBucket: "alajehub-a472c.appspot.com",
-    messagingSenderId: "871328383490",
-    appId: "1:871328383490:web:436e9418c88b40d692dd1b",
-    measurementId: "G-GR1N1MTRLJ"
+  apiKey: "AIzaSyDY41Hu7J4jQmMpK3BbsM_uxvE5920qfGs",
+  authDomain: "alajehub-a472c.firebaseapp.com",
+  databaseURL: "https://alajehub-a472c.firebaseio.com",
+  projectId: "alajehub-a472c",
+  storageBucket: "alajehub-a472c.appspot.com",
+  messagingSenderId: "871328383490",
+  appId: "1:871328383490:web:436e9418c88b40d692dd1b",
+  measurementId: "G-GR1N1MTRLJ"
 };
 
 firebase.initializeApp(firebaseConfig);
@@ -30,13 +30,13 @@ firebase.initializeApp(firebaseConfig);
 let messaging = "";
 
 if (firebase.messaging.isSupported()) {
-    messaging = firebase.messaging();
+  messaging = firebase.messaging();
 
-    navigator.serviceWorker.register(`${process.env.BASE_URL}firebase-messaging-sw.js`).then(reg => {
-        messaging.useServiceWorker(reg);
-    });
+  navigator.serviceWorker.register(`${process.env.BASE_URL}firebase-messaging-sw.js`).then(reg => {
+    messaging.useServiceWorker(reg);
+  });
 }
 
 export default {
-    messaging
+  messaging
 };
