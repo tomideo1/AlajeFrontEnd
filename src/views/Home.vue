@@ -9,6 +9,7 @@
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
 import firebase from "@/fireBaseConfig.js";
+import { mapActions } from "vuex";
 const { messaging } = firebase;
 export default {
   name: "Home",
@@ -16,6 +17,7 @@ export default {
     HelloWorld
   },
   methods: {
+    ...mapActions(["getMessagingToken", "saveToken"]),
     notificationsPermisionRequest() {
       messaging
         .requestPermission()
