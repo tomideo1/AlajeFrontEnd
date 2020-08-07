@@ -31,7 +31,18 @@
     "eslint-plugin-vue": "^6.2.2",
     "husky": "^4.2.5",
     "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
     "vue-template-compiler": "^2.6.11"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "printWidth": 200,
+    "semi": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   },
   "eslintConfig": {
     "root": true,
