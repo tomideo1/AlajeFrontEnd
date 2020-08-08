@@ -8,6 +8,7 @@ export default {
     interests: []
   },
   actions: {
+    // eslint-disable-next-line no-empty-pattern
     async saveToken({}, payload) {
       try {
         // eslint-disable-next-line no-unused-vars
@@ -24,7 +25,7 @@ export default {
         .then(token => {
           if (token) {
             const currentMessageToken = window.localStorage.getItem("messagingToken");
-            if (currentMessageToken != token) {
+            if (currentMessageToken !== token) {
               dispatch("saveToken", { token });
             }
           } else {

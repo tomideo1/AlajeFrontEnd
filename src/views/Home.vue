@@ -49,14 +49,10 @@ export default {
   },
   mounted() {
     if (Notification.permission !== "allow") {
-      console.log("testssjsjsj");
-
       if (Object.entries(messaging).length > 0) {
-        console.log("test");
         this.notificationsPermisionRequest();
       }
     }
-    console.log(messaging);
     if (Object.entries(messaging).length > 0) {
       this.listenTokenRefresh();
     }
