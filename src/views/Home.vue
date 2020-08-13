@@ -36,8 +36,7 @@ export default {
           messaging
             .getToken()
             .then(function(token) {
-              console.log(token);
-              // this.saveToken({ token });
+              this.saveToken({ token });
             })
             .catch(function(err) {
               console.log("Unable to retrieve refreshed token ", err);
