@@ -6,10 +6,12 @@ const instance = axios.create({
 });
 
 instance.interceptors.request.use(
+  // eslint-disable-next-line no-unused-vars
   (config, reqAuth) => {
     // do somethong here
     return config;
   },
+  // eslint-disable-next-line no-unused-vars
   error => {}
 );
 
@@ -21,8 +23,7 @@ class Api {
           Authorization: `Bearer ${store.state.user.auth.token}`
         }
       };
-      let response = requireAuth ? await instance.get(url, config) : await instance.get(url);
-      return response;
+      return requireAuth ? await instance.get(url, config) : await instance.get(url);
     } catch (error) {
       return error.response;
     }
@@ -35,8 +36,7 @@ class Api {
           Authorization: `Bearer ${store.state.user.auth.token}`
         }
       };
-      let response = requireAuth ? await instance.post(url, payload, config) : await instance.post(url, payload);
-      return response;
+      return requireAuth ? await instance.post(url, payload, config) : await instance.post(url, payload);
     } catch (error) {
       return error.response;
     }
@@ -49,8 +49,7 @@ class Api {
           Authorization: `Bearer ${store.state.user.auth.token}`
         }
       };
-      let response = requireAuth ? await instance.put(url, payload, config) : await instance.put(url, payload);
-      return response;
+      return requireAuth ? await instance.put(url, payload, config) : await instance.put(url, payload);
     } catch (error) {
       return error.response;
     }
@@ -64,8 +63,7 @@ class Api {
         },
         data: payload
       };
-      let response = requireAuth ? await instance.delete(url, config) : await instance.delete(url, { data: payload });
-      return response;
+      return requireAuth ? await instance.delete(url, config) : await instance.delete(url, { data: payload });
     } catch (error) {
       return error.response;
     }
