@@ -1,5 +1,7 @@
 <template>
-  <span :class="`icon icon-${size}`" :id="name" v-on="$listeners"> </span>
+  <span :class="`icon icon-${size}`" :id="name" v-on="$listeners">
+    <arrow-shade-down v-if="name === 'arrow-shade-down'"></arrow-shade-down>
+  </span>
 </template>
 <script>
 export default {
@@ -11,7 +13,9 @@ export default {
       type: String
     }
   },
-  components: {}
+  components: {
+    arrowShadeDown: () => import("@/components/__private__/media/arrow-down-shade")
+  }
 };
 </script>
 <style lang="scss">
