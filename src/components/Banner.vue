@@ -1,7 +1,9 @@
 <template>
   <div>
     <section class="banner">
-      <img src="@/assets/banner.svg" />
+      <!--      <img src="@/assets/banner.svg" />-->
+      <b-card class="z-index-1 position-sticky shadow shadow-3 w-100 h-75" />
+
       <div class="arrow">
         <a-icons name="arrow-shade-down" />
       </div>
@@ -22,6 +24,7 @@ export default {
 .banner {
   height: 100vh !important;
   width: 10em !important;
+
   .arrow {
     position: absolute;
     top: 90%;

@@ -145,8 +145,12 @@ button,
   }
 
   &.btn-white {
+    color: #03da8d;
     border: 1px solid color(a-white);
-    background: color(a-white);
+    &.btn-green:hover {
+      background: color(a-green);
+      color: color(a-black);
+    }
   }
   &.btn-green {
     color: #03da8d;
@@ -157,8 +161,12 @@ button,
     }
   }
   &.btn-yellow {
+    color: #03da8d;
     border: 1px solid color(a-yellow);
-    background: color(a-yellow);
+    &.btn-green:hover {
+      background: color(a-);
+      color: color(a-white);
+    }
   }
   &.btn-purple {
     color: #b558f9;

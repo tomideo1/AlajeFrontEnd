@@ -1,14 +1,13 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" class="bg-white">
+    <b-navbar toggleable="lg" fixed="top" class="bg-white">
       <b-navbar-brand href="#"> <img src="@/assets/logo.svg" height="40" /> </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="#">Link</b-nav-item>
-          <b-nav-item href="#" disabled>Disabled</b-nav-item>
+          <b-nav-item href="#">Buy</b-nav-item>
         </b-navbar-nav>
 
         <!-- Right aligned nav items -->
