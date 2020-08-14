@@ -1,20 +1,22 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div>
+    <ANav />
+    <banner />
+    <!--    <a-button text="Read More" class="btn" text_color="green" size="md" />-->
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
 import firebase from "@/fireBaseConfig.js";
 import { mapActions } from "vuex";
 const { messaging } = firebase;
 export default {
   name: "Home",
   components: {
-    HelloWorld
+    // eslint-disable-next-line vue/no-unused-components
+    AButton: () => import("@/components/AlajeButtons"),
+    ANav: () => import("@/components/Navbar"),
+    Banner: () => import("@/components/Banner")
   },
   methods: {
     ...mapActions(["getMessagingToken", "saveToken"]),

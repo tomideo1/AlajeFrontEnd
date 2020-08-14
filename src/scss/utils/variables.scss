@@ -1,0 +1,33 @@
+$colors: (
+  a-purple: linear-gradient(101.54deg, #b558f9 0%, #932cff 100%),
+  a-green: linear-gradient(95.36deg, #03da8d 1.64%, #09efa3 100%),
+  a-yellow: linear-gradient(95.36deg, #f4a136 1.64%, #fcd000 100%),
+  a-blue: linear-gradient(95.36deg, #01cbff 1.64%, #0193ff 100%),
+  a-grey-50: #cccfdf,
+  a-grey-25: #e6e7ef,
+  a-black: #000000,
+  a-white: #ffffff,
+  bv-white: #ffffff,
+  bv-primary: #0087db,
+  bv-success: #497949,
+  bv-error: #a94949,
+  bv-warning: #c4a949,
+  bv-grey-100: #f5f5f5,
+  sla-grey: #999999,
+  bv-grey-200: #eaeaea,
+  bv-grey-500: #b3b3b3,
+  bv-grey-800: #4b4b4b,
+  bv-grey-900: #2c2c2c,
+  bv-inverse-hover: #fbfbfb,
+  bv-outline-hover: #cee2f8,
+  bv-overlay-65: rgba(0, 0, 0, 0.65),
+  bv-overlay-80: rgba(0, 0, 0, 0.8),
+  bv-toast-border-color: rgba(0, 0, 0, 0.1)
+);
+
+$a-shadow: 0px 4px 50px rgba(35, 16, 71, 0.35);
+
+$fonts: (
+  // bv-montserrat: "Montserrat",
+    alaje-avenir: "avenir"
+);
