@@ -1,6 +1,7 @@
 <template>
   <span :class="`icon icon-${size}`" :id="name" v-on="$listeners">
     <arrow-shade-down v-if="name === 'arrow-shade-down'"></arrow-shade-down>
+    <range-icon v-if="name === 'range-icon'"></range-icon>
   </span>
 </template>
 <script>
@@ -14,7 +15,8 @@ export default {
     }
   },
   components: {
-    arrowShadeDown: () => import("@/components/__private__/media/arrow-down-shade")
+    arrowShadeDown: () => import("@/components/__private__/media/arrow-down-shade"),
+    RangeIcon: () => import("@/components/__private__/media/RangeIcon")
   }
 };
 </script>
@@ -38,6 +40,10 @@ export default {
     width: 2.5rem;
     height: 2.5rem;
     font-size: 2rem;
+  }
+  &-retain {
+    width: 100%;
+    height: 100%;
   }
   &-md {
     width: 2rem;

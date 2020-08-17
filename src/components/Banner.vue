@@ -8,7 +8,6 @@
 export default {
   name: "Banner",
   components: {
-    // AIcons: () => import("@/components/AlajeIcons"),
     // AButton: () => import("@/components/AlajeButtons"),
   }
 };
@@ -24,13 +23,8 @@ export default {
   position: fixed;
   top: 0% !important;
   /*background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);*/
-  .arrow {
-    position: absolute;
-    top: 90%;
-    left: 56%;
-    transform: translate(-50%, -50%);
-  }
 }
+
 svg {
   width: auto;
   height: auto;
