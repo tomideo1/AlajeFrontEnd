@@ -1,13 +1,6 @@
 <template>
   <div>
-    <section class="banner">
-      <!--      <img src="@/assets/banner.svg" />-->
-      <b-card class="z-index-1 position-sticky shadow shadow-3 w-100 h-75" />
-
-      <div class="arrow">
-        <a-icons name="arrow-shade-down" />
-      </div>
-    </section>
+    <section class="banner"></section>
   </div>
 </template>
 
@@ -15,7 +8,8 @@
 export default {
   name: "Banner",
   components: {
-    AIcons: () => import("@/components/AlajeIcons")
+    // AIcons: () => import("@/components/AlajeIcons"),
+    // AButton: () => import("@/components/AlajeButtons"),
   }
 };
 </script>
@@ -23,8 +17,13 @@ export default {
 <style scoped lang="scss">
 .banner {
   height: 100vh !important;
-  width: 10em !important;
-
+  width: 100vw !important;
+  background-size: cover;
+  background: url("https://res.cloudinary.com/dwpu7jpku/image/upload/v1597622097/Group_31_k0ljvo.svg") no-repeat;
+  z-index: -1;
+  position: fixed;
+  top: 0% !important;
+  /*background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);*/
   .arrow {
     position: absolute;
     top: 90%;

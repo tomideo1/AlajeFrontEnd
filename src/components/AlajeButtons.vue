@@ -104,12 +104,10 @@ export default {
 <style scoped lang="scss">
 button,
 .btn {
-  /*font-family: fonts(bv-montserrat);*/
   display: inline-flex;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  font-size: 0.9rem;
   border: 1px solid color(a-grey-25);
   /* 25% Grey */
 
@@ -126,9 +124,9 @@ button,
     padding: 0 2rem;
   }
   &.btn-md {
-    height: 50px;
-    font-size: 14px;
-    padding: 0 1.9rem;
+    display: flex;
+    flex-direction: row;
+    padding: 10px 20px;
   }
   &.btn-sm {
     height: 34px;
@@ -144,45 +142,59 @@ button,
     opacity: 0.5 !important;
   }
 
-  &.btn-white {
-    color: #03da8d;
-    border: 1px solid color(a-white);
-    &.btn-green:hover {
-      background: color(a-green);
-      color: color(a-black);
-    }
-  }
-  &.btn-green {
-    color: #03da8d;
-    border: 1px solid color(a-green);
-    &.btn-green:hover {
-      background: color(a-green);
-      color: color(a-white);
-    }
-  }
-  &.btn-yellow {
-    color: #03da8d;
-    border: 1px solid color(a-yellow);
-    &.btn-green:hover {
-      background: color(a-);
-      color: color(a-white);
-    }
-  }
   &.btn-purple {
-    color: #b558f9;
+    color: #aa4afc;
+    border: 1px solid color(a-grey-25);
+    background: transparent;
+
     &.btn-purple:hover {
       background: color(a-purple);
       color: color(a-white);
     }
   }
 
-  &.btn-pink {
-    border: 1px solid color(a-pink);
-    background: color(a-pink);
+  &.btn-white {
+    color: #ffffff;
+    border: 1px solid color(a-white);
+    background: transparent;
+    &.btn-white:hover {
+      background: color(a-white);
+      color: color(a-black);
+    }
   }
+
+  &.btn-black {
+    color: color(a-black);
+    border: 1px solid color(a-grey-25);
+    background: transparent;
+  }
+
   &.btn-blue {
-    border: 1px solid color(a-blue);
-    background: color(a-blue);
+    color: #05c1ff;
+    border: 1px solid color(a-grey-25);
+    background: transparent;
+    &.btn-blue:hover {
+      background: color(a-blue);
+      color: color(a-white);
+    }
+  }
+
+  &.btn-yellow {
+    color: #fcd000;
+    background: transparent;
+    &.btn-yellow:hover {
+      background: color(a-yellow);
+      color: color(a-white);
+    }
+  }
+
+  &.btn-green {
+    color: #09efa3;
+    background: transparent;
+    &.btn-green:hover {
+      background: color(a-green);
+      color: color(a-white);
+    }
   }
 }
 

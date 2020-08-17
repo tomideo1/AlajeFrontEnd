@@ -2,7 +2,14 @@
   <div>
     <ANav />
     <banner />
-    <!--    <a-button text="Read More" class="btn" text_color="green" size="md" />-->
+    <div class=" font-avenir  text-wrap  text-align-left  center-text">
+      <h2 class=" line-height-50 text-bold-white ft-36 mt-lg-n5">
+        The Most Reliable Gift Card Merchant in West Africa.
+      </h2>
+      <span class="text-white font-avenir ft-14"> We give our clients the most flexible and reliable ways to buy and sell gift cards instantly. </span>
+      <br />
+      <a-button text="Get Started " class="btn mt-lg-3 mt-md-3" text_color="white" size="md " />
+    </div>
   </div>
 </template>
 
@@ -15,7 +22,7 @@ export default {
   components: {
     // eslint-disable-next-line vue/no-unused-components
     AButton: () => import("@/components/AlajeButtons"),
-    ANav: () => import("@/components/Navbar"),
+    ANav: () => import("@/components/TopNav"),
     Banner: () => import("@/components/Banner")
   },
   methods: {
@@ -61,3 +68,18 @@ export default {
   }
 };
 </script>
+<style lang="scss" scoped>
+.center-text {
+  margin-top: 15%;
+  position: relative;
+  top: 40%;
+  left: 40%;
+  z-index: 9999999;
+  width: 30%;
+}
+@media only screen and (device-width: 768px) {
+  .center-text {
+    width: 50%;
+  }
+}
+</style>

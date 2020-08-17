@@ -97,7 +97,7 @@ body {
 }
 
 .bg-success {
-  background-color: color(bv-success) !important;
+  background-color: color(a-success) !important;
 }
 
 .bg-error {
@@ -135,6 +135,64 @@ body {
 * Overlays
 */
 
+/**
+* Text Colors
+ */
+
+.text-dark-purple {
+  color: color(a-dark-purple) !important;
+}
+
+.text-dark {
+  color: #000000 !important;
+}
+
+.text-white {
+  color: #ffffff !important;
+}
+
+.text-light-purple {
+  background: linear-gradient(95.36deg, #01cbff 1.64%, #0193ff 100%) !important;
+}
+
+.text-light-yellow {
+  background: linear-gradient(95.36deg, #f4a136 1.64%, #fcd000 100%);
+}
+
+.text-bold-black {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 150%;
+  /* identical to box height, or 54px */
+  color: #000000;
+}
+
+.text-bold-white {
+  font-family: Avenir;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 150%;
+  /* or 54px */
+
+  color: #ffffff;
+}
+.text-red {
+  color: #e41f2d !important;
+}
+.text-light-red {
+  color: #fef4f4;
+}
+.text-green {
+  color: #46cc8d;
+}
+
+/**
+* Text Colors
+ */
+
 .overlay-65 {
   background-color: color(a-overlay-65) !important;
 }
@@ -142,9 +200,112 @@ body {
 .overlay-80 {
   background-color: color(a-overlay-80) !important;
 }
+
 /**
 Text weight
 */
+
+/**
+Text weight
+*/
+
+.text {
+  &-bold {
+    font-weight: 500 !important;
+  }
+  &-bolder {
+    font-weight: 600 !important;
+  }
+  &-regular {
+    font-weight: 400 !important;
+  }
+  &-quoted {
+    position: relative;
+    &:after {
+      content: '"';
+    }
+    &:before {
+      content: '"';
+    }
+  }
+}
+
+.text {
+  &-white {
+    color: color(bv-white);
+  }
+  &-grey {
+    color: color(bv-grey);
+  }
+  &-light-grey {
+    color: color(bv-light-grey);
+  }
+  &-sm {
+    font-size: 0.85rem !important;
+  }
+  &-large {
+    font-size: 1.2rem !important;
+  }
+  &-align-left {
+    text-align: left !important;
+  }
+  &-align-right {
+    text-align: right !important;
+  }
+  &-align-center {
+    text-align: center !important;
+  }
+}
+
+/*** Font Sizes ************** */
+
+.font-avenir {
+  font-family: Avenir;
+}
+.font-roboto {
+  font-family: Roboto;
+}
+.ft-10 {
+  font-size: 10px !important;
+}
+.ft-12 {
+  font-size: 12px !important;
+}
+.ft-14 {
+  font-size: 14px !important;
+}
+.ft-16 {
+  font-size: 16px !important;
+}
+.ft-18 {
+  font-size: 18px !important;
+}
+
+.ft-20 {
+  font-size: 20px !important;
+}
+.ft-22 {
+  font-size: 22px !important;
+}
+.ft-24 {
+  font-size: 24px !important;
+}
+.ft-28 {
+  font-size: 28px !important;
+}
+.ft-30 {
+  font-size: 30px !important;
+}
+.ft-32 {
+  font-size: 32px !important;
+}
+.ft-34 {
+  font-size: 34px !important;
+}
+.ft-36 {
+  font-size: 36px !important;
+}
+/*** Font Sizes  ************** */
 
 /*** Truncate Text ************** */
 
@@ -237,6 +398,9 @@ Text weight
   &25 {
     width: 25% !important;
   }
+  &30 {
+    width: 30% !important;
+  }
   &50 {
     width: 50% !important;
   }
@@ -279,6 +443,10 @@ Text weight
 
 .line-height-0 {
   line-height: 0 !important;
+}
+
+.line-height-50 {
+  line-height: 54px !important;
 }
 
 .line-height-default {
@@ -396,3 +564,270 @@ Text weight
   width: 250px;
   height: 64px;
 }
+
+/*** Margin spacing properties ************** */
+
+.ml-0,
+.mx-0,
+.m-0 {
+  margin-left: 0 !important;
+}
+
+.ml-4,
+.mx-4,
+.m-4 {
+  margin-left: 0.25rem !important;
+}
+
+.ml-8,
+.mx-8,
+.m-8 {
+  margin-left: 0.5rem !important;
+}
+
+.ml-12,
+.mx-12,
+.m-12 {
+  margin-left: 0.75rem !important;
+}
+
+.ml-16,
+.mx-16,
+.m-16 {
+  margin-left: 1rem !important;
+}
+
+.ml-24,
+.mx-24,
+.m-24 {
+  margin-left: 1.5rem !important;
+}
+
+.ml-32,
+.mx-32,
+.m-32 {
+  margin-left: 2rem !important;
+}
+
+.ml-40,
+.mx-40,
+.m-40 {
+  margin-left: 2.5rem !important;
+}
+
+.ml-48,
+.mx-48,
+.m-48 {
+  margin-left: 3rem !important;
+}
+
+.ml-56,
+.mx-56,
+.m-56 {
+  margin-left: 3.5rem !important;
+}
+
+.mr-0,
+.mx-0,
+.m-0 {
+  margin-right: 0 !important;
+}
+
+.mr-4,
+.mx-4,
+.m-4 {
+  margin-right: 0.25rem !important;
+}
+
+.mr-8,
+.mx-8,
+.m-8 {
+  margin-right: 0.5rem !important;
+}
+
+.mr-12,
+.mx-12,
+.m-12 {
+  margin-right: 0.75rem !important;
+}
+
+.mr-16,
+.mx-16,
+.m-16 {
+  margin-right: 1rem !important;
+}
+
+.mr-24,
+.mx-24,
+.m-24 {
+  margin-right: 1.5rem !important;
+}
+
+.mr-32,
+.mx-32,
+.m-32 {
+  margin-right: 2rem !important;
+}
+
+.mr-40,
+.mx-40,
+.m-40 {
+  margin-right: 2.5rem !important;
+}
+
+.mr-48,
+.mx-48,
+.m-48 {
+  margin-right: 3rem !important;
+}
+
+.mr-56,
+.mx-56,
+.m-56 {
+  margin-right: 3.5rem !important;
+}
+
+.mt-0,
+.my-0,
+.m-0 {
+  margin-top: 0 !important;
+}
+
+.mt-4,
+.my-4,
+.m-4 {
+  margin-top: 0.25rem !important;
+}
+
+.mt-8,
+.my-8,
+.m-8 {
+  margin-top: 0.5rem !important;
+}
+
+.mt-12,
+.my-12,
+.m-12 {
+  margin-top: 0.75rem !important;
+}
+
+.mt-16,
+.my-16,
+.m-16 {
+  margin-top: 1rem !important;
+}
+
+.mt-24,
+.my-24,
+.m-24 {
+  margin-top: 1.5rem !important;
+}
+
+.mt-32,
+.my-32,
+.m-32 {
+  margin-top: 2rem !important;
+}
+
+.mt-40,
+.my-40,
+.m-40 {
+  margin-top: 2.5rem !important;
+}
+
+.mt-48,
+.my-48,
+.m-48 {
+  margin-top: 3rem !important;
+}
+
+.mt-56,
+.my-56,
+.m-56 {
+  margin-top: 3.5rem !important;
+}
+
+.mb-0,
+.my-0,
+.m-0 {
+  margin-bottom: 0 !important;
+}
+
+.mb-4,
+.my-4,
+.m-4 {
+  margin-bottom: 0.25rem !important;
+}
+
+.mb-8,
+.my-8,
+.m-8 {
+  margin-bottom: 0.5rem !important;
+}
+
+.mb-12,
+.my-12,
+.m-12 {
+  margin-bottom: 0.75rem !important;
+}
+
+.mb-16,
+.my-16,
+.m-16 {
+  margin-bottom: 1rem !important;
+}
+
+.mb-24,
+.my-24,
+.m-24 {
+  margin-bottom: 1.5rem !important;
+}
+
+.mb-32,
+.my-32,
+.m-32 {
+  margin-bottom: 2rem !important;
+}
+
+.mb-40,
+.my-40,
+.m-40 {
+  margin-bottom: 2.5rem !important;
+}
+
+.mb-48,
+.my-48,
+.m-48 {
+  margin-bottom: 3rem !important;
+}
+
+.mb-56,
+.my-56,
+.m-56 {
+  margin-bottom: 3.5rem !important;
+}
+
+.mt-auto,
+.my-auto,
+.m-auto {
+  margin-top: auto !important;
+}
+
+.mr-auto,
+.mx-auto,
+.m-auto {
+  margin-right: auto !important;
+}
+
+.mb-auto,
+.my-auto,
+.m-auto {
+  margin-bottom: auto !important;
+}
+
+.ml-auto,
+.mx-auto,
+.m-auto {
+  margin-left: auto !important;
+}
+/*** flex properties ************** */
