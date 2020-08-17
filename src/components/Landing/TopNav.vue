@@ -39,7 +39,7 @@
 export default {
   name: "TopNav",
   components: {
-    AButton: () => import("@/components/AlajeButtons")
+    AButton: () => import("@/components/Form/AlajeButtons")
   }
 };
 </script>

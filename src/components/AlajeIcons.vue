@@ -2,6 +2,8 @@
   <span :class="`icon icon-${size}`" :id="name" v-on="$listeners">
     <arrow-shade-down v-if="name === 'arrow-shade-down'"></arrow-shade-down>
     <range-icon v-if="name === 'range-icon'"></range-icon>
+    <eye v-if="name === 'eye'"></eye>
+    <eye-danger v-if="name === 'eye-danger'"></eye-danger>
   </span>
 </template>
 <script>
@@ -16,7 +18,9 @@ export default {
   },
   components: {
     arrowShadeDown: () => import("@/components/__private__/media/arrow-down-shade"),
-    RangeIcon: () => import("@/components/__private__/media/RangeIcon")
+    RangeIcon: () => import("@/components/__private__/media/RangeIcon"),
+    Eye: () => import("@/components/__private__/media/eye"),
+    EyeDanger: () => import("@/components/__private__/media/eye-danger")
   }
 };
 </script>

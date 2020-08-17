@@ -1,17 +1,22 @@
 <template>
   <div>
-    <ANav />
-    <banner />
-    <div class="d-none d-lg-block d-md-block font-avenir  text-wrap  text-align-left  center-text">
-      <h2 class=" line-height-50 text-bold-white ft-36 mt-lg-n5">
-        The Most Reliable Gift Card Merchant in West Africa.
-      </h2>
-      <span class="text-white font-avenir ft-14"> We give our clients the most flexible and reliable ways to buy and sell gift cards instantly. </span>
-      <br />
-      <a-button text="Get Started " class="btn mt-lg-3 mt-md-3" text_color="white" size="md " />
-    </div>
-    <a-icons name="arrow-shade-down" class="arrow" />
-    <range-card />
+    <section>
+      <ANav />
+    </section>
+    <section>
+      <banner />
+      <div class="d-none d-lg-block d-md-block font-avenir  text-wrap   text-align-left  center-text">
+        <range-card />
+
+        <h2 class=" line-height-50 text-bold-white ft-36 mt-lg-n5">
+          The Most Reliable Gift Card Merchant in West Africa.
+        </h2>
+        <span class="text-white font-avenir ft-14"> We give our clients the most flexible and reliable ways to buy and sell gift cards instantly. </span>
+        <br />
+        <a-button text="Get Started " class="btn mt-lg-3 mt-md-3" text_color="white" size="md " />
+      </div>
+      <a-icons name="arrow-shade-down" class="arrow" />
+    </section>
   </div>
 </template>
 
@@ -23,10 +28,10 @@ export default {
   name: "Home",
   components: {
     // eslint-disable-next-line vue/no-unused-components
-    AButton: () => import("@/components/AlajeButtons"),
-    ANav: () => import("@/components/TopNav"),
-    Banner: () => import("@/components/Banner"),
-    RangeCard: () => import("@/components/RangeCard"),
+    AButton: () => import("@/components/Form/AlajeButtons"),
+    ANav: () => import("@/components/Landing/TopNav"),
+    Banner: () => import("@/components/Landing/Banner"),
+    RangeCard: () => import("@/components/Landing/RangeCard"),
     AIcons: () => import("@/components/AlajeIcons")
   },
   methods: {
@@ -76,7 +81,6 @@ export default {
 .center-text {
   margin-top: 15%;
   position: relative;
-  top: 40%;
   left: 40%;
   z-index: 9999999;
   width: 30%;
