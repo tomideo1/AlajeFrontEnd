@@ -1,6 +1,16 @@
 <template>
   <div>
     <section class="banner"></section>
+    <div class="d-none d-lg-block d-md-block font-avenir  text-wrap   text-align-left  center-text">
+      <h2 class=" line-height-50 text-bold-white ft-36 mt-lg-n5">
+        The Most Reliable Gift Card Merchant in West Africa.
+      </h2>
+      <span class="text-white font-avenir ft-14"> We give our clients the most flexible and reliable ways to buy and sell gift cards instantly. </span>
+      <br />
+      <a-button text="Get Started " class="btn mt-lg-3 mt-md-3" text_color="white" size="md " />
+      <a-icons name="arrow-shade-down" class="arrow-icon" />
+    </div>
+    <range-card />
   </div>
 </template>
 
@@ -8,7 +18,10 @@
 export default {
   name: "Banner",
   components: {
-    // AButton: () => import("@/components/AlajeButtons"),
+    // eslint-disable-next-line vue/no-unused-components
+    RangeCard: () => import("@/components/Landing/RangeCard"),
+    AIcons: () => import("@/components/AlajeIcons"),
+    AButton: () => import("@/components/Form/AlajeButtons")
   }
 };
 </script>
@@ -28,5 +41,22 @@ export default {
 svg {
   width: auto;
   height: auto;
+}
+.center-text {
+  margin-top: 15%;
+  position: relative;
+  left: 40%;
+  z-index: 9999999;
+  width: 30%;
+}
+@media only screen and (device-width: 768px) {
+  .center-text {
+    width: 50%;
+  }
+}
+.arrow-icon {
+  margin-top: 14%;
+  position: fixed;
+  left: 55%;
 }
 </style>
