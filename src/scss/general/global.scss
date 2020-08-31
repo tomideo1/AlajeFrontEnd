@@ -1,5 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap");
+//@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap");
 @import url("//db.onlinewebfonts.com/c/0983e84d4a1963e075b5ae8ca12e2a4f?family=Avenir+Medium");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
 * {
   box-sizing: border-box;
 }
@@ -20,6 +21,7 @@ body {
   background-color: color(a-white);
   font-weight: normal;
   letter-spacing: 0.15px;
+  overflow-x: hidden !important;
 }
 
 .shadow-1 {
@@ -172,6 +174,7 @@ body {
   font-weight: 900;
   font-size: 36px;
   line-height: 150%;
+
   /* identical to box height, or 54px */
   color: #000000;
 }
@@ -235,6 +238,9 @@ Text weight
       content: '"';
     }
   }
+  &-align-justify {
+    text-align: justify;
+  }
 }
 
 .text {
@@ -264,6 +270,16 @@ Text weight
   }
 }
 
+/**** Title Class ******* */
+.content-title {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 150%;
+  color: #000000;
+}
+/**** Title Class ******* * /
 /*** Font Sizes ************** */
 
 .font-avenir {

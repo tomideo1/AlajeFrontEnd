@@ -55,8 +55,8 @@ svg {
   }
 }
 .arrow-icon {
-  margin-top: 14%;
-  position: fixed;
-  left: 55%;
+  margin-top: 50%;
+  position: absolute;
+  left: 50%;
 }
 </style>

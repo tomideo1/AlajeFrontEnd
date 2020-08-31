@@ -1,15 +1,16 @@
 <template>
   <div>
-    <div class="tab-active"></div>
-    <div class="tab-active-buy"></div>
     <div class="card range-card range-card-shadow bg-white m-3  " style="width: 18rem;">
-      <div class="card-body">
+      <div class="tab-active" @click="switchToggle"></div>
+      <div class="tab-active-buy" @click="switchToggle"></div>
+
+      <div class="card-body bg-white">
         <a-icons name="range-icon" class="mx-auto" size="retain" />
         <p class="font-avenir ft-16 range-card-title text-dark-purple text-center  mt-4">Buy Giftcards on Alaje Hub!</p>
 
         <alaje-inputs :id="'range'" placeholder="E.g. Apple, Amazon" :error="errors" />
         <p class="font-avenir mt-3 ft-12 "><span class="text-dark-purple"> Price Range </span> <span class="text-grey-50">(In Naira)</span></p>
-        <range-input class="mt-5" :min="0" :max="30000" :minValue="3000" :maxValue="25000" :step="1000" />
+        <range-input class="mt-5" :min="0" :max="30000" :minValue="5000" :maxValue="25000" :step="1000" />
       </div>
       <a-button text="Continue" text_color="purple" class="btn  font-avenir ft-14 mx-auto m-4 " size="md" />
     </div>
@@ -21,8 +22,14 @@ export default {
   name: "RangeCard",
   data() {
     return {
-      errors: []
+      errors: [],
+      toggle: false
     };
+  },
+  methods: {
+    switchToggle() {
+      this.toggle = !this.toggle;
+    }
   },
   components: {
     AlajeInputs: () => import("@/components/Form/AlajeInputs"),
@@ -35,13 +42,17 @@ export default {
 
 <style scoped lang="scss">
 .range-card {
-  background: #ffffff;
   border-radius: 5px;
   margin-top: -20% !important;
   position: relative;
   left: 15%;
   z-index: 999;
   width: 30%;
+  border: 1px solid color(a-white);
+  .card-body {
+    border-radius: 5px;
+    border: 1px solid color(a-white);
+  }
 
   &-title {
     font-weight: 800;
@@ -58,26 +69,35 @@ export default {
     /*position: absolute;*/
     width: 130px;
     height: 53.89px;
-    position: relative;
+    position: absolute;
     margin-top: -13%;
     left: 4%;
     border-radius: 5px;
-    z-index: 99;
+    z-index: -1;
+
+    &-toggle {
+      left: 49%;
+    }
+
     /*left: 312px;*/
     /*top: 127px;*/
 
-    background: red;
+    background: #ffffff;
   }
   .tab-active-buy {
     /*position: absolute;*/
     width: 162.37px;
     height: 44.89px;
-    position: relative;
+    position: absolute;
     margin-top: -10%;
     left: 40%;
-    background: green;
+    background: #392859;
     border-radius: 5px;
-    z-index: 99;
+    z-index: -3;
+
+    &-toggle {
+      left: 4%;
+    }
   }
 }
 </style>

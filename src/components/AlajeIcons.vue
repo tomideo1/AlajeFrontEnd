@@ -4,8 +4,10 @@
     <range-icon v-if="name === 'range-icon'"></range-icon>
     <eye v-if="name === 'eye'"></eye>
     <eye-danger v-if="name === 'eye-danger'"></eye-danger>
+    <approved v-if="name === 'approved'"></approved>
   </span>
 </template>
+
 <script>
 export default {
   props: {
@@ -20,10 +22,12 @@ export default {
     arrowShadeDown: () => import("@/components/__private__/media/arrow-down-shade"),
     RangeIcon: () => import("@/components/__private__/media/RangeIcon"),
     Eye: () => import("@/components/__private__/media/eye"),
-    EyeDanger: () => import("@/components/__private__/media/eye-danger")
+    EyeDanger: () => import("@/components/__private__/media/eye-danger"),
+    Approved: () => import("@/components/__private__/media/approved")
   }
 };
 </script>
+
 <style lang="scss">
 .icon {
   display: inline-flex;
@@ -35,33 +39,40 @@ export default {
   width: 1.5rem;
   height: 1.5rem;
   z-index: 1;
+
   * {
     display: block;
     max-height: 100%;
     max-width: 100%;
   }
+
   &-lg {
     width: 2.5rem;
     height: 2.5rem;
     font-size: 2rem;
   }
+
   &-retain {
     width: 100%;
     height: 100%;
   }
+
   &-md {
     width: 2rem;
     height: 2rem;
     font-size: 1.5rem;
   }
+
   &-sm {
     width: 1.5rem;
     height: 1.5rem;
   }
+
   &-xs {
     width: 1rem;
     height: 1rem;
   }
+
   &:hover {
     cursor: pointer;
   }
