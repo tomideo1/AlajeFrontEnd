@@ -19,41 +19,24 @@
       <download-app :text="section2text" />
     </section>
     <section>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-10">
-            <span class="d-flex flex-row">
-              <img width="50" height="50" src="@/assets/logo.svg" />
-              <p class="font-avenir mt-2 ml-3  text-dark-purple ft-20">Alaje Hub</p>
-            </span>
-          </div>
-
-          <div class="col-md-2">
-            <span class="d-flex flex-row ">
-              <alaje-icons class="ml-4" name="facebook" />
-              <alaje-icons class="ml-4" name="instagram" />
-              <alaje-icons class="ml-4 " name="twitter" />
-            </span>
-          </div>
-        </div>
-      </div>
+      <media />
     </section>
     <hr class="divide" />
     <section>
-      <div class="container">
+      <div class="container mb-5">
         <div class="row">
           <div class="col-md-11">
             <p class="font-avenir mt-2 ml-3  text-black ft-12">&copy; 2020 Alaje Hub All Rights Reserved</p>
           </div>
 
           <div class="col-md-1">
-            <alaje-icons name="arrow-up" size="xs" />
+            <alaje-icons name="arrow-up" size="xs" @click="scrollTop" />
           </div>
         </div>
       </div>
     </section>
     <footer>
-      <div></div>
+      <landing-footer :informations="informations" />
     </footer>
   </div>
 </template>
@@ -83,6 +66,17 @@ export default {
           text: "Secure",
           id: 3
         }
+      ],
+      informations: [
+        {
+          title: "Dollar to Naira is now 465"
+        },
+        {
+          title: "Alaje Sells at Amazing rates"
+        },
+        {
+          title: "Best Deals"
+        }
       ]
     };
   },
@@ -93,7 +87,10 @@ export default {
     BuyAndSell: () => import("@/components/Landing/BuyAndSell"),
     GreatDeals: () => import("@/components/Landing/GreatDeals"),
     TrustUs: () => import("@/components/Landing/TrustUs"),
-    DownloadApp: () => import("@/components/Landing/DownloadApp")
+    DownloadApp: () => import("@/components/Landing/DownloadApp"),
+    media: () => import("@/components/Landing/media"),
+    LandingFooter: () => import("@/components/Landing/LandingFooter"),
+    AlajeIcons: () => import("@/components/AlajeIcons")
   },
   methods: {
     ...mapActions(["getMessagingToken", "saveToken"]),
@@ -124,6 +121,10 @@ export default {
             });
         });
       }
+    },
+
+    scrollTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     //this method goes into our vuex states
