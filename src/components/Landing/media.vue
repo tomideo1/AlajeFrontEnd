@@ -21,7 +21,10 @@
 
 <script>
 export default {
-  name: "media"
+  name: "media",
+  components: {
+    AlajeIcons: () => import("@/components/AlajeIcons")
+  }
 };
 </script>
 

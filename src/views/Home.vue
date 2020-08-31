@@ -6,7 +6,7 @@
     </section>
     <div class="p-5"></div>
     <section>
-      <buy-and-sell :text="section2Text" />
+      <buy-and-sell :text="section2text" />
     </section>
     <div class="p-5 mt-5"></div>
     <section>

@@ -1,6 +1,7 @@
 //@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap");
 @import url("//db.onlinewebfonts.com/c/0983e84d4a1963e075b5ae8ca12e2a4f?family=Avenir+Medium");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
+
 * {
   box-sizing: border-box;
 }
@@ -864,4 +865,7 @@ Text weight
   border: 1px solid rgba(37, 37, 37, 0.15);
   width: 95% !important;
   margin-top: 2%;
+}
+.animation {
+  animation-duration: $animationDuration;
 }

@@ -8,7 +8,7 @@
       <span class="text-white font-avenir ft-14"> We give our clients the most flexible and reliable ways to buy and sell gift cards instantly. </span>
       <br />
       <a-button text="Get Started " class="btn mt-lg-3 mt-md-3" text_color="white" size="md " />
-      <a-icons name="arrow-shade-down" class="arrow-icon" />
+      <a-icons name="arrow-shade-down" class="arrow-icon" @click="scrollDown" />
     </div>
     <range-card />
   </div>
@@ -17,11 +17,17 @@
 <script>
 export default {
   name: "Banner",
+
   components: {
     // eslint-disable-next-line vue/no-unused-components
     RangeCard: () => import("@/components/Landing/RangeCard"),
     AIcons: () => import("@/components/AlajeIcons"),
     AButton: () => import("@/components/Form/AlajeButtons")
+  },
+  methods: {
+    scrollDown() {
+      window.scrollTo({ top: 600, behavior: "smooth" });
+    }
   }
 };
 </script>
@@ -46,7 +52,7 @@ svg {
   margin-top: 15%;
   position: relative;
   left: 40%;
-  z-index: 9999999;
+  z-index: 999;
   width: 30%;
 }
 @media only screen and (device-width: 768px) {

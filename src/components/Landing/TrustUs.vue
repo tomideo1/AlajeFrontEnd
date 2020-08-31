@@ -33,7 +33,8 @@ export default {
   name: "TrustUs",
   props: ["text", "qualities"],
   components: {
-    AButton: () => import("@/components/Form/AlajeButtons")
+    AButton: () => import("@/components/Form/AlajeButtons"),
+    AlajeIcons: () => import("@/components/AlajeIcons")
   }
 };
 </script>
