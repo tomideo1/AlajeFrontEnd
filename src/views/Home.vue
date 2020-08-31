@@ -6,86 +6,17 @@
     </section>
     <div class="p-5"></div>
     <section>
-      <div class="container ">
-        <div class="row">
-          <div class="col-md-6 ml-lg-5 ml-md-5">
-            <h2 class="line-height-50  ft-36 font-roboto  text-bold-black">Buy And Sell Giftcards</h2>
-            <p class="text-align-justify text-regular ft-14">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et, placerat vitae aliquam sit amet interdum platea mauris. Feugiat consequat aliquam quam amet, auctor. Nisi, elementum, a,
-              ornare rutrum amet, est eget. Pulvinar vel, cursus lectus egestas amet, sit cursus.
-            </p>
-            <a-button text="Get Started " class="btn mt-lg-3 mt-md-3" text_color="blue" size="md " />
-          </div>
-          <div class="col-md-5 mr-lg-4 mr-md-4 ">
-            <img src="@/assets/dashboardlayout.svg" />
-          </div>
-        </div>
-      </div>
+      <buy-and-sell :text="section2Text" />
     </section>
     <div class="p-5 mt-5"></div>
     <section>
-      <div class="row pt-5 mt-5">
-        <div class="col-md-6 ">
-          <img src="@/assets/cards.svg" />
-        </div>
-        <div class="col-md-5 mt-lg-5 mt-md-5 pt-lg-5 pt-md-5 ">
-          <div class=" mt-lg-5 mt-md-5 pt-lg-5 pt-md-5 "></div>
-          <div class=" mt-lg-5 mt-md-5 pt-lg-5 pt-md-5 "></div>
-          <h2 class="line-height-50 mr-lg-5 ml-md-5   text-align-right  ft-36 font-roboto  text-bold-black ">Great Deals At Popular Stores</h2>
-          <p class="text-align-justify text-regular ft-14 w-75 ml-lg-5">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et, placerat vitae aliquam sit amet interdum platea mauris. Feugiat consequat aliquam quam amet, auctor. Nisi, elementum, a,
-            ornare rutrum amet, est eget. Pulvinar vel, cursus lectus egestas amet, sit cursus.
-          </p>
-          <a-button text="Get Started " class="btn mt-lg-3 mt-md-3" text_color="yellow" size="md " />
-        </div>
-      </div>
+      <great-deals :text="section2text" />
     </section>
     <section>
-      <div class="row">
-        <div class="container">
-          <div class=" col-md-6 ml-lg-5 ml-md-5">
-            <h2 class="line-height-50  ft-36 font-roboto  text-bold-black">You Can Trust Us</h2>
-            <p class="text-align-justify text-regular ft-14 w-75">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et, placerat vitae aliquam sit amet interdum platea mauris. Feugiat consequat aliquam quam amet, auctor. Nisi, elementum, a,
-              ornare rutrum amet, est eget. Pulvinar vel, cursus lectus egestas amet, sit cursus.
-            </p>
-            <div class="flex flex-column">
-              <span v-for="(quality, index) in qualities" :key="index">
-                <div class="flex flex-row">
-                  <alaje-icons name="approved" size="sm" />
-                  <span class="ml-5">{{ quality.text }}</span>
-                </div>
-                <div class="pt-4"></div>
-              </span>
-            </div>
-            <a-button text="Get Started " class="btn mt-lg-3 mt-md-3" text_color="green" size="md " />
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-5 ml-lg-auto position-relative" style="left: 5%; margin-top: -20%">
-          <img src="@/assets/bubbles.svg" />
-        </div>
-      </div>
+      <trust-us :text="section2text" :qualities="qualities" />
     </section>
     <section>
-      <div class="d-flex flex-row">
-        <div class=" mr-lg-auto ">
-          <img src="@/assets/phoneholder.svg" />
-        </div>
-        <div>
-          <span class=" download-box d-flex flex-column ">
-            <h2 class="line-height-50 mx-auto ft-36 font-roboto  mt-5  unskew  download-box-center-text    text-bold-white">Download Our Mobile App</h2>
-            <p class="text-white font-roboto ft-14  unskew w-50 text-align-justify mx-auto mt-3">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et, placerat vitae aliquam sit amet interdum platea mauris. Feugiat consequat aliqua.
-            </p>
-            <div class="d-flex mx-auto mt-4 flex-row unskew">
-              <img class="m-3" src="@/assets/Playstore.svg" />
-              <img class="m-3" src="@/assets/Appstore.svg" />
-            </div>
-          </span>
-        </div>
-      </div>
+      <download-app :text="section2text" />
     </section>
     <section>
       <div class="container">
@@ -111,16 +42,19 @@
     <section>
       <div class="container">
         <div class="row">
-          <div class="col-md-10">
-            <p class="font-avenir mt-2 ml-3  text-black-50 ft-20">2020 Alaje Hub All Rights Reserved</p>
+          <div class="col-md-11">
+            <p class="font-avenir mt-2 ml-3  text-black ft-12">&copy; 2020 Alaje Hub All Rights Reserved</p>
           </div>
 
-          <div class="col-md-2">
-            <alaje-icons name="arrow-up" />
+          <div class="col-md-1">
+            <alaje-icons name="arrow-up" size="xs" />
           </div>
         </div>
       </div>
     </section>
+    <footer>
+      <div></div>
+    </footer>
   </div>
 </template>
 
@@ -132,6 +66,10 @@ export default {
   name: "Home",
   data() {
     return {
+      section2text:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et, placerat vitae aliquam sit amet interdum platea mauris. Feugiat consequat aliquam quam amet, auctor. Nisi, elementum, a,\n" +
+        " ornare rutrum amet, est eget. Pulvinar vel, cursus lectus egestas amet, sit cursus",
+
       qualities: [
         {
           text: "Reliable",
@@ -150,11 +88,12 @@ export default {
   },
   components: {
     // eslint-disable-next-line vue/no-unused-components
-
     ANav: () => import("@/components/Landing/TopNav"),
     Banner: () => import("@/components/Landing/Banner"),
-    AButton: () => import("@/components/Form/AlajeButtons"),
-    AlajeIcons: () => import("@/components/AlajeIcons")
+    BuyAndSell: () => import("@/components/Landing/BuyAndSell"),
+    GreatDeals: () => import("@/components/Landing/GreatDeals"),
+    TrustUs: () => import("@/components/Landing/TrustUs"),
+    DownloadApp: () => import("@/components/Landing/DownloadApp")
   },
   methods: {
     ...mapActions(["getMessagingToken", "saveToken"]),
@@ -204,29 +143,5 @@ export default {
 <style lang="scss" scoped>
 .home-body {
   width: 100% !important;
-}
-.download-box {
-  background: #211048;
-  height: 50% !important;
-  width: 75% !important;
-  position: absolute;
-  border-radius: 20px;
-  left: 35%;
-  z-index: -1;
-  display: table;
-
-  margin-top: 10%;
-  /*background-image: url("~@/assets/rectangle.svg");*/
-  /*background-size: cover;*/
-  transform: skew(15deg);
-  .unskew {
-    transform: skew(-15deg);
-  }
-
-  &-center-text {
-    display: table-cell;
-    vertical-align: middle; //centers vertically
-    margin: 0px auto; //centers horizontally
-  }
 }
 </style>

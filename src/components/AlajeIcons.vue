@@ -8,6 +8,7 @@
     <facebook v-if="name === 'facebook'"></facebook>
     <instagram v-if="name === 'instagram'"></instagram>
     <twitter v-if="name === 'twitter'"></twitter>
+    <arrow-up v-if="name === 'arrow-up'"></arrow-up>
   </span>
 </template>
 
@@ -29,7 +30,8 @@ export default {
     Approved: () => import("@/components/__private__/media/approved"),
     Facebook: () => import("@/components/__private__/media/facebook"),
     Instagram: () => import("@/components/__private__/media/instagram"),
-    Twitter: () => import("@/components/__private__/media/twitter")
+    Twitter: () => import("@/components/__private__/media/twitter"),
+    ArrowUp: () => import("@/components/__private__/media/arrowUp")
   }
 };
 </script>
