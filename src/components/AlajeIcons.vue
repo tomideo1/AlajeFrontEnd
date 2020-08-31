@@ -5,6 +5,9 @@
     <eye v-if="name === 'eye'"></eye>
     <eye-danger v-if="name === 'eye-danger'"></eye-danger>
     <approved v-if="name === 'approved'"></approved>
+    <facebook v-if="name === 'facebook'"></facebook>
+    <instagram v-if="name === 'instagram'"></instagram>
+    <twitter v-if="name === 'twitter'"></twitter>
   </span>
 </template>
 
@@ -23,7 +26,10 @@ export default {
     RangeIcon: () => import("@/components/__private__/media/RangeIcon"),
     Eye: () => import("@/components/__private__/media/eye"),
     EyeDanger: () => import("@/components/__private__/media/eye-danger"),
-    Approved: () => import("@/components/__private__/media/approved")
+    Approved: () => import("@/components/__private__/media/approved"),
+    Facebook: () => import("@/components/__private__/media/facebook"),
+    Instagram: () => import("@/components/__private__/media/instagram"),
+    Twitter: () => import("@/components/__private__/media/twitter")
   }
 };
 </script>
