@@ -27,6 +27,18 @@ const router = new VueRouter({
       component: Home
     },
     {
+      path: "/auth",
+      name: "auth",
+      component: () => import("@/views/auth/index.vue"),
+      children: [
+        {
+          path: "login",
+          name: "login",
+          component: () => import("@/views/auth/login.vue")
+        }
+      ]
+    },
+    {
       path: "/about",
       name: "About",
       // route level code-splitting

@@ -21,20 +21,6 @@
     <section>
       <media />
     </section>
-    <hr class="divide" />
-    <section>
-      <div class="container mb-5">
-        <div class="row">
-          <div class="col-md-11">
-            <p class="font-avenir mt-2 ml-3  text-black ft-12">&copy; 2020 Alaje Hub All Rights Reserved</p>
-          </div>
-
-          <div class="col-md-1">
-            <alaje-icons name="arrow-up" size="xs" @click="scrollTop" />
-          </div>
-        </div>
-      </div>
-    </section>
     <footer>
       <landing-footer :informations="informations" />
     </footer>
@@ -89,8 +75,7 @@ export default {
     TrustUs: () => import("@/components/Landing/TrustUs"),
     DownloadApp: () => import("@/components/Landing/DownloadApp"),
     media: () => import("@/components/Landing/media"),
-    LandingFooter: () => import("@/components/Landing/LandingFooter"),
-    AlajeIcons: () => import("@/components/AlajeIcons")
+    LandingFooter: () => import("@/components/Landing/LandingFooter")
   },
   methods: {
     ...mapActions(["getMessagingToken", "saveToken"]),
@@ -121,10 +106,6 @@ export default {
             });
         });
       }
-    },
-
-    scrollTop() {
-      window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     //this method goes into our vuex states
