@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="card   bg-white mx-auto  m-3  " style="width: 18rem;">
+    <div class="card   bg-white mx-auto  m-3   " style="width: 22rem;">
       <div class="card-body  text-center bg-white">
         <img src="@/assets/loginKey.svg" />
         <p class="font-avenir ft-16 range-card-title text-bold-purple text-center  mt-4">Sign In</p>
@@ -9,7 +9,8 @@
           <alaje-inputs label="Password" class="m-3" :id="'password'" placeholder=" •••••••• " :error="errors" />
 
           <div class="d-flex  m-3 flex-row">
-            <a-check label="Remember Me" :checked="ischecked" @click="ischecked === !ischecked" />
+            <a-check label="Remember Me" :checked="ischecked" @click="ischecked = !ischecked" />
+            <p class="font-avenir ml-auto ft-12 text-pink">Forgot Password</p>
           </div>
         </div>
       </div>

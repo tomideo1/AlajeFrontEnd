@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="container">
+  <div class="container fixed-bottom">
+    <div class=" ">
       <div class="row">
         <div class="col-md-10 col-6 ">
           <span class="d-flex flex-row">
@@ -19,13 +19,13 @@
       </div>
     </div>
     <hr class="divide" />
-    <div class="container mb-5">
-      <div class="row">
-        <div class="col-md-11 col-7">
+    <div class="">
+      <div class="d-flex">
+        <div class=" ">
           <p class="font-avenir mt-2 ml-3  text-black ft-12">&copy; 2020 Alaje Hub All Rights Reserved</p>
         </div>
 
-        <div class="col-md-1 col-3">
+        <div class="ml-auto col-lg-1 ">
           <alaje-icons name="arrow-up" size="xs" @click="scrollTop" />
         </div>
       </div>
@@ -35,7 +35,7 @@
 
 <script>
 export default {
-  name: "media",
+  name: "AlajeFooter",
   components: {
     AlajeIcons: () => import("@/components/AlajeIcons")
   },

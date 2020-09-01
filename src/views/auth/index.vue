@@ -1,11 +1,13 @@
 <template>
   <div>
-    <section class="banner"></section>
-    <div class="pt-5 mt-5"></div>
-    <footer class="fixed-bottom ">
-      <media />
-    </footer>
-    <router-view />
+    <div class="">
+      <section class="banner"></section>
+      <div class="pt-4 mt-4"></div>
+      <router-view />
+      <footer>
+        <AFooter />
+      </footer>
+    </div>
   </div>
 </template>
 
@@ -13,7 +15,7 @@
 export default {
   name: "index",
   components: {
-    media: () => import("@/components/Landing/media")
+    AFooter: () => import("@/components/general/AlajeFooter")
   }
 };
 </script>
