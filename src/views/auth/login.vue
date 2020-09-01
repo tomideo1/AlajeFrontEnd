@@ -9,7 +9,7 @@
           <alaje-inputs label="Password" class="m-3" :id="'password'" placeholder=" •••••••• " :error="errors" />
 
           <div class="d-flex  m-3 flex-row">
-            <a-check />
+            <a-check label="Remember Me" :checked="ischecked" @click="ischecked === !ischecked" />
           </div>
         </div>
       </div>
@@ -23,7 +23,8 @@ export default {
   name: "login",
   data() {
     return {
-      errors: []
+      errors: [],
+      ischecked: false
     };
   },
   components: {

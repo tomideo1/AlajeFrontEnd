@@ -1,9 +1,9 @@
 <template>
   <div>
     <label class="checkbox  font-avenir text-dark-purple ft-12">
-      <input type="checkbox" />
+      {{ label }}
+      <input type="checkbox" :checked="checked" />
       <span :class="['checkmark', `checkmark-${checkedColor}`]"></span>
-      Input Label
     </label>
   </div>
 </template>
@@ -15,6 +15,13 @@ export default {
     checkedColor: {
       type: String,
       default: "purple"
+    },
+    checked: {
+      type: Boolean
+    },
+    label: {
+      type: String,
+      default: "Label"
     }
   }
 };
@@ -68,6 +75,12 @@ export default {
 /* When the checkbox is checked, add a blue background */
 .checkbox input:checked ~ .checkmark {
   background-color: #ffffff;
+  &-purple {
+    border: 1px solid #932cff;
+  }
+  &-yellow {
+    border: 1px solid color(a-warning);
+  }
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -83,18 +96,27 @@ export default {
 }
 
 /* Style the checkmark/indicator */
-.checkbox .checkmark:after {
+.checkbox .checkmark-purple:after {
   left: 9px;
   top: 5px;
   width: 5px;
   height: 10px;
+  border: solid #932cff;
   border-width: 0 1px 1px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
 
-  &-purple:after {
-    border: solid #932cff;
-  }
+.checkbox .checkmark-yellow:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid color(a-warning);
+  border-width: 0 1px 1px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 </style>
