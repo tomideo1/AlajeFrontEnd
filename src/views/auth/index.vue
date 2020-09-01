@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="">
+    <top-nav />
+    <div class="pt-5 mt-4">
       <section class="banner"></section>
       <div class="pt-4 mt-4"></div>
       <router-view />
@@ -12,9 +13,11 @@
 </template>
 
 <script>
+import TopNav from "../../components/Landing/TopNav";
 export default {
   name: "index",
   components: {
+    TopNav,
     AFooter: () => import("@/components/general/AlajeFooter")
   }
 };
