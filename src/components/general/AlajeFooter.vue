@@ -1,6 +1,6 @@
 <template>
-  <div class="container fixed-bottom">
-    <div class=" ">
+  <div class="mt-5 position-sticky ">
+    <div class="container">
       <div class="row">
         <div class="col-md-10 col-6 ">
           <span class="d-flex flex-row">
@@ -18,14 +18,12 @@
         </div>
       </div>
     </div>
-    <hr class="divide" />
-    <div class="">
+    <hr style=" border: 1px solid rgba(37, 37, 37, 0.15); width: 95%;" />
+    <div class="container">
       <div class="d-flex">
-        <div class=" ">
-          <p class="font-avenir mt-2 ml-3  text-black ft-12">&copy; 2020 Alaje Hub All Rights Reserved</p>
-        </div>
+        <p class="font-avenir mt-2 ml-3 col-8 text-black ft-12">&copy; 2020 Alaje Hub All Rights Reserved</p>
 
-        <div class="ml-auto col-lg-1 ">
+        <div class="ml-auto col-lg-1 col-4 ml-auto ">
           <alaje-icons name="arrow-up" size="xs" @click="scrollTop" />
         </div>
       </div>

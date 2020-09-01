@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="card   bg-white mx-auto  m-3   " style="width: 22rem;">
+  <div class="">
+    <div class="card box-shadow  bg-white mx-auto  m-3    " style="width: 22rem;">
       <div class="card-body  text-center bg-white">
         <img src="@/assets/loginKey.svg" />
         <p class="font-avenir ft-16 range-card-title text-bold-purple text-center  mt-4">Sign In</p>
@@ -37,4 +37,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.box-shadow {
+  box-shadow: -3px 14px 5px -5px rgba(0, 0, 0, 0.15);
+}
+</style>
