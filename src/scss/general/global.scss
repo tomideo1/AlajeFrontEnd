@@ -149,6 +149,17 @@ body {
 .text-dark {
   color: #000000 !important;
 }
+.text-bold-purple {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 119.6%;
+  /* or 19px */
+
+  text-align: center;
+
+  color: color(a-dark-purple) !important;
+}
 
 .text-grey-50 {
   color: color(a-grey-50);
