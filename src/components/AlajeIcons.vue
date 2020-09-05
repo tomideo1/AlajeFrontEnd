@@ -4,6 +4,7 @@
     <range-icon v-if="name === 'range-icon'"></range-icon>
     <eye v-if="name === 'eye'"></eye>
     <eye-danger v-if="name === 'eye-danger'"></eye-danger>
+    <eye-success v-if="name === 'eye-success'"></eye-success>
     <approved v-if="name === 'approved'"></approved>
     <facebook v-if="name === 'facebook'"></facebook>
     <instagram v-if="name === 'instagram'"></instagram>
@@ -27,6 +28,7 @@ export default {
     RangeIcon: () => import("@/components/__private__/media/RangeIcon"),
     Eye: () => import("@/components/__private__/media/eye"),
     EyeDanger: () => import("@/components/__private__/media/eye-danger"),
+    EyeSuccess: () => import("@/components/__private__/media/eye-success"),
     Approved: () => import("@/components/__private__/media/approved"),
     Facebook: () => import("@/components/__private__/media/facebook"),
     Instagram: () => import("@/components/__private__/media/instagram"),

@@ -563,6 +563,16 @@ Text weight
   }
 }
 
+/**** Link Styling ***** */
+.pink-link {
+  color: #b558f9;
+  text-decoration: none !important;
+  &:hover {
+    color: #b558f9;
+  }
+}
+/**** Link Styling ***** */
+
 .user-post {
   display: flex;
   color: color(a-grey-50);
@@ -882,4 +892,23 @@ Text weight
 }
 .animation {
   animation-duration: $animationDuration;
+}
+
+ul.vti__dropdown-list {
+  left: -10px !important;
+  width: 200px !important;
+}
+.vue-tel-input-danger {
+  background: #fef4f4 !important;
+  /* Red */
+
+  border: 1px solid #e41f2d !important;
+  box-sizing: border-box !important;
+  border-radius: 5px !important;
+}
+
+.vti__input-danger {
+  input {
+    background: #fef4f4 !important;
+  }
 }

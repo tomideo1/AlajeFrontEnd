@@ -1,33 +1,71 @@
 <template>
   <div>
-    <label class="font-avenir ft-12 label-class ml-1">{{ label }}</label>
-    <div class="input-icons">
-      <div class="icon-manager">
-        <alaje-icons class="input-icons-icon" size="sm" v-if="!error.length || error[0].code === '002'" :name="iconHolder" />
-        <alaje-icons class="input-icons-icon" size="sm" v-else-if="success" :name="iconHolder" />
-        <alaje-icons class="input-icons-icon" size="sm" v-else :name="iconHolder + '-danger'" />
+    <div v-if="type !== 'phone'">
+      <label class="font-avenir ft-12 label-class ml-1">{{ label }}</label>
+      <div class="input-icons">
+        <div class="icon-manager" @click="handleIcons">
+          <alaje-icons class="input-icons-icon" size="sm" v-if="!errorConditions" :name="iconHolder" />
+          <alaje-icons class="input-icons-icon" size="sm" v-else :name="iconHolder + '-danger'" />
+        </div>
+        <input
+          v-if="type !== 'password'"
+          :class="['width-100 text-bold', error.length > 0 && error[0].code === '005' && error[0].source.hasOwnProperty(id) ? 'is-invalid' : success ? 'is-valid' : '']"
+          @keyup="keyup($event)"
+          :value="value"
+          :placeholder="placeholder"
+          :disabled="disable"
+          @input="trigger($event)"
+          @focus="focus"
+          :type="type"
+        />
+        <input
+          v-if="type === 'password'"
+          :class="['width-100 text-bold', error.length > 0 && error[0].code === '005' && error[0].source.hasOwnProperty(id) ? 'is-invalid' : success ? 'is-valid' : '']"
+          @keyup="keyup($event)"
+          :value="value"
+          :placeholder="placeholder"
+          :disabled="disable"
+          @input="trigger($event)"
+          @focus="focus"
+          :type="password"
+        />
       </div>
-      <input
-        :class="['width-100 text-bold', error.length > 0 && error[0].code === '005' ? 'is-invalid' : success ? 'is-valid' : '']"
-        @keyup="keyup($event)"
-        :value="value"
-        :placeholder="placeholder"
-        :disabled="disable"
-        @input="trigger($event)"
-        @focus="focus"
-        :type="type"
-      />
+      <span class="error-text " v-if="error.length > 0 && error[0].code === '005' && error[0].source.hasOwnProperty(id)">
+        {{ error[0].source[id] }}
+      </span>
     </div>
-    <span class="error-text " v-if="error.length > 0 && error[0].code === '005'">
-      {{ error[0].source[id] }}
-    </span>
+    <div v-if="type === 'phone'">
+      <label class="font-avenir ft-12 label-class ml-1">{{ label }}</label>
+      <vue-tel-input
+        :validCharactersOnly="true"
+        :inputOptions="inputOptions"
+        :wrapperClasses="[
+          'width-100 text-bold phone-class',
+          error.length > 0 && error[0].code === '005' && error[0].source.hasOwnProperty(id) ? 'vue-tel-input-danger vti__input-danger' : success ? 'is-valid' : ''
+        ]"
+      >
+      </vue-tel-input>
+      <span class="error-text " v-if="error.length > 0 && error[0].code === '005'">
+        {{ error[0].source[id] }}
+      </span>
+    </div>
   </div>
 </template>
 <script>
 export default {
   name: "AlajeInputs",
   components: {
+    // eslint-disable-next-line vue/no-unused-components
     AlajeIcons: () => import("@/components/AlajeIcons")
+  },
+  data() {
+    return {
+      password: "password",
+      string: "string",
+      inputOptions: {
+        showDialCode: true
+      }
+    };
   },
   props: {
     value: {},
@@ -73,7 +111,31 @@ export default {
     trigger(e) {
       this.$emit("input", e.target.value);
     },
-    focus() {}
+    focus() {},
+    handleIcons() {
+      if (this.iconHolder === "eye") {
+        this.password = this.password === "password" ? "text" : "password";
+      }
+    }
+  },
+  computed: {
+    // eslint-disable-next-line vue/return-in-computed-property
+    errorConditions() {
+      if (this.error.length === 0) {
+        return false;
+      }
+      switch (this.error) {
+        case typeof this.error.length == "undefined" || this.error[0].code === "002":
+          return false;
+        case !Object.prototype.hasOwnProperty.call(this.error[0].source, "password") && this.iconHolder === "eye":
+          return false;
+        case Object.prototype.hasOwnProperty.call(this.error[0].source, "password") && this.iconHolder === "eye":
+          return true;
+        default:
+          break;
+      }
+      // if(typeof this.error.length == 'undefined' || this.error[0].code === '002'){}
+    }
   }
 };
 </script>
@@ -128,11 +190,11 @@ input {
 
 .is-valid {
   background: #ffffff;
-  border: 1px solid color(a-success);
-  box-sizing: border-box;
-  border-radius: 5px;
+  border: 1px solid color(a-success) !important;
+  box-sizing: border-box !important;
+  border-radius: 5px !important;
   &::placeholder {
-    color: color(a-success);
+    color: color(a-success) !important;
   }
 }
 
@@ -155,5 +217,19 @@ input {
 input:focus {
   // outline: 1px color(bv-primary) solid;
   outline: none;
+}
+
+.phone-class {
+  height: 52px;
+  // background-color: color(bv-grey-100);
+  font-size: 14px;
+  color: #999999;
+  font-family: Avenir;
+  line-height: 1.3;
+  padding: 1rem;
+  border: 1px solid #e6e7ef;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background: transparent;
 }
 </style>

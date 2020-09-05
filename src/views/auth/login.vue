@@ -1,20 +1,24 @@
 <template>
   <div class="">
     <div class="card box-shadow  bg-white mx-auto  m-3    " style="width: 22rem;">
-      <div class="card-body  text-center bg-white">
-        <img src="@/assets/loginKey.svg" />
+      <div class="card-body   bg-white">
+        <div class="text-center">
+          <img src="@/assets/loginKey.svg" />
+        </div>
         <p class="font-avenir ft-16 range-card-title text-bold-purple text-center  mt-4">Sign In</p>
         <div class="d-flex flex-column">
-          <alaje-inputs label="Email Address" class="m-3" :id="'email'" placeholder="example@alajehub.com " :error="errors" />
-          <alaje-inputs label="Password" class="m-3" :id="'password'" placeholder=" •••••••• " :error="errors" />
+          <alaje-inputs label="Email Address" type="string" v-model="form.email" class="m-1" :id="'email'" placeholder="Enter Email Address " :error="errors" />
+          <alaje-inputs label="Password" v-model="form.password" iconHolder="eye" type="password" class="m-1" :id="'password'" placeholder=" •••••••• " :error="errors" />
 
           <div class="d-flex  m-3 flex-row">
-            <a-check label="Remember Me" :checked="ischecked" @click="ischecked = !ischecked" />
-            <p class="font-avenir ml-auto ft-12 text-pink">Forgot Password</p>
+            <a-check :checked="ischecked" @click="ischecked = !ischecked">
+              Remember Me
+            </a-check>
+            <router-link class="pink-link ft-12 font-avenir ml-auto" to="/">Forgot Password.</router-link>
           </div>
         </div>
       </div>
-      <a-button text="Sign In" text_color="purple" class="btn  font-avenir ft-14 mx-auto m-4 " size="md" />
+      <a-button text="Sign In" @click="handleLogin" text_color="purple" :loading="buttonLoader" action="submit" class="btn  font-avenir ft-14 mx-auto m-4 " size="md" />
     </div>
   </div>
 </template>
@@ -25,7 +29,12 @@ export default {
   data() {
     return {
       errors: [],
-      ischecked: false
+      ischecked: false,
+      form: {
+        email: "",
+        password: ""
+      },
+      buttonLoader: false
     };
   },
   components: {
@@ -33,6 +42,12 @@ export default {
     // AIcons: () => import("@/components/AlajeIcons"),
     AButton: () => import("@/components/Form/AlajeButtons"),
     ACheck: () => import("@/components/Form/AlajeCheckBox")
+  },
+  methods: {
+    async handleLogin() {
+      this.buttonLoader = true;
+      // await setTimeout(this.buttonLoader = false, 30000)
+    }
   }
 };
 </script>

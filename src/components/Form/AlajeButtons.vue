@@ -1,5 +1,5 @@
 <template>
-  <button @click="$emit('click', $event)" :class="[classes, icon ? iconClass : '']" :disabled="disable" :style="styles">
+  <button @click="$emit('click', $event)" :class="[classes, icon ? iconClass : '']" :disabled="loading" :style="styles">
     <!-- Button Text -->
     <span v-if="text">
       {{ textProp }}
@@ -63,6 +63,11 @@ export default {
     text_color: {
       type: String,
       default: colors[9]
+    },
+
+    loading: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -83,6 +88,9 @@ export default {
       return "mr-4";
     },
     textProp() {
+      if (this.loading) {
+        return "Loading...";
+      }
       return this.text.toUpperCase();
     },
     classes() {
@@ -97,7 +105,8 @@ export default {
     iconPosition: function() {
       return this.text != "" && this.block ? { position: "absolute" } : {};
     }
-  }
+  },
+  mounted() {}
 };
 </script>
 

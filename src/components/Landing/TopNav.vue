@@ -27,7 +27,7 @@
             <a-button @click="$router.push({ name: 'login' })" text="Login" text_color="black" class="btn font-avenir ft-12" size="md" />
           </li>
           <li class="nav-item mt-1 pl-lg-4 ">
-            <a-button text="Get Started" text_color="black" class="btn font-avenir ft-12" size="md" />
+            <a-button @click="$router.push({ name: 'register' })" text="Get Started" text_color="black" class="btn font-avenir ft-12" size="md" />
           </li>
         </ul>
       </b-collapse>

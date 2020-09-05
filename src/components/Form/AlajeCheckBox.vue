@@ -1,7 +1,7 @@
 <template>
   <div>
     <label class="checkbox  font-avenir text-dark-purple ft-12">
-      {{ label }}
+      <slot> </slot>
       <input type="checkbox" :checked="checked" />
       <span :class="['checkmark', `checkmark-${checkedColor}`]"></span>
     </label>
