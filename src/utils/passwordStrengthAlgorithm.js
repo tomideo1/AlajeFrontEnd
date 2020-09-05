@@ -1,3 +1,5 @@
+// const MIXEDCAPITAL = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+// const MIXEDLOWER = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 export default {
   checkPasswordLength(string) {
     let point = 0;
@@ -21,21 +23,26 @@ export default {
   },
   checkLetters(string) {
     let point = 0;
-    if (/\s/g.test(string)) {
-      return point;
-    }
     switch (true) {
       case /[a-z]/.test(string):
-        point += 10;
-        break;
-      case /[a-zA-Z]/.test(string):
         point += 20;
         break;
+      // case this.checkForMixed(string):
+      //   point += 20;
+      //   break;
       default:
         break;
     }
     return point;
   },
+  // checkForMixed(string) {
+  //   for (let i = 0; i < string.length; i++) {
+  //     if (MIXEDCAPITAL.indexOf(string.charAt(i)) > -1 && MIXEDCAPITAL.indexOf(string.charAt(i)) > -1) {
+  //         console.log('found')
+  //       return true;
+  //     }
+  //   }
+  // },
   characterCount(wordBag, regExp, countPass) {
     let count = 0;
     for (let i = 0; i < wordBag.length; i++) {
@@ -53,7 +60,7 @@ export default {
           break;
       }
     }
-    return count === countPass;
+    return count >= countPass;
   },
   checkNumbers(string) {
     let point = 0;

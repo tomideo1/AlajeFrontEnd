@@ -55,6 +55,7 @@
   </div>
 </template>
 <script>
+import passwordStrengthAlgorithm from "../../utils/passwordStrengthAlgorithm";
 export default {
   name: "AlajeInputs",
   components: {
@@ -116,7 +117,7 @@ export default {
     // eslint-disable-next-line no-unused-vars
     keyup(e) {
       this.$emit("keyup");
-      this.passwordPoints = this.calculatePoints(this.value);
+      this.passwordPoints = passwordStrengthAlgorithm.calculatePoints(this.value);
     },
     trigger(e) {
       this.$emit("input", e.target.value);
@@ -305,7 +306,7 @@ input:focus {
       width: 10px;
     }
     &-weak {
-      border: 1px solid red;
+      border: 1px solid orangered;
       width: 20px;
     }
     &-manage {
