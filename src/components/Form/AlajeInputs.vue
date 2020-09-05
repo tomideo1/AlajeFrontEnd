@@ -117,6 +117,11 @@ export default {
     // eslint-disable-next-line no-unused-vars
     keyup(e) {
       this.$emit("keyup");
+      this.passwordPoints = passwordStrengthAlgorithm.checkPassword(this.value);
+    },
+    // eslint-disable-next-line no-unused-vars
+    mouseLeave(e) {
+      this.$emit("mouseleave");
       this.passwordPoints = passwordStrengthAlgorithm.calculatePoints(this.value);
     },
     trigger(e) {
@@ -131,19 +136,19 @@ export default {
     passwordChecker() {
       let classes = [];
       switch (true) {
-        case this.passwordPoints < 3:
+        case this.passwordPoints <= 10:
           classes.push("password-strength-meter", "password-strength-meter-very-weak");
           break;
-        case this.passwordPoints <= 25:
+        case this.passwordPoints <= 30:
           classes.push("password-strength-meter", "password-strength-meter-weak");
           break;
         case this.passwordPoints <= 50:
           classes.push("password-strength-meter", "password-strength-meter-manage");
           break;
-        case this.passwordPoints <= 60:
+        case this.passwordPoints <= 70:
           classes.push("password-strength-meter", "password-strength-meter-strong");
           break;
-        case this.passwordPoints <= 70:
+        case this.passwordPoints <= 90:
           classes.push("password-strength-meter", "password-strength-meter-very-strong");
           break;
         default:
