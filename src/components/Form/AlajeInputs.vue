@@ -6,6 +6,9 @@
         <div class="icon-manager" @click="handleIcons">
           <alaje-icons class="input-icons-icon" size="sm" v-if="!errorConditions" :name="iconHolder" />
           <alaje-icons class="input-icons-icon" size="sm" v-else :name="iconHolder + '-danger'" />
+          <div class="password-strength  " v-if="type === 'password' && id === 'password' && passwordStrength">
+            <div :class="strengthClasses"></div>
+          </div>
         </div>
         <input
           v-if="type !== 'password'"
@@ -64,7 +67,9 @@ export default {
       string: "string",
       inputOptions: {
         showDialCode: true
-      }
+      },
+      passwordPoints: 0,
+      strengthClasses: ""
     };
   },
   props: {
@@ -101,12 +106,17 @@ export default {
     },
     id: {
       type: String
+    },
+    passwordStrength: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
     // eslint-disable-next-line no-unused-vars
     keyup(e) {
       this.$emit("keyup");
+      this.passwordPoints = this.calculatePoints(this.value);
     },
     trigger(e) {
       this.$emit("input", e.target.value);
@@ -116,6 +126,30 @@ export default {
       if (this.iconHolder === "eye") {
         this.password = this.password === "password" ? "text" : "password";
       }
+    },
+    passwordChecker() {
+      let classes = [];
+      switch (true) {
+        case this.passwordPoints < 3:
+          classes.push("password-strength-meter", "password-strength-meter-very-weak");
+          break;
+        case this.passwordPoints <= 25:
+          classes.push("password-strength-meter", "password-strength-meter-weak");
+          break;
+        case this.passwordPoints <= 50:
+          classes.push("password-strength-meter", "password-strength-meter-manage");
+          break;
+        case this.passwordPoints <= 60:
+          classes.push("password-strength-meter", "password-strength-meter-strong");
+          break;
+        case this.passwordPoints <= 70:
+          classes.push("password-strength-meter", "password-strength-meter-very-strong");
+          break;
+        default:
+          this.error = [];
+          break;
+      }
+      this.strengthClasses = classes;
     }
   },
   computed: {
@@ -135,6 +169,21 @@ export default {
           break;
       }
       // if(typeof this.error.length == 'undefined' || this.error[0].code === '002'){}
+    },
+    // eslint-disable-next-line vue/return-in-computed-property
+    checkPasswordValue() {
+      if (this.value === "") {
+        // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+        this.passwordPoints = 0;
+      }
+      return this.passwordPoints;
+    }
+    // eslint-disable-next-line vue/no-dupe-keys
+  },
+  mounted() {},
+  watch: {
+    checkPasswordValue: {
+      handler: "passwordChecker"
     }
   }
 };
@@ -231,5 +280,46 @@ input:focus {
   box-sizing: border-box;
   border-radius: 5px;
   background: transparent;
+}
+
+.password-strength {
+  /* 25% Grey */
+  width: 50px;
+  height: 1px;
+  position: absolute;
+  right: 20%;
+  top: 50%;
+
+  border: 1px solid #e6e7ef;
+  box-sizing: border-box;
+  border-radius: 50px;
+  &-meter {
+    width: 0px;
+    height: 1px;
+    position: relative;
+    margin-top: -1px;
+    box-sizing: border-box;
+    border-radius: 50px;
+    &-very-weak {
+      border: 1px solid red;
+      width: 10px;
+    }
+    &-weak {
+      border: 1px solid red;
+      width: 20px;
+    }
+    &-manage {
+      border: 1px solid color(a-warning);
+      width: 30px;
+    }
+    &-strong {
+      border: 1px solid color(bv-primary);
+      width: 40px;
+    }
+    &-very-strong {
+      border: 1px solid color(a-success);
+      width: 50px;
+    }
+  }
 }
 </style>

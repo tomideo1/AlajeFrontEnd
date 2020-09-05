@@ -11,7 +11,18 @@
           <alaje-inputs label="Last Name" class="m-1" v-model="form.last_name" :id="'last_name'" placeholder="Doe " :error="errors" />
           <alaje-inputs label="Email Address" class="m-1" v-model="form.email" :id="'email'" placeholder="example@alajehub.com " :error="errors" />
           <alaje-inputs label="Phone Number" class="m-1" v-model="form.phone_number" :id="'phone_number'" type="phone" :error="errors" />
-          <alaje-inputs label="Password" iconHolder="eye" type="password" v-model="form.password" class="m-1" :id="'password'" placeholder=" •••••••• " :error="errors" />
+          <alaje-inputs
+            label="Password"
+            :value="form.password"
+            :passwordStrength="true"
+            iconHolder="eye"
+            type="password"
+            v-model="form.password"
+            class="m-1"
+            :id="'password'"
+            placeholder=" •••••••• "
+            :error="errors"
+          />
           <alaje-inputs label="Confirm Password" iconHolder="eye" v-model="form.confirmPassword" type="password" class="m-1" :id="'confirm_password'" placeholder=" •••••••• " :error="errors" />
 
           <div class="d-flex  m-3 flex-row">
