@@ -2,7 +2,7 @@ import Vue from "vue";
 import Head from "vue-head";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-
+import adminRoutes from "./admin";
 Vue.use(VueRouter);
 
 Vue.use(Head, {
@@ -15,43 +15,49 @@ const scrollBehavior = (to, from, savedPosition) => {
     return { x: 0, y: 0 };
   }
 };
-
+const baseRoutes = [
+  {
+    path: "/",
+    name: "Home",
+    component: Home,
+    meta: { layout: "no-sidebar" }
+  },
+  {
+    path: "/auth",
+    name: "auth",
+    component: () => import("@/views/auth/index.vue"),
+    meta: { layout: "no-sidebar" },
+    children: [
+      {
+        path: "login",
+        name: "login",
+        component: () => import("@/views/auth/login.vue"),
+        meta: { layout: "no-sidebar" }
+      },
+      {
+        path: "register",
+        name: "register",
+        component: () => import("@/views/auth/register.vue"),
+        meta: { layout: "no-sidebar" }
+      }
+    ]
+  },
+  {
+    path: "/about",
+    name: "About",
+    meta: { layout: "no-sidebar" },
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ "../views/About.vue")
+  }
+];
+const routes = [...baseRoutes, ...adminRoutes];
 const router = new VueRouter({
   mode: "history",
+  routes,
   scrollBehavior,
-  base: process.env.BASE_URL,
-  routes: [
-    {
-      path: "/",
-      name: "Home",
-      component: Home
-    },
-    {
-      path: "/auth",
-      name: "auth",
-      component: () => import("@/views/auth/index.vue"),
-      children: [
-        {
-          path: "login",
-          name: "login",
-          component: () => import("@/views/auth/login.vue")
-        },
-        {
-          path: "register",
-          name: "register",
-          component: () => import("@/views/auth/register.vue")
-        }
-      ]
-    },
-    {
-      path: "/about",
-      name: "About",
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ "../views/About.vue")
-    }
-  ]
+  base: process.env.BASE_URL
 });
 
 export default router;

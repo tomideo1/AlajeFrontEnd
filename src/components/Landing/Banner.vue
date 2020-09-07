@@ -7,7 +7,7 @@
       </h2>
       <span class="text-white font-avenir ft-14"> We give our clients the most flexible and reliable ways to buy and sell gift cards instantly. </span>
       <br />
-      <a-button text="Get Started " class="btn mt-lg-3 mt-md-3" text_color="white" size="md " />
+      <a-button text="Get Started " @click="$router.push({ name: 'register' })" class="btn mt-lg-3 mt-md-3" text_color="white" size="md " />
       <a-icons name="arrow-shade-down" class="arrow-icon" @click="scrollDown" />
     </div>
     <range-card />

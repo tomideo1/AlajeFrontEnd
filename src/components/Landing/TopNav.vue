@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-navbar toggleable="lg" fixed="top" class="bg-white ">
-      <b-navbar-brand href="#"> <img src="@/assets/logo.svg" height="45" /> </b-navbar-brand>
+      <b-navbar-brand @click="$router.push({ name: 'Home' })"> <img src="@/assets/logo.svg" height="45" /> </b-navbar-brand>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <ul class="navbar-nav mr-auto mt-lg-1 mt-md-1">
