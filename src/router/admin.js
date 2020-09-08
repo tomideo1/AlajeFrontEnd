@@ -2,7 +2,7 @@ import Dashboard from "../views/Admin/Dashboard";
 
 export default [
   {
-    path: "admin/dashboard",
+    path: "/admin/dashboard",
     name: "Dashboard",
     component: Dashboard
   }

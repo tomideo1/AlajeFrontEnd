@@ -10,6 +10,8 @@
     <instagram v-if="name === 'instagram'"></instagram>
     <twitter v-if="name === 'twitter'"></twitter>
     <arrow-up v-if="name === 'arrow-up'"></arrow-up>
+    <dashboard v-if="name === 'dashboard'"></dashboard>
+    <bell v-if="name === 'bell'"></bell>
   </span>
 </template>
 
@@ -33,7 +35,9 @@ export default {
     Facebook: () => import("@/components/__private__/media/facebook"),
     Instagram: () => import("@/components/__private__/media/instagram"),
     Twitter: () => import("@/components/__private__/media/twitter"),
-    ArrowUp: () => import("@/components/__private__/media/arrowUp")
+    ArrowUp: () => import("@/components/__private__/media/arrowUp"),
+    dashboard: () => import("@/components/__private__/media/dashboard"),
+    bell: () => import("@/components/__private__/media/bell")
   }
 };
 </script>

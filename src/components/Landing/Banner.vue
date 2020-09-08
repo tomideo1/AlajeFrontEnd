@@ -21,7 +21,7 @@ export default {
   components: {
     // eslint-disable-next-line vue/no-unused-components
     RangeCard: () => import("@/components/Landing/RangeCard"),
-    AIcons: () => import("@/components/AlajeIcons"),
+    AIcons: () => import("@/components/general/AlajeIcons"),
     AButton: () => import("@/components/Form/AlajeButtons")
   },
   methods: {

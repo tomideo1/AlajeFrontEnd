@@ -32,7 +32,7 @@
         </div>
       </div>
       <a-button text="Sign Up" text_color="purple" class="btn  font-avenir ft-14 mx-auto m-4 " size="md" />
-      <small></small>
+      <p class="text-center m-3 font-avenir ft-12">Already have an account <router-link class="pink-link ft-12 font-avenir ml-1" to="Login">Sign In</router-link></p>
     </div>
   </div>
 </template>
@@ -59,7 +59,7 @@ export default {
     // AIcons: () => import("@/components/AlajeIcons"),
     AButton: () => import("@/components/Form/AlajeButtons"),
     ACheck: () => import("@/components/Form/AlajeCheckBox"),
-    AlajeIcon: () => import("@/components/AlajeIcons")
+    AlajeIcon: () => import("@/components/general/AlajeIcons")
   },
   async created() {
     this.$Bus.$on("icon-toggle", data => {

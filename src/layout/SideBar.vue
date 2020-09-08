@@ -1,15 +1,18 @@
 <template>
-  <b-container fluid="sm">
-    <b-row>
-      <main class="main-content col">
-        <!-- Main Navbar -->
-        <main-navbar />
+  <!--  <b-container fluid="sm">-->
+  <!--    <b-row>-->
+  <!--      <main class="main-content col">-->
+  <!--        &lt;!&ndash; Main Navbar &ndash;&gt;-->
+  <!--        <main-navbar />-->
 
-        <!-- Content -->
-        <slot />
-      </main>
-    </b-row>
-  </b-container>
+  <!--        &lt;!&ndash; Content &ndash;&gt;-->
+  <!--        <slot />-->
+  <!--      </main>-->
+  <!--    </b-row>-->
+  <!--  </b-container>-->
+  <div>
+    <main-navbar />
+  </div>
 </template>
 
 <script>

@@ -60,7 +60,7 @@ export default {
   name: "AlajeInputs",
   components: {
     // eslint-disable-next-line vue/no-unused-components
-    AlajeIcons: () => import("@/components/AlajeIcons")
+    AlajeIcons: () => import("@/components/general/AlajeIcons")
   },
   data() {
     return {

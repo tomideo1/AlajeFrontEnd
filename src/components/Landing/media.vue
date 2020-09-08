@@ -37,7 +37,7 @@
 export default {
   name: "media",
   components: {
-    AlajeIcons: () => import("@/components/AlajeIcons")
+    AlajeIcons: () => import("@/components/general/AlajeIcons")
   },
   methods: {
     scrollTop() {

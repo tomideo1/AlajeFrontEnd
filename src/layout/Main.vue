@@ -1,14 +1,10 @@
 <template>
-  <b-container fluid="sm">
-    <b-row>
-      <main-side-bar />
-      <b-col tag="main" class="main-content">
-        <div class="offset-lg-1 offset-md-1">
-          <slot />
-        </div>
-      </b-col>
-    </b-row>
-  </b-container>
+  <div>
+    <main-side-bar />
+    <div class="offset-lg-1 offset-md-1">
+      <slot />
+    </div>
+  </div>
 </template>
 
 <script>

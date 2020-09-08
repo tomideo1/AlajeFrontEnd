@@ -45,7 +45,7 @@ export default {
   },
   components: {
     AlajeInputs: () => import("@/components/Form/AlajeInputs"),
-    AIcons: () => import("@/components/AlajeIcons"),
+    AIcons: () => import("@/components/general/AlajeIcons"),
     RangeInput: () => import("@/components/Form/AlajeInputRange"),
     AButton: () => import("@/components/Form/AlajeButtons")
   }

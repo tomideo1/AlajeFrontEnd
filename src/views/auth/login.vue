@@ -19,6 +19,7 @@
         </div>
       </div>
       <a-button text="Sign In" @click="handleLogin" text_color="purple" :loading="buttonLoader" action="submit" class="btn  font-avenir ft-14 mx-auto m-4 " size="md" />
+      <p class="text-center m-3 font-avenir ft-12">Don't have an account <router-link class="pink-link ft-12 font-avenir ml-1" to="Register">Sign Up</router-link></p>
     </div>
   </div>
 </template>

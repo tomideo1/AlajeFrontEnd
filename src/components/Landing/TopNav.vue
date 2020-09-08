@@ -6,20 +6,20 @@
       <b-collapse id="nav-collapse" is-nav>
         <ul class="navbar-nav mr-auto mt-lg-1 mt-md-1">
           <li class="nav-item ">
-            <router-link to="/" class="nav-link text-dark-purple ml-lg-5  ft-14 font-avenir" href="#"> Buy</router-link>
+            <router-link to="/buy" class="nav-link text-dark-purple ml-lg-5  ft-14 font-avenir"> Buy</router-link>
           </li>
           <li class="nav-item ">
-            <router-link to="/" class="nav-link text-dark-purple ml-lg-5   ft-14 font-avenir" href="#"> Sell</router-link>
+            <router-link to="/sell" class="nav-link text-dark-purple ml-lg-5   ft-14 font-avenir"> Sell</router-link>
           </li>
           <li class="nav-item ">
-            <router-link to="/" class="nav-link text-dark-purple ml-lg-5  ft-14 font-avenir" href="#"> About Us</router-link>
+            <router-link to="/about" class="nav-link text-dark-purple ml-lg-5  ft-14 font-avenir"> About Us</router-link>
           </li>
-          <li class="nav-item ">
-            <router-link to="/" class="nav-link text-dark-purple ml-lg-5  ft-14 font-avenir" href="#"> Downloads</router-link>
+          <li class="nav-item">
+            <router-link to="/downloads" class="nav-link text-dark-purple ml-lg-5  ft-14 font-avenir"> Downloads</router-link>
           </li>
 
           <li class="nav-item ">
-            <router-link to="/" class="nav-link text-dark-purple ml-lg-5   ft-14 font-avenir" href="#"> Contact us</router-link>
+            <router-link to="/contact" class="nav-link text-dark-purple ml-lg-5   ft-14 font-avenir"> Contact us</router-link>
           </li>
         </ul>
         <ul class="navbar-nav ml-lg-auto mt-lg-1 mt-md-1 ">

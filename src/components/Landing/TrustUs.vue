@@ -34,7 +34,7 @@ export default {
   props: ["text", "qualities"],
   components: {
     AButton: () => import("@/components/Form/AlajeButtons"),
-    AlajeIcons: () => import("@/components/AlajeIcons")
+    AlajeIcons: () => import("@/components/general/AlajeIcons")
   }
 };
 </script>

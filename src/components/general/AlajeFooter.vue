@@ -35,7 +35,7 @@
 export default {
   name: "AlajeFooter",
   components: {
-    AlajeIcons: () => import("@/components/AlajeIcons")
+    AlajeIcons: () => import("@/components/general/AlajeIcons")
   },
   methods: {
     scrollTop() {
