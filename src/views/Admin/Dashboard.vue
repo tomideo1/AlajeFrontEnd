@@ -1,6 +1,6 @@
 <template>
   <b-container fluid="lg" class="main-content-container ">
-    <h1 class="text-dark-purple py-4 my-4">DASHBOARD VIEW</h1>
+    <h6 class="text-dark-purple py-4 my-4">DASHBOARD VIEW</h6>
   </b-container>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" fixed="top" class="bg-dark-purple " style="height: 70px">
+    <b-navbar toggleable="lg" fixed="top" class="bg-dark-purple ">
       <span class="navbar-brand mb-0   position-absolute font-avenir text-bold-white " style="left: 15%">
         <alaje-icon name="dashboard" size="lg" />
         <span class=" text-white font-avenir"> Dashboard</span>
@@ -18,7 +18,7 @@
           </b-button>
         </li>
       </ul>
-      <span class="left-angle  d-lg-none d-md-none d-b">
+      <span class="left-angle   d-lg-none d-md-none d-b">
         <img src="@/assets/subsctract-left.svg" />
       </span>
       <span class="right-angle  d-block d-lg-none d-md-none">
@@ -26,9 +26,6 @@
       </span>
     </b-navbar>
   </div>
-  <footer>
-    <main-footer />
-  </footer>
 </template>
 
 <script>
@@ -36,8 +33,7 @@ export default {
   name: "MainNavBar",
   components: {
     AlajeIcon: () => import("@/components/general/AlajeIcons"),
-    avatar: () => import("@/components/general/avatar"),
-    MainFooter: () => import("@/components/layout/MainFooter/MainFooter.vue")
+    avatar: () => import("@/components/general/avatar")
   }
 };
 </script>
@@ -56,19 +52,100 @@ export default {
 /* For desktop: */
 .left-angle {
   /*margin-top: 20%;*/
-  margin-top: 28%;
+  margin-top: 33.5%;
   /*left: 50%;*/
-  left: 0%;
+  left: -2%;
 }
 .right-angle {
   /*margin-top: 20%;*/
-  margin-top: 28%;
+  margin-top: 33.5%;
   display: block;
   /*left: 50%;*/
   position: absolute;
   /*margin-top: 20%;*/
   /*left: 50%;*/
-  right: 0%;
+  right: -2%;
   transform: rotate(0deg);
+}
+
+@media only screen and (width: 411px) {
+  .left-angle {
+    /*margin-top: 20%;*/
+    margin-top: 28.5%;
+    /*left: 50%;*/
+  }
+  .right-angle {
+    /*margin-top: 20%;*/
+    margin-top: 28.5%;
+    /*left: 50%;*/
+    position: absolute;
+    /*margin-top: 20%;*/
+    /*left: 50%;*/
+    transform: rotate(0deg);
+  }
+}
+@media only screen and (width: 320px) {
+  .left-angle {
+    /*margin-top: 20%;*/
+    margin-top: 37.5%;
+    /*left: 50%;*/
+  }
+  .right-angle {
+    /*margin-top: 20%;*/
+    margin-top: 37.5%;
+    /*left: 50%;*/
+    position: absolute;
+    /*margin-top: 20%;*/
+    /*left: 50%;*/
+    transform: rotate(0deg);
+  }
+}
+@media only screen and (width: 375px) {
+  .left-angle {
+    /*margin-top: 20%;*/
+    margin-top: 31.5%;
+    /*left: 50%;*/
+  }
+  .right-angle {
+    /*margin-top: 20%;*/
+    margin-top: 31.5%;
+    /*left: 50%;*/
+    position: absolute;
+    /*margin-top: 20%;*/
+    /*left: 50%;*/
+    transform: rotate(0deg);
+  }
+}
+@media only screen and (width: 414px) {
+  .left-angle {
+    /*margin-top: 20%;*/
+    margin-top: 28.5%;
+    /*left: 50%;*/
+  }
+  .right-angle {
+    /*margin-top: 20%;*/
+    margin-top: 28.5%;
+    /*left: 50%;*/
+    position: absolute;
+    /*margin-top: 20%;*/
+    /*left: 50%;*/
+    transform: rotate(0deg);
+  }
+}
+@media only screen and (width: 540px) {
+  .left-angle {
+    /*margin-top: 20%;*/
+    margin-top: 21.5%;
+    /*left: 50%;*/
+  }
+  .right-angle {
+    /*margin-top: 20%;*/
+    margin-top: 21.5%;
+    /*left: 50%;*/
+    position: absolute;
+    /*margin-top: 20%;*/
+    /*left: 50%;*/
+    transform: rotate(0deg);
+  }
 }
 </style>
