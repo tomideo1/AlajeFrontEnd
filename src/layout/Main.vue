@@ -1,9 +1,13 @@
 <template>
-  <div>
-    <main-side-bar />
-    <div class="offset-lg-1 offset-md-1">
-      <slot />
-    </div>
+  <div class="container">
+    <b-row>
+      <main-side-bar />
+      <b-col class="main-content" tag="main">
+        <div class="offset-lg-1 offset-md-1 py-lg-5 my-lg-5 py-md-5 my-md-5 my-3 py-3">
+          <slot />
+        </div>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
@@ -16,4 +20,4 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style lang="scss"></style>

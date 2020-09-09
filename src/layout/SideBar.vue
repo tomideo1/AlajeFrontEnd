@@ -1,25 +1,25 @@
 <template>
-  <!--  <b-container fluid="sm">-->
-  <!--    <b-row>-->
-  <!--      <main class="main-content col">-->
-  <!--        &lt;!&ndash; Main Navbar &ndash;&gt;-->
-  <!--        <main-navbar />-->
+  <b-container fluid="sm">
+    <b-row>
+      <main-side-bar />
 
-  <!--        &lt;!&ndash; Content &ndash;&gt;-->
-  <!--        <slot />-->
-  <!--      </main>-->
-  <!--    </b-row>-->
-  <!--  </b-container>-->
-  <div>
-    <main-navbar />
-  </div>
+      <main class="main-content col">
+        <!-- Main Navbar -->
+        <main-navbar />
+
+        <!-- Content -->
+        <slot />
+      </main>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
 export default {
   name: "SideBar",
   components: {
-    MainNavbar: () => import("@/components/layout/MainNavbar/MainNavBar.vue")
+    MainNavbar: () => import("@/components/layout/MainNavbar/MainNavBar.vue"),
+    MainSideBar: () => import("@/components/layout/MainSideBar/MainSideBar.vue")
   }
 };
 </script>

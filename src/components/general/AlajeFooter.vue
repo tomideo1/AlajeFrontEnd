@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-10 col-6 ">
           <span class="d-flex flex-row">
-            <img width="50" height="50" src="@/assets/logo.svg" />
+            <img width="50" height="50" src="@/assets/logo-dark.svg" />
             <p class="font-avenir mt-2 ml-3  text-dark-purple ft-20">Alaje Hub</p>
           </span>
         </div>
