@@ -1,13 +1,13 @@
 <template>
   <div>
     <b-sidebar id="sidebar-1" body-class="bg-dark-purple position-static" :no-header="true" :no-header-close="true" width="200px" header-class="bg-dark-purple" :visible="true">
-      <div class="d-flex justify-content-center mt-3 sidebar-logo">
-        <img src="@/assets/logo-light.svg" />
+      <div class="d-flex justify-content-center mt-3 ">
+        <img class="sidebar-logo" src="@/assets/logo-light.svg" />
       </div>
       <span class="left-angle   d-none d-lg-block d-md-block">
         <img src="@/assets/subsctract-left.svg" />
       </span>
-      <div class="px-3 py-2">
+      <div class="px-3 py-2 mt-5 mt-lg-0 mt-md-0">
         <nav class="mb-3 mt-4 ml-4">
           <b-nav vertical>
             <ul style="list-style: none">
