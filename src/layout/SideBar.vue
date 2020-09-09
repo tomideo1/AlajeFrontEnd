@@ -2,7 +2,6 @@
   <b-container fluid="sm">
     <b-row>
       <main-side-bar />
-
       <main class="main-content col">
         <!-- Main Navbar -->
         <main-navbar />

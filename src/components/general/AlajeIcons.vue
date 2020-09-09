@@ -12,6 +12,7 @@
     <arrow-up v-if="name === 'arrow-up'"></arrow-up>
     <dashboard v-if="name === 'dashboard'"></dashboard>
     <bell v-if="name === 'bell'"></bell>
+    <harmburgerlight v-if="name === 'harmburgerlight'"></harmburgerlight>
   </span>
 </template>
 
@@ -37,7 +38,8 @@ export default {
     Twitter: () => import("@/components/__private__/media/twitter"),
     ArrowUp: () => import("@/components/__private__/media/arrowUp"),
     dashboard: () => import("@/components/__private__/media/dashboard"),
-    bell: () => import("@/components/__private__/media/bell")
+    bell: () => import("@/components/__private__/media/bell"),
+    harmburgerlight: () => import("@/components/__private__/media/harmburger-light")
   }
 };
 </script>
