@@ -1,7 +1,7 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" fixed="top" class="bg-dark-purple ">
-      <span class="navbar-brand mb-0   position-absolute font-avenir text-bold-white " style="left: 15%">
+    <b-navbar toggleable="lg" fixed="top" class="bg-dark-purple alaje-nav " style="height: 70px;">
+      <span class="navbar-brand mb-0 ml-md-5  position-absolute font-avenir text-bold-white " style="left: 15%">
         <alaje-icon name="dashboard" size="lg" />
         <span class=" text-white font-avenir"> Dashboard</span>
       </span>
@@ -39,6 +39,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@media only screen and (min-width: 320px) and (max-width: 540px) {
+  .alaje-nav {
+    z-index: 9999 !important;
+  }
+}
 .left-angle {
   position: absolute;
   /*margin-top: 20%;*/
@@ -100,6 +105,22 @@ export default {
     transform: rotate(0deg);
   }
 }
+@media only screen and (width: 360px) {
+  .left-angle {
+    /*margin-top: 20%;*/
+    margin-top: 27.5%;
+    /*left: 50%;*/
+  }
+  .right-angle {
+    /*margin-top: 20%;*/
+    margin-top: 27.5%;
+    /*left: 50%;*/
+    position: absolute;
+    /*margin-top: 20%;*/
+    /*left: 50%;*/
+    transform: rotate(0deg);
+  }
+}
 @media only screen and (width: 375px) {
   .left-angle {
     /*margin-top: 20%;*/
@@ -119,12 +140,12 @@ export default {
 @media only screen and (width: 414px) {
   .left-angle {
     /*margin-top: 20%;*/
-    margin-top: 20.3%;
+    margin-top: 23.8%;
     /*left: 50%;*/
   }
   .right-angle {
     /*margin-top: 20%;*/
-    margin-top: 20.3%;
+    margin-top: 23.8%;
     /*left: 50%;*/
     position: absolute;
     /*margin-top: 20%;*/
