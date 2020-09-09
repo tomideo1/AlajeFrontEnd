@@ -4,7 +4,7 @@
       <div class="d-flex justify-content-center mt-3">
         <img src="@/assets/logo-light.svg" />
       </div>
-      <span class="left-angle  d-none d-lg-block d-md-block">
+      <span class="left-angle   d-none d-lg-block d-md-block">
         <img src="@/assets/subsctract-left.svg" />
       </span>
       <div class="px-3 py-2"></div>
@@ -21,7 +21,7 @@ export default {
 <style scoped lang="scss">
 .left-angle {
   position: fixed;
-  top: 8.9%;
+  top: 6%;
   left: 99.8%;
   transform: rotate(270deg);
 }
@@ -33,7 +33,7 @@ export default {
 @media only screen and (width: 1366px) {
   .left-angle {
     position: fixed;
-    top: 6.8%;
+    top: 4.5%;
     left: 99.5%;
     transform: rotate(270deg);
   }
@@ -42,7 +42,7 @@ export default {
 @media only screen and (width: 1024px) and (height: 1366px) {
   .left-angle {
     position: fixed;
-    top: 5.1%;
+    top: 3.5%;
     left: 99.4%;
     transform: rotate(270deg);
   }
@@ -52,7 +52,7 @@ export default {
 @media only screen and (width: 768px) and (height: 1024px) {
   .left-angle {
     position: fixed;
-    top: 6.8%;
+    top: 7.2%;
     left: 99.4%;
     transform: rotate(270deg);
   }
@@ -60,7 +60,7 @@ export default {
 @media only screen and (width: 1024px) and (height: 768px) {
   .left-angle {
     position: fixed;
-    top: 9%;
+    top: 6.2%;
     left: 100%;
     transform: rotate(270deg);
   }

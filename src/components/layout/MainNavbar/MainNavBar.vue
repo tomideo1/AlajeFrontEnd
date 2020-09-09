@@ -71,12 +71,12 @@ export default {
 @media only screen and (width: 411px) {
   .left-angle {
     /*margin-top: 20%;*/
-    margin-top: 28.5%;
+    margin-top: 21.2%;
     /*left: 50%;*/
   }
   .right-angle {
     /*margin-top: 20%;*/
-    margin-top: 28.5%;
+    margin-top: 21.2%;
     /*left: 50%;*/
     position: absolute;
     /*margin-top: 20%;*/
@@ -87,12 +87,12 @@ export default {
 @media only screen and (width: 320px) {
   .left-angle {
     /*margin-top: 20%;*/
-    margin-top: 37.5%;
+    margin-top: 27.5%;
     /*left: 50%;*/
   }
   .right-angle {
     /*margin-top: 20%;*/
-    margin-top: 37.5%;
+    margin-top: 27.5%;
     /*left: 50%;*/
     position: absolute;
     /*margin-top: 20%;*/
@@ -103,12 +103,12 @@ export default {
 @media only screen and (width: 375px) {
   .left-angle {
     /*margin-top: 20%;*/
-    margin-top: 31.5%;
+    margin-top: 23.2%;
     /*left: 50%;*/
   }
   .right-angle {
     /*margin-top: 20%;*/
-    margin-top: 31.5%;
+    margin-top: 23.2%;
     /*left: 50%;*/
     position: absolute;
     /*margin-top: 20%;*/
@@ -119,12 +119,12 @@ export default {
 @media only screen and (width: 414px) {
   .left-angle {
     /*margin-top: 20%;*/
-    margin-top: 28.5%;
+    margin-top: 20.3%;
     /*left: 50%;*/
   }
   .right-angle {
     /*margin-top: 20%;*/
-    margin-top: 28.5%;
+    margin-top: 20.3%;
     /*left: 50%;*/
     position: absolute;
     /*margin-top: 20%;*/
@@ -135,12 +135,28 @@ export default {
 @media only screen and (width: 540px) {
   .left-angle {
     /*margin-top: 20%;*/
-    margin-top: 21.5%;
+    margin-top: 15.5%;
     /*left: 50%;*/
   }
   .right-angle {
     /*margin-top: 20%;*/
-    margin-top: 21.5%;
+    margin-top: 15.5%;
+    /*left: 50%;*/
+    position: absolute;
+    /*margin-top: 20%;*/
+    /*left: 50%;*/
+    transform: rotate(0deg);
+  }
+}
+@media only screen and (width: 280px) {
+  .left-angle {
+    /*margin-top: 20%;*/
+    margin-top: 29.5%;
+    /*left: 50%;*/
+  }
+  .right-angle {
+    /*margin-top: 20%;*/
+    margin-top: 29.5%;
     /*left: 50%;*/
     position: absolute;
     /*margin-top: 20%;*/
