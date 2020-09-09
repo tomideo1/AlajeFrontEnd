@@ -7,14 +7,30 @@
       <span class="left-angle   d-none d-lg-block d-md-block">
         <img src="@/assets/subsctract-left.svg" />
       </span>
-      <div class="px-3 py-2"></div>
+      <div class="px-3 py-2">
+        <nav class="mb-3 mt-4 ml-4">
+          <b-nav vertical>
+            <ul style="list-style: none">
+              <li class="nav-item font-avenir ft-14 text-white">
+                <div class="d-flex flex-row">
+                  <alaje-icons name="dashboard" />
+                  <p></p>
+                </div>
+              </li>
+            </ul>
+          </b-nav>
+        </nav>
+      </div>
     </b-sidebar>
   </div>
 </template>
 
 <script>
 export default {
-  name: "MainSideBr"
+  name: "MainSideBr",
+  components: {
+    AlajeIcons: () => import("@/components/general/AlajeIcons")
+  }
 };
 </script>
 
