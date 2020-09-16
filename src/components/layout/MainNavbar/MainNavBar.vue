@@ -1,9 +1,9 @@
 <template>
   <div>
     <b-navbar toggleable="lg" fixed="top" class="bg-dark-purple alaje-nav " style="height: 70px;">
-      <span class="navbar-brand mb-0 ml-md-5  position-absolute font-avenir text-bold-white " style="left: 15%">
-        <alaje-icon name="dashboard" size="lg" />
-        <span class=" text-white font-avenir"> Dashboard</span>
+      <span class="navbar-brand mb-0 ml-md-5 current-nav position-absolute font-avenir text-bold-white ">
+        <alaje-icon :name="currentNav.toLowerCase()" size="lg" />
+        <span class=" text-white font-avenir"> {{ currentNav.toUpperCase() }}</span>
       </span>
       <ul class="navbar-nav ml-lg-auto ml-auto ml-md-auto mt-lg-1 mt-md-1   ">
         <li class="nav-item pr-lg-3 pr-md-3   d-none d-lg-block d-md-block ">
@@ -33,7 +33,8 @@ export default {
   name: "MainNavBar",
   data() {
     return {
-      toggled: false
+      toggled: false,
+      currentNav: this.$router.currentRoute.fullPath.substring(this.$router.currentRoute.fullPath.lastIndexOf("/") + 1)
     };
   },
   components: {
@@ -47,6 +48,11 @@ export default {
         toggled: this.toggled
       });
     }
+  },
+  mounted() {
+    this.$Bus.$on("current", res => {
+      this.currentNav = res.title;
+    });
   }
 };
 </script>
@@ -56,6 +62,11 @@ export default {
   .alaje-nav {
     z-index: 100 !important;
   }
+}
+.current-nav {
+  position: relative;
+  left: 15%;
+  /*margin-top: 22%!important;*/
 }
 .left-angle {
   position: absolute;
@@ -196,6 +207,13 @@ export default {
     /*margin-top: 20%;*/
     /*left: 50%;*/
     transform: rotate(0deg);
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .current-nav {
+    position: relative;
+    left: 25%;
+    /*margin-top: 22%!important;*/
   }
 }
 </style>

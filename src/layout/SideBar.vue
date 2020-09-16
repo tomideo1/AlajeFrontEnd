@@ -1,7 +1,7 @@
 <template>
   <b-container fluid="sm">
     <b-row>
-      <main-side-bar :visible="toggled" />
+      <main-side-bar :visible="toggled" :items="sidebarItems" />
       <main class="main-content col">
         <!-- Main Navbar -->
         <main-navbar />
@@ -14,11 +14,14 @@
 </template>
 
 <script>
+import getSidebarItems from "@/components/data/sideBarNavItems";
+
 export default {
   name: "SideBar",
   data() {
     return {
-      toggled: false
+      toggled: false,
+      sidebarItems: getSidebarItems()
     };
   },
   components: {

@@ -915,7 +915,3 @@ ul.vti__dropdown-list {
     background: #fef4f4 !important;
   }
 }
-
-.main-content > .main-content-container.container-fluid {
-  min-height: calc(100vh - #{$main-navbar-height + $main-footer-height});
-}

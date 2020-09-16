@@ -1,5 +1,5 @@
 <template>
-  <b-container fluid="lg" class="main-content-container ">
+  <b-container fluid="lg" class="  ">
     <h6 class="text-dark-purple  ">DASHBOARD VIEW</h6>
   </b-container>
 </template>

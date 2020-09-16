@@ -1,19 +1,19 @@
 <template>
   <div>
-    <div :class="['sidebar-container  d-lg-block d-md-block', visible ? 'd-block slide slideInLeft ' : 'd-none']" style="animation-duration: 0.5s!important;">
+    <div :class="['sidebar-container  d-lg-block d-md-block', visible ? 'd-block slide slideInLeft ' : '  d-none ']" style="animation-duration: 0.5s!important;">
       <div class="d-flex justify-content-center mt-3 ">
         <img class="sidebar-logo" src="@/assets/logo-light.svg" />
       </div>
       <span class="left-angle    d-none d-lg-block d-md-block">
         <img src="@/assets/subsctract-left.svg" />
       </span>
-      <div class="px-3 py-2   mt-5 mt-lg-0 mt-md-0">
+      <div v-if="items" class="px-3 py-2   mt-5 mt-lg-0 mt-md-0">
         <ul class="sidebar-navigation">
-          <li :class="active === 'dashboard' ? 'active' : ''" @click="toggleActive">
-            <router-link to="dashboard"> <alaje-icons class="active-icon" size="xs" name="dashboard"></alaje-icons> Dashboard </router-link>
-          </li>
-          <li :class="active === 'trade' ? 'active' : ''" @click="toggleActive">
-            <router-link to="trade"> <alaje-icons class="active-icon" size="xs" name="trade"></alaje-icons>Trade </router-link>
+          <li v-for="(item, index) in items" :key="index" :class="active === item.identifier ? 'active' : ''" @click="toggleActive">
+            <router-link :to="item.to">
+              <alaje-icons :class="active === item.identifier ? 'active-icon' : ''" size="xs" :name="item.routeIcon"></alaje-icons>
+              {{ item.title }}
+            </router-link>
           </li>
         </ul>
       </div>
@@ -55,11 +55,14 @@
 
 <script>
 export default {
-  name: "MainSideBr",
+  name: "MainSideBar",
   props: {
     visible: {
       type: Boolean,
       default: false
+    },
+    items: {
+      type: Array
     }
   },
   data() {
@@ -69,7 +72,10 @@ export default {
   },
   methods: {
     toggleActive() {
-      return (this.active = this.$router.currentRoute.fullPath.substring(this.$router.currentRoute.fullPath.lastIndexOf("/") + 1));
+      this.active = this.$router.currentRoute.fullPath.substring(this.$router.currentRoute.fullPath.lastIndexOf("/") + 1);
+      this.$Bus.$emit("current", {
+        title: this.active
+      });
     }
   },
   components: {
@@ -87,10 +93,7 @@ export default {
   transform: rotate(270deg);
 }
 
-@media only screen and (min-width: 320px) and (max-width: 540px) {
-  .sidebar-logo {
-    display: none !important;
-  }
+@media only screen and (min-width: 280px) and (max-width: 540px) {
 }
 
 @media only screen and (max-width: 600px) {
@@ -265,9 +268,5 @@ export default {
 
 .sidebar-navigation .header::before {
   background-color: transparent;
-}
-
-.content-container {
-  padding-left: 220px;
 }
 </style>
