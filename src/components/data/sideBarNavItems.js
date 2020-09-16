@@ -8,6 +8,8 @@ export default function() {
         {
           title: "Dashboard",
           routeIcon: "dashboard",
+          activeIcon: "active-dashboard",
+          identifier: "dashboard",
           to: {
             name: "/dashboard"
           }

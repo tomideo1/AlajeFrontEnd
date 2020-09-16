@@ -13,6 +13,7 @@
     <dashboard v-if="name === 'dashboard'"></dashboard>
     <bell v-if="name === 'bell'"></bell>
     <harmburgerlight v-if="name === 'harmburgerlight'"></harmburgerlight>
+    <trade v-if="name === 'trade'"></trade>
   </span>
 </template>
 
@@ -39,7 +40,8 @@ export default {
     ArrowUp: () => import("@/components/__private__/media/arrowUp"),
     dashboard: () => import("@/components/__private__/media/dashboard"),
     bell: () => import("@/components/__private__/media/bell"),
-    harmburgerlight: () => import("@/components/__private__/media/harmburger-light")
+    harmburgerlight: () => import("@/components/__private__/media/harmburger-light"),
+    Trade: () => import("@/components/__private__/media/trade")
   }
 };
 </script>

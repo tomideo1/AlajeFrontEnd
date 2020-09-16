@@ -47,7 +47,7 @@ export default {
   methods: {
     async handleLogin() {
       this.buttonLoader = true;
-      // await setTimeout(this.buttonLoader = false, 30000)
+      await setTimeout(this.$router.push({ name: "customer-dashboard" }), 30000);
     }
   }
 };

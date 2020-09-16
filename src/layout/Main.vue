@@ -14,6 +14,9 @@
 <script>
 export default {
   name: "Main",
+  data() {
+    return {};
+  },
   components: {
     MainSideBar: () => import("@/layout/SideBar.vue")
   }

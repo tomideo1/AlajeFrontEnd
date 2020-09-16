@@ -13,17 +13,17 @@
           <avatar size="md" class="avatar" :user="{ name: 'ALAJE' }" />
         </li>
         <li class="nav-item mt-n1  pl-lg-4 pl-md-3 d-block d-lg-none d-md-none ">
-          <b-button v-b-toggle.sidebar-1 style="background: transparent!important;">
+          <b-button @click="toggleSidebar" style="background: transparent!important;">
             <alaje-icon name="harmburgerlight" size="md" />
           </b-button>
         </li>
       </ul>
-      <span class="left-angle   d-lg-none d-md-none d-b">
-        <img src="@/assets/subsctract-left.svg" />
-      </span>
-      <span class="right-angle  d-block d-lg-none d-md-none">
-        <img src="@/assets/subsctract-left.svg" />
-      </span>
+      <!--      <span class="left-angle   d-lg-none d-md-none d-b">-->
+      <!--        <img src="@/assets/subsctract-left.svg" />-->
+      <!--      </span>-->
+      <!--      <span class="right-angle  d-block d-lg-none d-md-none">-->
+      <!--        <img src="@/assets/subsctract-left.svg" />-->
+      <!--      </span>-->
     </b-navbar>
   </div>
 </template>
@@ -31,17 +31,30 @@
 <script>
 export default {
   name: "MainNavBar",
+  data() {
+    return {
+      toggled: false
+    };
+  },
   components: {
     AlajeIcon: () => import("@/components/general/AlajeIcons"),
     avatar: () => import("@/components/general/avatar")
+  },
+  methods: {
+    toggleSidebar() {
+      this.toggled = !this.toggled;
+      this.$Bus.$emit("toggled", {
+        toggled: this.toggled
+      });
+    }
   }
 };
 </script>
 
 <style scoped lang="scss">
-@media only screen and (min-width: 320px) and (max-width: 540px) {
+@media only screen and (min-width: 320px) and (max-width: 1024px) {
   .alaje-nav {
-    z-index: 9999 !important;
+    z-index: 100 !important;
   }
 }
 .left-angle {

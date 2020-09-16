@@ -3,6 +3,7 @@ import Head from "vue-head";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import adminRoutes from "./admin";
+import customerRoutes from "./customer";
 Vue.use(VueRouter);
 
 Vue.use(Head, {
@@ -61,7 +62,7 @@ const baseRoutes = [
     component: () => import("@/views/Error404.vue")
   }
 ];
-const routes = [...baseRoutes, ...adminRoutes];
+const routes = [...baseRoutes, ...adminRoutes, ...customerRoutes];
 const router = new VueRouter({
   mode: "history",
   routes,
