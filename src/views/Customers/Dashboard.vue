@@ -101,6 +101,18 @@ export default {
           store: "Steam",
           value: "N5000",
           status: "pending"
+        },
+        {
+          name: "Brooklyn Simmons",
+          store: "Steam",
+          value: "N5000",
+          status: "pending"
+        },
+        {
+          name: "Brooklyn Simmons",
+          store: "Steam",
+          value: "N5000",
+          status: "pending"
         }
       ],
       stages: [
