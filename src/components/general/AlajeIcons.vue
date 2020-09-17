@@ -14,6 +14,7 @@
     <bell v-if="name === 'bell'"></bell>
     <harmburgerlight v-if="name === 'harmburgerlight'"></harmburgerlight>
     <trade v-if="name === 'trade'"></trade>
+    <elipse v-if="name === 'elipse'"></elipse>
   </span>
 </template>
 
@@ -41,7 +42,8 @@ export default {
     dashboard: () => import("@/components/__private__/media/dashboard"),
     bell: () => import("@/components/__private__/media/bell"),
     harmburgerlight: () => import("@/components/__private__/media/harmburger-light"),
-    Trade: () => import("@/components/__private__/media/trade")
+    Trade: () => import("@/components/__private__/media/trade"),
+    Elipse: () => import("@/components/__private__/media/elipse")
   }
 };
 </script>

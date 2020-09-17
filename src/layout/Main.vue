@@ -1,13 +1,13 @@
 <template>
-  <div class="container">
-    <b-row>
+  <div class="container-fluid">
+    <div>
       <main-side-bar />
-      <b-col class="main-content" tag="main">
-        <div class="offset-lg-1 content-container  offset-md-1 py-lg-5 my-lg-5 py-md-5 my-md-5 my-3 py-3 ">
+      <div class="main-content">
+        <div class="offset-lg-2 content-container   py-lg-5 my-lg-5 py-md-5 my-md-5 my-3 py-3 ">
           <slot />
         </div>
-      </b-col>
-    </b-row>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -19,6 +19,7 @@ export default {
   },
   components: {
     MainSideBar: () => import("@/layout/SideBar.vue")
+    // eslint-disable-next-line vue/no-unused-components
   }
 };
 </script>
@@ -31,7 +32,7 @@ export default {
 }
 @media only screen and (min-width: 600px) and (max-width: 1024px) {
   .content-container {
-    padding: 150px;
+    padding: 50px;
     /*margin-top: 22%!important;*/
   }
 }

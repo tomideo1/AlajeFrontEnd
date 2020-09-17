@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="card box-shadow  bg-white mx-auto  m-3    " style="width: 22rem;">
+    <div class="card box-shadow  bg-white mx-auto  m-3    " style="width: 20rem;">
       <div class="card-body   bg-white">
         <div class="text-center">
           <alaje-icon name="range-icon" size="retain" />

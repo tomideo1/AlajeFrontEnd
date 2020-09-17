@@ -22,8 +22,11 @@ import noSideBar from "@/layout/no-sidebar.vue";
 import Sidebar from "@/layout/SideBar.vue";
 
 Vue.component("main-layout", Main);
-Vue.component("no-sidebar-layout", noSideBar);
+Vue.component("no-sidebar", noSideBar);
 Vue.component("sidebar-layout", Sidebar);
+import VueEllipseProgress from "vue-ellipse-progress";
+
+Vue.use(VueEllipseProgress);
 
 // Sentry.init({
 //   dsn: "https://b4353ab1e01e4d4bb7a20e9c9f1a0b31@o430929.ingest.sentry.io/5383067",

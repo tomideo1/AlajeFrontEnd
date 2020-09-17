@@ -1,8 +1,8 @@
 <template>
-  <b-container fluid="sm">
+  <div class="container-fluid">
     <b-row>
       <main-side-bar :visible="toggled" :items="sidebarItems" />
-      <main class="main-content col">
+      <main>
         <!-- Main Navbar -->
         <main-navbar />
 
@@ -10,7 +10,7 @@
         <slot />
       </main>
     </b-row>
-  </b-container>
+  </div>
 </template>
 
 <script>

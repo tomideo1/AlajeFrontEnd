@@ -1,7 +1,7 @@
 <template>
   <div>
     <top-nav />
-    <div class="pt-5 mt-4">
+    <div class="pt-5 mt-4 ">
       <section class="banner"></section>
       <div class="pt-4 mt-4"></div>
       <router-view />

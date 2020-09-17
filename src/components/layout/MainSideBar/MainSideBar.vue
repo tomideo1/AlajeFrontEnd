@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div :class="['sidebar-container  d-lg-block d-md-block', visible ? 'd-block slide slideInLeft ' : '  d-none ']" style="animation-duration: 0.5s!important;">
+    <div :class="['sidebar-container  d-lg-block ', visible ? 'd-block  d-md-block slide slideInLeft ' : '  d-none d-md-none ']" style="animation-duration: 0.5s!important;">
       <div class="d-flex justify-content-center mt-3 ">
         <img class="sidebar-logo" src="@/assets/logo-light.svg" />
       </div>
       <span class="left-angle    d-none d-lg-block d-md-block">
         <img src="@/assets/subsctract-left.svg" />
       </span>
-      <div v-if="items" class="px-3 py-2   mt-5 mt-lg-0 mt-md-0">
+      <div v-if="items" class="px-3 py-2   mt-lg-0 mt-md-0">
         <ul class="sidebar-navigation">
           <li v-for="(item, index) in items" :key="index" :class="active === item.identifier ? 'active' : ''" @click="toggleActive">
             <router-link :to="item.to">
@@ -244,7 +244,9 @@ export default {
   }
   border-radius: 50px 0 0 50px;
   .active-icon {
-    filter: brightness(0.7) sepia(20) hue-rotate(-80deg) saturate(5);
+    filter: brightness(0.71) sepia(9) hue-rotate(204deg) saturate(230);
+    /*filter: sepia(9%) brightness(96%) hue-rotate(196deg) saturate(230%) invert(2%);*/
+    /*filter: sepia(9%) brightness(96%) hue-rotate(214deg) saturate(230%) invert(2%);*/
 
     /*hsl(271, 85%, 55%);*/
   }

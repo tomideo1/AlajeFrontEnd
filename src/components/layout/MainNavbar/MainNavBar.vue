@@ -2,17 +2,23 @@
   <div>
     <b-navbar toggleable="lg" fixed="top" class="bg-dark-purple alaje-nav " style="height: 70px;">
       <span class="navbar-brand mb-0 ml-md-5 current-nav position-absolute font-avenir text-bold-white ">
-        <alaje-icon :name="currentNav.toLowerCase()" size="lg" />
-        <span class=" text-white font-avenir"> {{ currentNav.toUpperCase() }}</span>
+        <span v-if="currentNav !== null">
+          <alaje-icon :name="currentNav.toLowerCase()" size="lg" />
+          <span class=" text-white font-avenir"> {{ currentNav.toUpperCase() }}</span>
+        </span>
+        <span v-else>
+          <alaje-icon :name="getCurrentRoute.toLowerCase()" size="lg" />
+          <span class=" text-white font-avenir"> {{ getCurrentRoute.toUpperCase() }}</span>
+        </span>
       </span>
       <ul class="navbar-nav ml-lg-auto ml-auto ml-md-auto mt-lg-1 mt-md-1   ">
-        <li class="nav-item pr-lg-3 pr-md-3   d-none d-lg-block d-md-block ">
+        <li class="nav-item pr-lg-3 pr-md-3   d-none d-lg-block d-md-none ">
           <alaje-icon @click="$router.push({ name: 'login' })" name="bell" size="sm" />
         </li>
-        <li class="nav-item mt-n1 pr-md-3  pl-lg-4 pl-md-3 d-none d-lg-block d-md-block ">
+        <li class="nav-item mt-n1 pr-md-3  pl-lg-4 pl-md-3 d-none d-lg-block d-md-none ">
           <avatar size="md" class="avatar" :user="{ name: 'ALAJE' }" />
         </li>
-        <li class="nav-item mt-n1  pl-lg-4 pl-md-3 d-block d-lg-none d-md-none ">
+        <li class="nav-item mt-n1  pl-lg-4 pl-md-3 d-block d-lg-none d-md-block ">
           <b-button @click="toggleSidebar" style="background: transparent!important;">
             <alaje-icon name="harmburgerlight" size="md" />
           </b-button>
@@ -29,12 +35,14 @@
 </template>
 
 <script>
+import General from "@/mixins/general";
 export default {
+  mixins: [General],
   name: "MainNavBar",
   data() {
     return {
       toggled: false,
-      currentNav: this.$router.currentRoute.fullPath.substring(this.$router.currentRoute.fullPath.lastIndexOf("/") + 1)
+      currentNav: null
     };
   },
   components: {
@@ -209,7 +217,7 @@ export default {
     transform: rotate(0deg);
   }
 }
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
+@media only screen and (min-width: 1024px) and (max-width: 1024px) {
   .current-nav {
     position: relative;
     left: 25%;
