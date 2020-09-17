@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container-fluid">
+    <div class="container-fluid mb-4">
       <header-card :greetings="greetings" shwo-wallet :wallet-amount="1000" />
       <div class="row">
         <div class="col-md-4 col-lg-3 col-6 p-2" v-for="(item, index) in statusCards" :key="index">
@@ -49,44 +49,7 @@
       </div>
       <div class="clear-line mt-5 pt-5 "></div>
     </div>
-    <footer class="  bg-white  fixed-bottom  ">
-      <div class="mini-footer">
-        <div class="d-lg-none d-block d-md-none container-fluid">
-          <div class="row">
-            <div class="col-lg-10 col-6">
-              <span class="d-flex  flex-row pl-lg-5 ml-lg-5 pl-1 ml-1 mt-2">
-                <img width="50" height="50" src="@/assets/logo-dark.svg" />
-                <p class="font-avenir mt-2 ml-3  text-dark-purple ft-20">Alaje Hub</p>
-              </span>
-            </div>
-            <div class="ml-auto col-lg-2 col-6  mt-lg-3 mt-3 ">
-              <span class="d-flex flex-row ">
-                <alaje-icons class="ml-md-4 ml-4 " name="facebook" />
-                <alaje-icons class="ml-md-4 ml-4" name="instagram" />
-                <alaje-icons class="ml-md-4 ml-4 " name="twitter" />
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="container d-md-block d-none d-md-none">
-          <div class="row">
-            <div class="col-lg-10  col-md-9 col-6">
-              <span class="d-flex  flex-row pl-lg-5 ml-lg-5 pl-1 ml-1 mt-2">
-                <img width="50" height="50" src="@/assets/logo-dark.svg" />
-                <p class="font-avenir mt-2 ml-3  text-dark-purple ft-20">Alaje Hub</p>
-              </span>
-            </div>
-            <div class="ml-auto col-md-3 col-lg-2 col-6  mt-lg-3 mt-3 ">
-              <span class="d-flex flex-row ">
-                <alaje-icons class="ml-md-4 ml-4 " name="facebook" />
-                <alaje-icons class="ml-md-4 ml-4" name="instagram" />
-                <alaje-icons class="ml-md-4 ml-4 " name="twitter" />
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <dashboard-footer />
   </div>
 </template>
 
@@ -95,6 +58,7 @@ import HeaderCard from "../../components/general/headerCard";
 import StatusCard from "../../components/cards/StatusCard";
 import RecentTransaction from "../../components/cards/recentTransaction";
 import AlajeIcons from "../../components/general/AlajeIcons";
+import DashboardFooter from "../../components/general/dashboardFooter";
 export default {
   name: "Dashboard",
   data() {
@@ -160,15 +124,11 @@ export default {
     };
   },
   components: {
+    DashboardFooter,
     AlajeIcons,
     RecentTransaction,
     StatusCard,
     HeaderCard
-  },
-  methods: {
-    scrollTop() {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
   }
 };
 </script>
@@ -183,14 +143,5 @@ export default {
   border: 1px solid #e6e7ef;
   box-sizing: border-box;
   border-radius: 20px;
-}
-
-.footer-menu {
-  padding-left: 48px;
-}
-@media (max-width: 991px) {
-  .footer-menu {
-    padding-left: 0;
-  }
 }
 </style>
