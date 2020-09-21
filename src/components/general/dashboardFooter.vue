@@ -1,5 +1,5 @@
 <template>
-  <footer class="  bg-white  fixed-bottom  ">
+  <footer class="  bg-white  position-relative  ">
     <div class="mini-footer">
       <div class="d-lg-none d-block d-md-none container-fluid">
         <div class="row">
@@ -18,10 +18,10 @@
           </div>
         </div>
       </div>
-      <div class="container d-md-block d-none d-md-none">
+      <div class="container d-lg-block d-md-block d-none d-md-none">
         <div class="row">
           <div class="col-lg-10  col-md-9 col-6">
-            <span class="d-flex  flex-row pl-lg-5 ml-lg-5 pl-1 ml-1 mt-2" style="position: relative; left: 15%">
+            <span class="d-flex  flex-row pl-lg-5 ml-lg-5 pl-1 ml-1 mt-2" style="position: relative;">
               <img width="50" height="50" src="@/assets/logo-dark.svg" />
               <p class="font-avenir mt-2 ml-3  text-dark-purple ft-20">Alaje Hub</p>
             </span>
@@ -50,12 +50,12 @@
         </div>
       </div>
 
-      <div class="   mt-2  d-md-block d-none d-md-none">
+      <div class="  d-lg-block mt-2  d-md-block d-none d-md-none">
         <div class="d-flex flex-row ">
-          <div class="  mt-2  " style="position: relative; left: 30%">
+          <div class="  mt-2  " style="position: relative; left: 10%">
             <p class="font-avenir text-black ft-12">&copy; 2020 Alaje Hub All Rights Reserved</p>
           </div>
-          <div class="ml-auto" style="position: relative; left: -20%">
+          <div class="ml-auto" style="position: relative; left: -10%">
             <alaje-icons name="arrow-up" size="xs" @click="scrollTop" />
           </div>
         </div>
@@ -73,7 +73,10 @@ export default {
   },
   methods: {
     scrollTop() {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     }
   }
 };
@@ -83,6 +86,7 @@ export default {
 .footer-menu {
   padding-left: 48px;
 }
+
 @media (max-width: 991px) {
   .footer-menu {
     padding-left: 0;
