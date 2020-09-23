@@ -10,7 +10,7 @@
       <a-button text="Get Started " @click="$router.push({ name: 'register' })" class="btn mt-lg-3 mt-md-3" text_color="white" size="md " />
       <a-icons name="arrow-shade-down" class="arrow-icon" @click="scrollDown" />
     </div>
-    <range-card />
+    <range-card class="d-none d-lg-block d-md-block" />
   </div>
 </template>
 
@@ -26,13 +26,16 @@ export default {
   },
   methods: {
     scrollDown() {
-      window.scrollTo({ top: 600, behavior: "smooth" });
+      window.scrollTo({
+        top: 600,
+        behavior: "smooth"
+      });
     }
   }
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .banner {
   height: 100vh !important;
   width: 100vw !important;
@@ -48,6 +51,7 @@ svg {
   width: auto;
   height: auto;
 }
+
 .center-text {
   margin-top: 15%;
   position: relative;
@@ -55,11 +59,13 @@ svg {
   z-index: 999;
   width: 30%;
 }
+
 @media only screen and (device-width: 768px) {
   .center-text {
     width: 50%;
   }
 }
+
 .arrow-icon {
   margin-top: 50%;
   position: absolute;

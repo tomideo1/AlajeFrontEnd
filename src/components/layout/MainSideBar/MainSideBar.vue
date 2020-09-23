@@ -1,12 +1,12 @@
 <template>
   <div>
     <div :class="['sidebar-container  d-lg-block ', visible ? 'd-block  d-md-block slide slideInLeft ' : '  d-none d-md-none ']" style="animation-duration: 0.5s!important;">
-      <div class="d-flex justify-content-center mt-3 ">
+      <div class="d-flex justify-content-center mt-lg-3  ">
         <img class="sidebar-logo" src="@/assets/logo-light.svg" />
       </div>
-      <span class="left-angle    d-none d-lg-block d-md-block">
-        <img src="@/assets/subsctract-left.svg" />
-      </span>
+      <!--      <span class="left-angle    d-none d-lg-block d-md-block">-->
+      <!--        <img src="@/assets/subsctract-left.svg" />-->
+      <!--      </span>-->
       <div v-if="items" class="px-3 py-2   mt-lg-0 mt-md-0">
         <ul class="sidebar-navigation">
           <li v-for="(item, index) in items" :key="index" :class="active === item.identifier ? 'active' : ''" @click="toggleActive">
@@ -84,7 +84,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .left-angle {
   position: fixed;
   top: 8.9%;
@@ -109,7 +109,7 @@ export default {
   }
 }
 
-@media only screen and (width: 1024px) and (height: 1366px) {
+@media only screen and (min-width: 1024px) and (height: 1366px) {
   .left-angle {
     position: fixed;
     top: 5.15%;
@@ -127,6 +127,7 @@ export default {
     transform: rotate(270deg);
   }
 }
+
 @media only screen and (width: 1024px) and (height: 768px) {
   .left-angle {
     position: fixed;
@@ -221,28 +222,34 @@ export default {
   position: absolute;
   content: "";
   height: 100%;
-  left: 10px;
+  left: 20px;
   top: 0;
   -webkit-transition: width 0.2s ease-in;
   transition: width 0.2s ease-in;
   z-index: -1;
   border-radius: 50px 0 0 50px;
 }
+
 .sidebar-navigation li:hover::before {
   width: 100%;
 }
+
 .sidebar-navigation li.active {
   width: 100%;
   text-decoration: none;
   outline: none;
   background: #ffffff;
   position: relative;
+  padding-bottom: 5px;
   z-index: -1;
-  left: 10px;
+  left: 20px;
+
   a {
     color: color(a-purple-color);
   }
+
   border-radius: 50px 0 0 50px;
+
   .active-icon {
     filter: brightness(0.71) sepia(9) hue-rotate(204deg) saturate(230);
     /*filter: sepia(9%) brightness(96%) hue-rotate(196deg) saturate(230%) invert(2%);*/
@@ -250,15 +257,16 @@ export default {
 
     /*hsl(271, 85%, 55%);*/
   }
-  /*&:after{*/
-  /*  content: url("~@/assets/subsctract-left.svg");*/
-  /*  width: 0;*/
-  /*  height: 0;*/
-  /*  position: absolute;*/
-  /*  top: 0%!important;*/
-  /*  right: 0% !important;*/
-  /*  transform: rotate(180deg);*/
-  /*}*/
+
+  // &:after {
+  //     content: url("~@/assets/subsctract-left.svg");
+  //     width: 0;
+  //     height: 0;
+  //     position: absolute;
+  //     top: 0% !important;
+  //     right: 0% !important;
+  //     transform: rotate(180deg);
+  // }
 }
 
 .sidebar-navigation .header {

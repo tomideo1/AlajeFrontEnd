@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" fixed="top" class="bg-dark-purple alaje-nav " style="height: 70px;">
+    <b-navbar toggleable="lg" fixed="top" class="bg-dark-purple alaje-nav shadow-lg " style="height: 70px;">
       <span class="navbar-brand mb-0 ml-md-5 current-nav position-absolute font-avenir text-bold-white ">
         <span v-if="currentNav !== null">
           <alaje-icon :name="currentNav.toLowerCase()" size="lg" />
@@ -65,22 +65,25 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-@media only screen and (min-width: 320px) and (max-width: 1024px) {
+<style lang="scss" scoped>
+@media only screen and (min-width: 280px) and (max-width: 1023px) {
   .alaje-nav {
-    z-index: 100 !important;
+    z-index: 100000 !important;
   }
 }
+
 .current-nav {
   position: relative;
   left: 15%;
   /*margin-top: 22%!important;*/
 }
+
 .left-angle {
   position: absolute;
   /*margin-top: 20%;*/
   transform: rotate(270deg);
 }
+
 /* For mobile phones: */
 [class*="col-"] {
   width: 100%;
@@ -93,6 +96,7 @@ export default {
   /*left: 50%;*/
   left: -2%;
 }
+
 .right-angle {
   /*margin-top: 20%;*/
   margin-top: 33.5%;
@@ -111,6 +115,7 @@ export default {
     margin-top: 21.2%;
     /*left: 50%;*/
   }
+
   .right-angle {
     /*margin-top: 20%;*/
     margin-top: 21.2%;
@@ -121,12 +126,14 @@ export default {
     transform: rotate(0deg);
   }
 }
+
 @media only screen and (width: 320px) {
   .left-angle {
     /*margin-top: 20%;*/
     margin-top: 27.5%;
     /*left: 50%;*/
   }
+
   .right-angle {
     /*margin-top: 20%;*/
     margin-top: 27.5%;
@@ -137,12 +144,14 @@ export default {
     transform: rotate(0deg);
   }
 }
+
 @media only screen and (width: 360px) {
   .left-angle {
     /*margin-top: 20%;*/
     margin-top: 27.5%;
     /*left: 50%;*/
   }
+
   .right-angle {
     /*margin-top: 20%;*/
     margin-top: 27.5%;
@@ -153,12 +162,14 @@ export default {
     transform: rotate(0deg);
   }
 }
+
 @media only screen and (width: 375px) {
   .left-angle {
     /*margin-top: 20%;*/
     margin-top: 23.2%;
     /*left: 50%;*/
   }
+
   .right-angle {
     /*margin-top: 20%;*/
     margin-top: 23.2%;
@@ -169,12 +180,14 @@ export default {
     transform: rotate(0deg);
   }
 }
+
 @media only screen and (width: 414px) {
   .left-angle {
     /*margin-top: 20%;*/
     margin-top: 23.8%;
     /*left: 50%;*/
   }
+
   .right-angle {
     /*margin-top: 20%;*/
     margin-top: 23.8%;
@@ -185,12 +198,14 @@ export default {
     transform: rotate(0deg);
   }
 }
+
 @media only screen and (width: 540px) {
   .left-angle {
     /*margin-top: 20%;*/
     margin-top: 15.5%;
     /*left: 50%;*/
   }
+
   .right-angle {
     /*margin-top: 20%;*/
     margin-top: 15.5%;
@@ -201,12 +216,14 @@ export default {
     transform: rotate(0deg);
   }
 }
+
 @media only screen and (width: 280px) {
   .left-angle {
     /*margin-top: 20%;*/
     margin-top: 29.5%;
     /*left: 50%;*/
   }
+
   .right-angle {
     /*margin-top: 20%;*/
     margin-top: 29.5%;
@@ -217,6 +234,7 @@ export default {
     transform: rotate(0deg);
   }
 }
+
 @media only screen and (min-width: 1024px) and (max-width: 1024px) {
   .current-nav {
     position: relative;

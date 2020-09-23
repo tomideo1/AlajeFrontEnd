@@ -6,7 +6,7 @@
           <div class="col-lg-10 col-6">
             <span class="d-flex  flex-row pl-lg-5 ml-lg-5 pl-1 ml-1 mt-2">
               <img width="50" height="50" src="@/assets/logo-dark.svg" />
-              <p class="font-avenir mt-2 ml-3  text-dark-purple ft-20">Alaje Hub</p>
+              <p class="font-avenir mt-lg-2  ml-3  text-dark-purple ft-20">Alaje Hub</p>
             </span>
           </div>
           <div class="ml-auto col-lg-2 col-6  mt-lg-3 mt-3 ">
@@ -18,10 +18,10 @@
           </div>
         </div>
       </div>
-      <div class="container d-lg-block d-md-block d-none d-md-none">
+      <div class=" d-lg-block d-md-block d-none d-md-none">
         <div class="row">
           <div class="col-lg-10  col-md-9 col-6">
-            <span class="d-flex  flex-row pl-lg-5 ml-lg-5 pl-1 ml-1 mt-2" style="position: relative;">
+            <span class="d-flex  flex-row pl-lg-5 ml-lg-5  pl-lg-1 pl-xl-0 ml-1 mt-2" style="position: relative;">
               <img width="50" height="50" src="@/assets/logo-dark.svg" />
               <p class="font-avenir mt-2 ml-3  text-dark-purple ft-20">Alaje Hub</p>
             </span>
@@ -52,7 +52,7 @@
 
       <div class="  d-lg-block mt-2  d-md-block d-none d-md-none">
         <div class="d-flex flex-row ">
-          <div class="  mt-2  " style="position: relative; left: 10%">
+          <div class="  mt-2 ml-lg-5 " style="position: relative;">
             <p class="font-avenir text-black ft-12">&copy; 2020 Alaje Hub All Rights Reserved</p>
           </div>
           <div class="ml-auto" style="position: relative; left: -10%">
