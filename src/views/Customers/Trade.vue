@@ -45,13 +45,41 @@
         </div>
       </div>
     </b-container>
-    <a-select class="col-md-3 float-left"></a-select>
+    <a-select class="col-md-3 float-left" :items="items" v-model="merchant"></a-select>
   </b-container>
 </template>
 
 <script>
 export default {
   name: "Trade",
+  data() {
+    return {
+      merchant: "",
+
+      items: [
+        {
+          value: "1",
+          logo: "logo-image",
+          text: "Addidas"
+        },
+        {
+          value: "2",
+          logo: "logo-image",
+          text: "Nike"
+        },
+        {
+          value: "3",
+          logo: "logo-image",
+          text: "Apple"
+        },
+        {
+          value: "4",
+          logo: "logo-image",
+          text: "Amazon"
+        }
+      ]
+    };
+  },
   components: {
     ASelect: () => import("@/components/Form/AlajeSelect")
   }
