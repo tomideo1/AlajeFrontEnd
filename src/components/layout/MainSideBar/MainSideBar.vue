@@ -222,7 +222,7 @@ export default {
   position: absolute;
   content: "";
   height: 100%;
-  left: 20px;
+  // left: 20px;
   top: 0;
   -webkit-transition: width 0.2s ease-in;
   transition: width 0.2s ease-in;
@@ -235,20 +235,26 @@ export default {
 }
 
 .sidebar-navigation li.active {
-  width: 100%;
-  text-decoration: none;
-  outline: none;
-  background: #ffffff;
   position: relative;
-  padding-bottom: 5px;
+  height: 100%;
+  // margin-left: 20px !important;
+  // background: #ffffff;
+  top: 0;
+  background-color: #ffffff;
+  -webkit-transition: width 0.2s ease-in;
+  transition: width 0.2s ease-in;
   z-index: -1;
-  left: 20px;
+  border-radius: 50px 0 0 50px;
+  //     // width: 100%;
+  //     transition: width 0.2s ease-in;
 
+  //     // z-index: -1;
+  //     // left: 20px;
   a {
     color: color(a-purple-color);
   }
 
-  border-radius: 50px 0 0 50px;
+  //     border-radius: 50px 0 0 50px;
 
   .active-icon {
     filter: brightness(0.71) sepia(9) hue-rotate(204deg) saturate(230);
@@ -258,15 +264,9 @@ export default {
     /*hsl(271, 85%, 55%);*/
   }
 
-  // &:after {
-  //     content: url("~@/assets/subsctract-left.svg");
-  //     width: 0;
-  //     height: 0;
-  //     position: absolute;
-  //     top: 0% !important;
-  //     right: 0% !important;
-  //     transform: rotate(180deg);
-  // }
+  &::before {
+    margin-left: 20px;
+  }
 }
 
 .sidebar-navigation .header {

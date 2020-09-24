@@ -15,6 +15,8 @@
     <harmburgerlight v-if="name === 'harmburgerlight'"></harmburgerlight>
     <trade v-if="name === 'trade'"></trade>
     <elipse v-if="name === 'elipse'"></elipse>
+    <search v-if="name === 'search'"></search>
+    <select-close v-if="name === 'select-close'"></select-close>
   </span>
 </template>
 
@@ -43,7 +45,9 @@ export default {
     bell: () => import("@/components/__private__/media/bell"),
     harmburgerlight: () => import("@/components/__private__/media/harmburger-light"),
     Trade: () => import("@/components/__private__/media/trade"),
-    Elipse: () => import("@/components/__private__/media/elipse")
+    Elipse: () => import("@/components/__private__/media/elipse"),
+    Search: () => import("@/components/__private__/media/search"),
+    SelectClose: () => import("@/components/__private__/media/select-close")
   }
 };
 </script>

@@ -1,9 +1,9 @@
 <template>
   <div>
     <div v-if="type !== 'phone'">
-      <label class="font-avenir ft-12 label-class ml-1">{{ label }}</label>
+      <label v-if="showLabel" class="font-avenir ft-12 label-class ml-1">{{ label }}</label>
       <div class="input-icons">
-        <div class="icon-manager" @click="handleIcons">
+        <div :class="iconPosition === 'right' ? 'icon-manager icon-manager-right' : 'icon-manager icon-manager-left'" @click="handleIcons">
           <alaje-icons class="input-icons-icon" size="sm" v-if="!errorConditions" :name="iconHolder" />
           <alaje-icons class="input-icons-icon" size="sm" v-else :name="iconHolder + '-danger'" />
           <div class="password-strength  " v-if="type === 'password' && id === 'password' && passwordStrength">
@@ -11,7 +11,7 @@
           </div>
         </div>
         <input
-          v-if="type !== 'password'"
+          v-if="type === 'text'"
           :class="['width-100 text-bold', error.length > 0 && error[0].code === '005' && error[0].source.hasOwnProperty(id) ? 'is-invalid' : success ? 'is-valid' : '']"
           @keyup="keyup($event)"
           :value="value"
@@ -54,6 +54,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import passwordStrengthAlgorithm from "../../utils/passwordStrengthAlgorithm";
 export default {
@@ -92,11 +93,15 @@ export default {
       default: false
     },
     error: {
-      type: Array
+      default: []
     },
     success: {
       type: Boolean,
       default: false
+    },
+    showLabel: {
+      type: Boolean,
+      default: true
     },
     label: {
       type: String,
@@ -104,6 +109,9 @@ export default {
     },
     iconHolder: {
       type: String
+    },
+    iconPosition: {
+      default: "right"
     },
     id: {
       type: String
@@ -194,7 +202,8 @@ export default {
   }
 };
 </script>
-<style scoped lang="scss">
+
+<style lang="scss" scoped>
 input {
   height: 52px;
   // background-color: color(bv-grey-100);
@@ -216,6 +225,7 @@ input {
     line-height: 119.6%;
   }
 }
+
 .label-class {
   line-height: 119.6%;
   color: #211048;
@@ -238,6 +248,7 @@ input {
   box-sizing: border-box;
   border-radius: 5px;
   color: color(a-danger);
+
   &::placeholder {
     color: color(a-danger);
   }
@@ -248,6 +259,7 @@ input {
   border: 1px solid color(a-success) !important;
   box-sizing: border-box !important;
   border-radius: 5px !important;
+
   &::placeholder {
     color: color(a-success) !important;
   }
@@ -256,13 +268,21 @@ input {
 .icon-manager {
   position: absolute;
   top: 25%;
-  left: 72%;
+
+  &-right {
+    left: 72%;
+  }
+
+  &-left {
+    left: 0%;
+  }
 }
 
 .input-icons {
   width: 100%;
   margin: 0 auto;
   position: relative;
+
   &-icon {
     position: relative;
     left: 80%;
@@ -299,6 +319,7 @@ input:focus {
   border: 1px solid #e6e7ef;
   box-sizing: border-box;
   border-radius: 50px;
+
   &-meter {
     width: 0px;
     height: 1px;
@@ -306,22 +327,27 @@ input:focus {
     margin-top: -1px;
     box-sizing: border-box;
     border-radius: 50px;
+
     &-very-weak {
       border: 1px solid red;
       width: 10px;
     }
+
     &-weak {
       border: 1px solid orangered;
       width: 20px;
     }
+
     &-manage {
       border: 1px solid color(a-warning);
       width: 30px;
     }
+
     &-strong {
       border: 1px solid color(bv-primary);
       width: 40px;
     }
+
     &-very-strong {
       border: 1px solid color(a-success);
       width: 50px;
