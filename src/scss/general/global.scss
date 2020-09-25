@@ -232,6 +232,24 @@ body {
 * Text Colors
  */
 
+/** Fonts **/
+.fw {
+  &-300 {
+    font-weight: 300;
+  }
+  &-500 {
+    font-weight: 500;
+  }
+  &-700 {
+    font-weight: 700;
+  }
+  &-900 {
+    font-weight: 700;
+  }
+}
+
+/** Fonts **/
+
 .overlay-65 {
   background-color: color(a-overlay-65) !important;
 }

@@ -22,7 +22,7 @@
 
               <span class="ml-auto m-2 " v-if="selected === option">
                 <div class="close-radius mt-1 d-flex align-items-center justify-content-center">
-                  <alaje-icons name="select-close" size="xs" @click="close" />
+                  <alaje-icons name="select-close" size="xs" @click="close('web')" />
                 </div>
               </span>
             </div>
@@ -30,15 +30,35 @@
         </div>
       </div>
     </div>
-    <div class=" d-lg-none d-md-none d-block ">
-      <div class="mobile-select-body ">
-        <div class="d-flex flex-row">
-          <p class="font-avenir text-black ft-14 m-3">Select Merchant</p>
+    <div class=" d-lg-none d-md-none d-block mb-5 ">
+      <div class="mobile-select-body " v-show="showMobileSelect">
+        <div class="d-flex flex-row" @click="toggleSearch">
+          <p class="font-avenir text-black ft-14 m-3" v-if="searchFilter === ''">Select Merchant</p>
+          <div class="font-avenir text-black ft-14 m-2" v-else>
+            <span class=" ml-2 d-flex flex-row ">
+              <img src="@/assets/addidas.svg" />
+              <p class="font-avenir  m-2 ft-16 ">{{ searchFilter }}</p>
+            </span>
+          </div>
           <span class="ml-auto m-2"><alaje-icons name="caret-down" size="xs"/></span>
         </div>
       </div>
-      <div class="selection w-100  h-100">
-        <p class="font-avenir text-bold-black ft-16">Select Merchant</p>
+      <div class="selection w-100  h-100" v-if="!showMobileSelect">
+        <p class="font-avenir text-bold-black ft-16">
+          Select Merchant
+          <span class="float-right" @click="close('mobile')">X</span>
+        </p>
+        <div class="items  p-2 ">
+          <div class="mt-4" v-for="(option, index) in filteredOptions" :key="index">
+            <div :class="['d-flex flex-row', selected === option ? 'items-item-selected ' : 'items-item ']">
+              <span class=" ml-2 d-flex flex-row m-2" @click="selectOption(option, 'mobile')" style="cursor:pointer">
+                <img src="@/assets/addidas.svg" />
+                <p class="font-avenir  m-1 ft-16">{{ option.text }}</p>
+              </span>
+              <span class="ml-auto m-2 " v-if="selected === option"> </span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -65,7 +85,8 @@ export default {
       beginSearch: false,
       searchFilter: "",
       selected: {},
-      optionsShown: false
+      optionsShown: false,
+      showMobileSelect: true
     };
   },
   components: {
@@ -87,10 +108,13 @@ export default {
     }
   },
   methods: {
-    selectOption(option) {
+    selectOption(option, type = null) {
       this.selected = option;
       this.searchFilter = this.selected.text;
       this.$emit("selected", this.selected.value);
+      if (type === "mobile") {
+        this.toggleSearch();
+      }
     },
     showOptions() {
       this.searchFilter = "";
@@ -101,11 +125,21 @@ export default {
         this.selectOption(this.filteredOptions[0]);
       }
     },
-    close() {
-      if (this.selected) {
-        this.selected = {};
-        this.searchFilter = "";
-        // this.optionsShown = false
+    toggleSearch() {
+      this.showMobileSelect = !this.showMobileSelect;
+      this.$Bus.$emit("mobile-select-toggle", {
+        toggled: this.showMobileSelect
+      });
+    },
+    close(type) {
+      if (type === "web") {
+        if (this.selected) {
+          this.selected = {};
+          this.searchFilter = "";
+          // this.optionsShown = false
+        }
+      } else {
+        this.toggleSearch();
       }
     }
   },
