@@ -15,8 +15,10 @@
     <harmburgerlight v-if="name === 'harmburgerlight'"></harmburgerlight>
     <trade v-if="name === 'trade'"></trade>
     <elipse v-if="name === 'elipse'"></elipse>
+    <elipse v-if="name === 'elipse'"></elipse>
     <search v-if="name === 'search'"></search>
     <select-close v-if="name === 'select-close'"></select-close>
+    <caret-down v-if="name === 'caret-down'"></caret-down>
   </span>
 </template>
 
@@ -47,7 +49,8 @@ export default {
     Trade: () => import("@/components/__private__/media/trade"),
     Elipse: () => import("@/components/__private__/media/elipse"),
     Search: () => import("@/components/__private__/media/search"),
-    SelectClose: () => import("@/components/__private__/media/select-close")
+    SelectClose: () => import("@/components/__private__/media/select-close"),
+    CaretDown: () => import("@/components/__private__/media/caret-down")
   }
 };
 </script>

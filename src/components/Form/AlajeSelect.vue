@@ -1,31 +1,44 @@
 <template>
-  <div class="container d-lg-block d-none d-md-block  d-xl-block">
-    <div class=" select-body">
-      <p class="font-avenir text-bold-black ft-18 p-3">{{ title }}</p>
-      <div class="p-3">
-        <div class="input-icons ">
-          <div class="icon-manager">
-            <alaje-icons v-if="!beginSearch" class="input-icons-icon" size="sm" name="search" />
+  <div>
+    <div class="container d-lg-block d-none d-md-block  d-xl-block">
+      <div class=" select-body">
+        <p class="font-avenir text-bold-black ft-18 p-3">{{ title }}</p>
+        <div class="p-3">
+          <div class="input-icons ">
+            <div class="icon-manager">
+              <alaje-icons v-if="!beginSearch" class="input-icons-icon" size="sm" name="search" />
+            </div>
+            <input @focus="showOptions()" v-model="searchFilter" @keyup="keyMonitor" type="text" class="w-100" placeholder="Search" />
           </div>
-          <input @focus="showOptions()" v-model="searchFilter" @keyup="keyMonitor" type="text" class="w-100" placeholder="Search" />
+        </div>
+
+        <div class="items  p-2 ">
+          <div v-for="(option, index) in filteredOptions" :key="index">
+            <div :class="['d-flex flex-row', selected === option ? 'items-item-selected ' : 'items-item ']">
+              <span class=" ml-2 d-flex flex-row m-2" @click="selectOption(option)" style="cursor:pointer">
+                <img src="@/assets/addidas.svg" />
+                <p class="font-avenir  m-1 ft-14">{{ option.text }}</p>
+              </span>
+
+              <span class="ml-auto m-2 " v-if="selected === option">
+                <div class="close-radius mt-1 d-flex align-items-center justify-content-center">
+                  <alaje-icons name="select-close" size="xs" @click="close" />
+                </div>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="items  p-2 " v-show="optionsShown">
-        <div v-for="(option, index) in filteredOptions" :key="index">
-          <div :class="['d-flex flex-row', selected === option ? 'items-item-selected ' : 'items-item ']">
-            <span class=" ml-2 d-flex flex-row m-2" @click="selectOption(option)" style="cursor:pointer">
-              <img src="@/assets/addidas.svg" />
-              <p class="font-avenir  m-1 ft-14">{{ option.text }}</p>
-            </span>
-
-            <span class="ml-auto m-2 " v-if="selected === option">
-              <div class="close-radius mt-1 d-flex align-items-center justify-content-center">
-                <alaje-icons name="select-close" size="xs" @click="close" />
-              </div>
-            </span>
-          </div>
+    </div>
+    <div class=" d-lg-none d-md-none d-block ">
+      <div class="mobile-select-body ">
+        <div class="d-flex flex-row">
+          <p class="font-avenir text-black ft-14 m-3">Select Merchant</p>
+          <span class="ml-auto m-2"><alaje-icons name="caret-down" size="xs"/></span>
         </div>
+      </div>
+      <div class="selection w-100  h-100">
+        <p class="font-avenir text-bold-black ft-16">Select Merchant</p>
       </div>
     </div>
   </div>
@@ -178,7 +191,6 @@ input:focus {
 
 .items {
   overflow-y: auto;
-  height: 150px;
 
   &-item {
     border-radius: 10px;
@@ -207,5 +219,16 @@ input:focus {
   width: 20px;
   height: 20px;
   background: #ffffff;
+}
+
+.mobile-select-body {
+  background: #ffffff;
+  width: 100%;
+  display: inline-block;
+  /* 25% Grey */
+
+  border: 1px solid #e6e7ef;
+  box-sizing: border-box;
+  border-radius: 5px;
 }
 </style>
