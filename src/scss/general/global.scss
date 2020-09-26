@@ -2,6 +2,15 @@
 //@import url("https://github.com/Papillard/Avenir");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
 
+@font-face {
+  font-family: "avenir";
+  src: url("https://github.com/Papillard/Avenir/blob/master/AvenirBold.woff2") format("woff2"), url("https://github.com/Papillard/Avenir/blob/master/AvenirBold.woff") format("woff"),
+    url("https://github.com/Papillard/Avenir/blob/master/AvenirBold.eot") format("opentype");
+  font-display: auto;
+  font-style: italic;
+  font-weight: 400;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -16,7 +25,7 @@
 
 body {
   line-height: 1.5;
-  font-family: fonts(alaje-avenir);
+  font-family: fonts(Avenir);
   font-size: 1rem;
   color: #333333;
   background-color: color(a-white);
@@ -116,23 +125,23 @@ body {
 }
 
 .bg-grey-100 {
-  background-color: color(a-grey-100) !important;
+  background-color: color(bv-grey-100) !important;
 }
 
 .bg-grey-200 {
-  background-color: color(a-grey-200) !important;
+  background-color: color(bv-grey-200) !important;
 }
 
 .bg-grey-500 {
-  background-color: color(a-grey-500) !important;
+  background-color: color(bv-grey-500) !important;
 }
 
 .bg-grey-800 {
-  background-color: color(a-grey-800) !important;
+  background-color: color(bv-grey-800) !important;
 }
 
 .bg-grey-900 {
-  background-color: color(a-grey-900) !important;
+  background-color: color(bv-grey-900) !important;
 }
 .bg-dark-purple {
   background: #211048 !important;
@@ -209,7 +218,7 @@ body {
 }
 
 .text-bold-white {
-  font-family: Avenir;
+  font-family: fonts(Avenir);
   font-style: normal;
   font-weight: 900;
   font-size: 36px;
@@ -330,7 +339,7 @@ Text weight
 /*** Font Sizes ************** */
 
 .font-avenir {
-  font-family: Avenir;
+  font-family: fonts(Avenir), "sans-serif";
 }
 .font-roboto {
   font-family: Roboto;

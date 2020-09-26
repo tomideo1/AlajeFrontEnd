@@ -5,8 +5,8 @@
     </div>
     <div>
       <span class=" download-box d-flex flex-column ">
-        <h2 class="line-height-50 mx-auto ft-36 font-roboto  mt-5  unskew  download-box-center-text    text-bold-white">Download Our Mobile App</h2>
-        <p class="text-white font-roboto ft-14  unskew w-50 text-align-justify mx-auto mt-3">
+        <h2 class="line-height-50 mx-auto ft-36 font-avenir  mt-5  unskew  download-box-center-text    text-bold-white">Download Our Mobile App</h2>
+        <p class="text-white font-avenir ft-14  unskew w-50 text-align-justify mx-auto mt-3">
           {{ text }}
         </p>
         <div class="d-flex mx-auto mt-4 flex-row unskew">

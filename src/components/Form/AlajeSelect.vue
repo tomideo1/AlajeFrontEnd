@@ -176,7 +176,7 @@ input {
   // background-color: color(bv-grey-100);
   font-size: 14px;
   color: #999999;
-  font-family: Avenir;
+  font-family: fonts(Avenir);
   line-height: 1.3;
   padding: 1rem;
   border: 1px solid #e6e7ef;
@@ -185,7 +185,7 @@ input {
   background: transparent;
 
   &::placeholder {
-    font-family: Avenir;
+    font-family: fonts(Avenir);
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -232,7 +232,7 @@ input:focus {
   &-item {
     border-radius: 10px;
     height: 45px;
-    font-family: Avenir;
+    font-family: fonts(Avenir);
     font-style: normal;
     font-weight: 900;
     line-height: 150%;
@@ -243,7 +243,7 @@ input:focus {
     background: linear-gradient(101.54deg, #b558f9 0%, #932cff 100%);
     border-radius: 10px;
     height: 45px;
-    font-family: Avenir;
+    font-family: fonts(Avenir);
     font-style: normal;
     font-weight: 900;
     line-height: 150%;

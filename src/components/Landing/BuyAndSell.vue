@@ -3,7 +3,7 @@
     <div class="row">
       <transition name="fade" enter-active-class="fadeInLeft" leave-active-class="fadeOutLeft">
         <div class=" animation col-md-6 ml-lg-5 ml-md-5">
-          <h2 class="line-height-50  ft-36 font-roboto  text-bold-black">Buy And Sell Giftcards</h2>
+          <h2 class="line-height-50  ft-36 font-avenir  text-bold-black">Buy And Sell Giftcards</h2>
           <p class="text-align-justify text-regular ft-14">
             {{ text }}
           </p>

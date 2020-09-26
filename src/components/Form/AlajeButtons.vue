@@ -68,6 +68,10 @@ export default {
     loading: {
       type: Boolean,
       default: false
+    },
+    inverse: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -97,8 +101,12 @@ export default {
       let classes = "";
       classes += sizes.includes(this.size) ? `btn-${this.size} ` : "";
       classes += types.includes(this.type) ? `btn-${this.type} ` : "";
-      classes += colors.includes(this.text_color) ? `btn-${this.text_color}` : "";
       classes += this.block ? "btn-block" : "";
+      if (this.inverse) {
+        classes += colors.includes(this.text_color) ? `btn-${this.text_color} btn-${this.text_color}-inverse ` : "";
+      } else {
+        classes += colors.includes(this.text_color) ? `btn-${this.text_color}` : "";
+      }
       return classes.trim();
     },
 
@@ -160,6 +168,10 @@ button,
       background: color(a-purple);
       color: color(a-white);
     }
+    &.btn-purple-inverse {
+      background: color(a-purple);
+      color: color(a-white);
+    }
   }
 
   &.btn-white {
@@ -208,7 +220,7 @@ button,
   &.btn-grey-50 {
     color: color(a-grey-50);
     background: transparent;
-    &.btn-green:hover {
+    &.btn-grey-50:hover {
       background: color(a-grey-50);
       color: color(a-grey-50);
     }

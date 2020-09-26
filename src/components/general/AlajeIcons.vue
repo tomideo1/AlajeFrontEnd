@@ -15,7 +15,6 @@
     <harmburgerlight v-if="name === 'harmburgerlight'"></harmburgerlight>
     <trade v-if="name === 'trade'"></trade>
     <elipse v-if="name === 'elipse'"></elipse>
-    <elipse v-if="name === 'elipse'"></elipse>
     <search v-if="name === 'search'"></search>
     <select-close v-if="name === 'select-close'"></select-close>
     <caret-down v-if="name === 'caret-down'"></caret-down>

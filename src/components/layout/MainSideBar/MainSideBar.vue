@@ -182,7 +182,7 @@ export default {
   padding: 0;
   list-style-type: none;
   position: relative;
-  font-family: Avenir !important;
+  font-family: fonts(Avenir) !important;
 }
 
 .sidebar-navigation li {
@@ -243,7 +243,6 @@ export default {
   background-color: #ffffff;
   -webkit-transition: width 0.2s ease-in;
   transition: width 0.2s ease-in;
-  z-index: -1;
   border-radius: 50px 0 0 50px;
   cursor: pointer !important;
   //     // width: 100%;

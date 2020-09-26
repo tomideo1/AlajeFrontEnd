@@ -2,18 +2,19 @@
   <div class="container-fluid">
     <div>
       <header-card :show-greetings="false" title="Buy GiftCards" v-if="mobileToggleSelect" shwo-wallet :wallet-amount="1000" />
-      <div class="row">
+      <div class="row" v-show="!selectDone">
         <a-select class="col-md-4" :items="items" v-model="merchant"></a-select>
         <div v-show="mobileToggleSelect" class="col-lg-8 col-12  col-md-8">
           <skeleton v-if="merchant === ''" title="Select GiftCard" size="4" width="20%" mobile-height="80px" height="90px" :max-items="4" />
           <div class="skeleton p-4" v-else>
             <p class="font-avenir text-bold-black ft-18 fw-900">Select Giftcard</p>
+
             <div class="col-lg-12 col-md-12 col-12 d-block d-lg-none d-md-none">
               <div class=" row  ">
-                <div class="col-6 d-flex flex-column p-3" v-for="(item, index) in items" :key="index">
-                  <img @click="toggleCard(item.value)" src="@/assets/demo-card.png" :class="['gift-card', activeCard === item.value ? 'gift-card-active' : '']" />
+                <div class="col-6 d-flex flex-column p-3" v-for="(item, index) in getCurrentItem.cards" :key="index">
+                  <img @click="toggleCard(item)" src="@/assets/demo-card.png" :class="['gift-card', activeCard.id === item.id ? 'gift-card-active' : '']" />
 
-                  <p v-if="item.value === merchant" class="mx-auto mt-3">{{ item.text }}</p>
+                  <p class="mx-auto mt-3">{{ item.title }}</p>
                 </div>
               </div>
             </div>
@@ -21,39 +22,90 @@
 
             <div class="col-lg-12 col-md-12 col-12  d-none d-lg-block d-md-block">
               <div class=" row  ">
-                <div class="col-lg-3 col-md-3 d-flex flex-column  " v-for="(item, index) in items" :key="index">
-                  <img @click="toggleCard(item.value)" src="@/assets/demo-card.svg" :class="['gift-card', activeCard === item.value ? 'gift-card-active' : '']" />
-                  <p v-if="item.value === merchant" class="mx-auto mt-3">{{ item.text }}</p>
+                <div class="col-lg-3 col-md-3 d-flex flex-column  " v-for="(item, index) in getCurrentItem.cards" :key="index">
+                  <img @click="toggleCard(item)" src="@/assets/demo-card.svg" :class="['gift-card', activeCard.id === item.id ? 'gift-card-active' : '']" />
+                  <p class="mx-auto mt-3">{{ item.title }}</p>
                 </div>
               </div>
             </div>
           </div>
 
           <skeleton v-if="activeCard === '' || merchant === ''" class="mt-4" title="Select Country/Currency" size="2" width="5%" mobile-height="30px" height="40px" :max-items="9" />
+
           <div class="skeleton p-4 mt-4" v-else>
             <p class="font-avenir text-bold-black ft-18 fw-900">Select Country/Currency</p>
 
             <div class="d-block d-lg-none d-md-none col-12">
               <div class=" row  ">
-                <div class="   col-3  d-flex flex-column  " v-for="(item, index) in items" :key="index">
-                  <img @click="toggleCountry(item.value)" src="@/assets/demo-country.png" :class="['gift-card', activeCountry === item.value ? 'gift-card-active' : '']" />
-                  <p v-if="activeCard !== ''" class="mx-auto mt-3">{{ item.country }}</p>
+                <div class="   col-3  d-flex flex-column  " v-for="(item, index) in activeCard.country" :key="index">
+                  <img @click="toggleCountry(item)" src="@/assets/demo-country.png" :class="['gift-card', activeCountry.title === item.title ? 'gift-card-active' : '']" />
+                  <p v-if="activeCard !== ''" class="mx-auto mt-3">{{ item.title }}</p>
                 </div>
               </div>
             </div>
 
             <div class=" d-none d-lg-block d-md-block  ">
               <div class="row">
-                <div class=" col-lg-1 m-3 col-md-2  d-flex flex-column  " v-for="(item, index) in items" :key="index">
-                  <img @click="toggleCountry(item.value)" src="@/assets/demo-country.png" :class="['gift-card', activeCountry === item.value ? 'gift-card-active' : '']" />
-                  <p v-if="activeCard !== ''" class="mx-auto mt-3">{{ item.country }}</p>
+                <div class=" col-lg-1 m-3 col-md-2  d-flex flex-column  " v-for="(item, index) in activeCard.country" :key="index">
+                  <img @click="toggleCountry(item)" width="50" src="@/assets/demo-country.png" :class="['gift-card', activeCountry.title === item.title ? 'gift-card-active' : '']" />
+                  <p v-if="activeCard !== ''" class="mx-auto mt-3">{{ item.title }}</p>
                 </div>
               </div>
             </div>
           </div>
+          <alaje-buttons v-if="activeCountry === ''" v-show="mobileToggleSelect" class="ml-auto mt-3" :disable="true" text_color="grey-50" text="Continue" />
+          <alaje-buttons @click="selectDone = true" v-else class="ml-auto mt-3" text_color="purple" text="Continue" />
         </div>
-        <alaje-buttons v-if="activeCountry === ''" v-show="mobileToggleSelect" class="ml-auto mt-3" :disable="true" text_color="grey-50" text="Continue" />
-        <alaje-buttons v-show="mobileToggleSelect" v-else class="ml-auto mt-3" text_color="purple" text="Continue" />
+      </div>
+
+      <div class="row" v-if="selectDone">
+        <div class="col-md-3 col-12 col-lg-3  p-5 preview">
+          <div class="row">
+            <div class="col-md-12 col-lg-12 col-10  ">
+              <div class="d-flex flex-column align-items-center justify-content-center">
+                <img class="d-none d-lg-block d-md-block" src="@/assets/demo-card.svg" />
+                <img class="d-block d-lg-none d-md-none" src="@/assets/demo-card.svg" width="179" height="112" />
+                <p class="font-avenir mx-auto mt-3 ft-14 text-black fw-700">{{ activeCard.title }}</p>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-2  mt-4 ">
+              <div class="d-flex flex-column align-items-center justify-content-center">
+                <span> <img class="mt-lg-3 mt-md-3" src="@/assets/demo-country.png"/></span>
+                <p class="font-avenir mx-auto mt-3 ft-14 text-black fw-700">{{ activeCountry.title }}</p>
+              </div>
+            </div>
+
+            <div class="col-md-12 col-lg-12 col-12  mt-4 ">
+              <div class="d-flex flex-column align-items-center justify-content-center">
+                <alaje-buttons text_color="purple" text="Edit" class="bg-white" @click="selectDone = false" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7 col-lg-8 col-12 skeleton ml-lg-4 ml-md-4 mt-4 mt-lg-0 mt-md-0 p-3 ">
+          <p class="font-avenir text-bold-black fw-900  ft-18 p-3">Select GiftCard Amount</p>
+          <div class="d-flex flex-column">
+            <div class="skeleton overflow-y-auto mt-2" style="height: inherit" v-for="(item, index) in activeCard.amounts" :key="index">
+              <div class="d-flex flex-row">
+                <p class="p-3 mt-3">
+                  <span class=" text-pink fw-700 ft-8"> $ {{ item.amount }}</span> <span class="text-grey-50 ft-12 fw-300"> ({{ convertToNaira(item.amount) }})</span>
+                </p>
+                <span class="ml-auto d-flex flex-row align-items-center ">
+                  <alaje-buttons @click="item.quantity > 0 ? item.quantity-- : ''" inverse text_color="purple" text="-" class="m-3 mt-3" />
+                  <span v-if="item.quantity >= 0" class="mt-1 text-pink fw-700">{{ item.quantity }}</span>
+                  <span v-else class="mt-1 text-pink fw-700">0</span>
+                  <alaje-buttons @click="item.quantity++" inverse text_color="purple" text="+" class="m-3 mt-3" />
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex flex-row">
+            <p class="font-avenir  m-3 ft-18 fw-500 ml-auto pt-1">
+              Order Total: <span class="text-pink fw-900 font-avenir">N {{ convertToNaira(getTotalItems) }}</span>
+            </p>
+            <alaje-buttons class="m-3" size="sm" text_color="purple" text="Pay" />
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -63,7 +115,9 @@
 import HeaderCard from "../../../components/general/headerCard";
 import Skeleton from "../../../components/cards/skeleton";
 import AlajeButtons from "../../../components/Form/AlajeButtons";
+import General from "@/mixins/general";
 export default {
+  mixins: [General],
   name: "Trade",
   data() {
     return {
@@ -71,30 +125,347 @@ export default {
       mobileToggleSelect: true,
       activeCard: "",
       activeCountry: "",
+      selectDone: false,
       items: [
         {
           value: "1",
           logo: "logo-image",
-          text: "Addidas",
-          country: "NGN"
+          cards: [
+            {
+              title: "addidas-black",
+              image: null,
+              id: "1",
+              amounts: [
+                {
+                  amount: 5,
+                  quantity: 0
+                },
+                {
+                  amount: 10,
+                  quantity: 0
+                },
+                {
+                  amount: 15,
+                  quantity: 0
+                },
+                {
+                  amount: 20,
+                  quantity: 0
+                }
+              ],
+              country: [
+                {
+                  title: "NGN",
+                  logo: ""
+                },
+                {
+                  title: "USA",
+                  logo: ""
+                },
+                {
+                  title: "ENG",
+                  logo: ""
+                },
+                {
+                  title: "ARG",
+                  logo: ""
+                }
+              ]
+            },
+            {
+              title: "addidas-small",
+              image: null,
+              id: "2",
+              amounts: [
+                {
+                  amount: 5,
+                  quantity: 0
+                },
+                {
+                  amount: 10,
+                  quantity: 0
+                },
+                {
+                  amount: 15,
+                  quantity: 0
+                },
+                {
+                  amount: 20,
+                  quantity: 0
+                }
+              ],
+              country: [
+                {
+                  title: "EU",
+                  logo: ""
+                },
+                {
+                  title: "AUS",
+                  logo: ""
+                },
+                {
+                  title: "LONDON",
+                  logo: ""
+                }
+              ]
+            }
+          ],
+          text: "Addidas"
         },
         {
           value: "2",
           logo: "logo-image",
           text: "Nike",
-          country: "USA"
+          cards: [
+            {
+              title: "Nike-black",
+              image: null,
+              id: "3",
+              amounts: [
+                {
+                  amount: 5,
+                  quantity: 0
+                },
+                {
+                  amount: 10,
+                  quantity: 0
+                },
+                {
+                  amount: 15,
+                  quantity: 0
+                },
+                {
+                  amount: 20,
+                  quantity: 0
+                }
+              ],
+              country: [
+                {
+                  title: "NGN",
+                  logo: ""
+                },
+                {
+                  title: "USA",
+                  logo: ""
+                },
+                {
+                  title: "ENG",
+                  logo: ""
+                },
+                {
+                  title: "ARG",
+                  logo: ""
+                }
+              ]
+            },
+            {
+              title: "nike-small",
+              image: null,
+              id: "4",
+              amounts: [
+                {
+                  amount: 5,
+                  quantity: 0
+                },
+                {
+                  amount: 10,
+                  quantity: 0
+                },
+                {
+                  amount: 15,
+                  quantity: 0
+                },
+                {
+                  amount: 20,
+                  quantity: 0
+                }
+              ],
+              country: [
+                {
+                  title: "EU",
+                  logo: ""
+                },
+                {
+                  title: "AUS",
+                  logo: ""
+                },
+                {
+                  title: "LONDON",
+                  logo: ""
+                }
+              ]
+            }
+          ]
         },
         {
           value: "3",
           logo: "logo-image",
           text: "Apple",
-          country: "FIN"
+          cards: [
+            {
+              title: "Apple-black",
+              image: null,
+              id: "7",
+              amounts: [
+                {
+                  amount: 5,
+                  quantity: 0
+                },
+                {
+                  amount: 10,
+                  quantity: 0
+                },
+                {
+                  amount: 15,
+                  quantity: 0
+                },
+                {
+                  amount: 20,
+                  quantity: 0
+                }
+              ],
+              country: [
+                {
+                  title: "NGN",
+                  logo: ""
+                },
+                {
+                  title: "USA",
+                  logo: ""
+                },
+                {
+                  title: "ENG",
+                  logo: ""
+                },
+                {
+                  title: "ARG",
+                  logo: ""
+                }
+              ]
+            },
+            {
+              title: "Apple-small",
+              image: null,
+              id: "8",
+              amounts: [
+                {
+                  amount: 5,
+                  quantity: 0
+                },
+                {
+                  amount: 10,
+                  quantity: 0
+                },
+                {
+                  amount: 15,
+                  quantity: 0
+                },
+                {
+                  amount: 20,
+                  quantity: 0
+                }
+              ],
+              country: [
+                {
+                  title: "EU",
+                  logo: ""
+                },
+                {
+                  title: "AUS",
+                  logo: ""
+                },
+                {
+                  title: "LONDON",
+                  logo: ""
+                }
+              ]
+            }
+          ]
         },
         {
           value: "4",
           logo: "logo-image",
           text: "Amazon",
-          country: "ENG"
+          cards: [
+            {
+              title: "Amazon-black",
+              image: null,
+              id: "5",
+              amounts: [
+                {
+                  amount: 5,
+                  quantity: 0
+                },
+                {
+                  amount: 10,
+                  quantity: 0
+                },
+                {
+                  amount: 15,
+                  quantity: 0
+                },
+                {
+                  amount: 20,
+                  quantity: 0
+                }
+              ],
+              country: [
+                {
+                  title: "NGN",
+                  logo: ""
+                },
+                {
+                  title: "USA",
+                  logo: ""
+                },
+                {
+                  title: "ENG",
+                  logo: ""
+                },
+                {
+                  title: "ARG",
+                  logo: ""
+                }
+              ]
+            },
+            {
+              title: "Amazon-small",
+              image: null,
+              id: "6",
+              amounts: [
+                {
+                  amount: 5,
+                  quantity: 0
+                },
+                {
+                  amount: 10,
+                  quantity: 0
+                },
+                {
+                  amount: 15,
+                  quantity: 0
+                },
+                {
+                  amount: 20,
+                  quantity: 0
+                }
+              ],
+              country: [
+                {
+                  title: "EU",
+                  logo: ""
+                },
+                {
+                  title: "AUS",
+                  logo: ""
+                },
+                {
+                  title: "LONDON",
+                  logo: ""
+                }
+              ]
+            }
+          ]
         }
       ]
     };
@@ -110,12 +481,32 @@ export default {
       this.mobileToggleSelect = res.toggled;
     });
   },
+  computed: {
+    getCurrentItem() {
+      return this.searchItems(this.merchant, this.items);
+    },
+    getTotalItems() {
+      let total = [];
+      // return total;
+      this.activeCard.amounts.forEach(amount => {
+        total.push(amount.amount * amount.quantity);
+      });
+      return total.reduce((a, b) => a + b, 0);
+    }
+  },
   methods: {
     toggleCard(item) {
       return (this.activeCard = item);
     },
     toggleCountry(item) {
       return (this.activeCountry = item);
+    },
+    searchItems(needle, haystack) {
+      return haystack.find(item => {
+        if (Object.values(item).includes(needle)) {
+          return item;
+        }
+      });
     }
   }
 };
@@ -145,7 +536,12 @@ export default {
 .gift-card {
   &-active {
     border: 3px solid color(a-purple-color);
+    border-radius: 10px;
     box-sizing: border-box;
   }
+}
+.preview {
+  background: #f5f5f9 !important;
+  border-radius: 10px !important;
 }
 </style>
