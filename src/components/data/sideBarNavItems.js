@@ -17,7 +17,7 @@ export default function() {
       activeIcon: "active-trade",
       identifier: "trade",
       to: {
-        name: "customer-trade"
+        name: "customer-trade-home"
       }
     }
   ];

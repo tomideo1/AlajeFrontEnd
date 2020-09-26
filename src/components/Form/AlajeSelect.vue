@@ -8,7 +8,8 @@
             <div class="icon-manager">
               <alaje-icons v-if="!beginSearch" class="input-icons-icon" size="sm" name="search" />
             </div>
-            <input @focus="showOptions()" v-model="searchFilter" @keyup="keyMonitor" type="text" class="w-100" placeholder="Search" />
+            <input @focus="showOptions()" v-model="searchFilter" v-if="searchFilter === ''" @keyup="keyMonitor" type="text" class="w-100" placeholder="Search" />
+            <input @focus="showOptions()" v-model="searched" v-else @keyup="keyMonitor" type="text" class="w-100" placeholder="Search" />
           </div>
         </div>
 
@@ -33,11 +34,11 @@
     <div class=" d-lg-none d-md-none d-block mb-5 ">
       <div class="mobile-select-body " v-show="showMobileSelect">
         <div class="d-flex flex-row" @click="toggleSearch">
-          <p class="font-avenir text-black ft-14 m-3" v-if="searchFilter === ''">Select Merchant</p>
+          <p class="font-avenir text-black ft-14 m-3" v-if="searched === ''">Select Merchant</p>
           <div class="font-avenir text-black ft-14 m-2" v-else>
             <span class=" ml-2 d-flex flex-row ">
               <img src="@/assets/addidas.svg" />
-              <p class="font-avenir  m-2 ft-16 ">{{ searchFilter }}</p>
+              <p class="font-avenir  m-2 ft-16 ">{{ searched }}</p>
             </span>
           </div>
           <span class="ml-auto m-2"><alaje-icons name="caret-down" size="xs"/></span>
@@ -85,6 +86,7 @@ export default {
       beginSearch: false,
       searchFilter: "",
       selected: {},
+      searched: "",
       optionsShown: false,
       showMobileSelect: true
     };
@@ -110,10 +112,10 @@ export default {
   methods: {
     selectOption(option, type = null) {
       this.selected = option;
-      this.searchFilter = this.selected.text;
+      this.searched = this.selected.text;
       this.$emit("selected", this.selected.value);
       if (type === "mobile") {
-        this.toggleSearch();
+        setTimeout(() => this.toggleSearch(), 500);
       }
     },
     showOptions() {
@@ -136,6 +138,7 @@ export default {
         if (this.selected) {
           this.selected = {};
           this.searchFilter = "";
+          this.$emit("selected", "");
           // this.optionsShown = false
         }
       } else {

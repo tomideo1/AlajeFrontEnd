@@ -9,11 +9,11 @@
       <!--      </span>-->
       <div v-if="items" class="px-3 py-2   mt-lg-0 mt-md-0">
         <ul class="sidebar-navigation">
-          <li v-for="(item, index) in items" :key="index" :class="active === item.identifier ? 'active' : ''" @click="toggleActive">
-            <router-link :to="item.to">
-              <alaje-icons :class="active === item.identifier ? 'active-icon' : ''" size="xs" :name="item.routeIcon"></alaje-icons>
+          <li v-for="(item, index) in items" :key="index" :class="$route.path.includes(item.identifier) ? 'active' : ''" @click="toggleActive(item.identifier)">
+            <a @click="$router.push(item.to)">
+              <alaje-icons :class="$route.path.includes(item.identifier) ? 'active-icon' : ''" size="xs" :name="item.routeIcon"></alaje-icons>
               {{ item.title }}
-            </router-link>
+            </a>
           </li>
         </ul>
       </div>
@@ -71,8 +71,8 @@ export default {
     };
   },
   methods: {
-    toggleActive() {
-      this.active = this.$router.currentRoute.fullPath.substring(this.$router.currentRoute.fullPath.lastIndexOf("/") + 1);
+    toggleActive(path) {
+      this.active = this.$route.path.includes(path) ? path : "Alaje";
       this.$Bus.$emit("current", {
         title: this.active
       });
@@ -245,6 +245,7 @@ export default {
   transition: width 0.2s ease-in;
   z-index: -1;
   border-radius: 50px 0 0 50px;
+  cursor: pointer !important;
   //     // width: 100%;
   //     transition: width 0.2s ease-in;
 

@@ -205,6 +205,14 @@ button,
       color: color(a-white);
     }
   }
+  &.btn-grey-50 {
+    color: color(a-grey-50);
+    background: transparent;
+    &.btn-green:hover {
+      background: color(a-grey-50);
+      color: color(a-grey-50);
+    }
+  }
 }
 
 .btn-block {
