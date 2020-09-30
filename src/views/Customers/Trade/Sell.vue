@@ -3,7 +3,7 @@
     <div>
       <header-card :show-greetings="false" title="Sell GiftCards" v-if="mobileToggleSelect" shwo-wallet :wallet-amount="1000" />
       <div class="row" v-show="!selectDone">
-        <a-select class="col-md-4" :items="items" v-model="merchant"></a-select>
+        <a-select class="col-md-4" :items="items" v-model="merchant" @selected="handleData"></a-select>
         <div v-show="mobileToggleSelect" class="col-lg-8 col-12  col-md-8">
           <skeleton v-if="merchant === ''" title="Select GiftCard" size="4" width="20%" mobile-height="80px" height="90px" :max-items="4" />
           <div class="skeleton p-4" v-else>
@@ -47,13 +47,14 @@
             <div class=" d-none d-lg-block d-md-block  ">
               <div class="row">
                 <div class=" col-lg-1 m-3 col-md-2  d-flex flex-column  " v-for="(item, index) in activeCard.country" :key="index">
-                  <img @click="toggleCountry(item)" width="50" src="@/assets/demo-country.png" :class="['gift-card', activeCountry.title === item.title ? 'gift-card-active' : '']" />
-                  <p v-if="activeCard !== ''" class="mx-auto mt-3">{{ item.title }}</p>
+                  <img @click="toggleCountry(item)" width="50" src="@/assets/demo-country.png" :class="['country-card', activeCountry.title === item.title ? 'country-card-active' : fadeClass]" />
+                  <p v-if="activeCard !== ''" :class="['mx-auto mt-3', activeCountry.title === item.title ? '' : fadeClass]">{{ item.title }}</p>
                 </div>
               </div>
             </div>
           </div>
-          <alaje-buttons v-if="activeCountry === ''" v-show="mobileToggleSelect" class="ml-auto mt-3" :disable="true" text_color="grey-50" text="Continue" />
+          <alaje-buttons v-if="activeCountry === '' || activeCard === '' || merchant === ''" v-show="mobileToggleSelect" class="ml-auto mt-3" :disable="true" text_color="grey-50" text="Continue" />
+
           <alaje-buttons @click="selectDone = true" v-else class="ml-auto mt-3" text_color="purple" text="Continue" />
         </div>
       </div>
@@ -88,13 +89,29 @@
             <p class="font-avenir text-black fw-900 p-2 mt-2">Range ($)</p>
             <p class="font-avenir text-black fw-900 ml-auto p-2 mt-2">Price ( per $)</p>
           </div>
-          <!--          <p class="text-bold-pink ft-12 font-avenir">Single</p>-->
+          <p class="text-bold-pink mt-3 d-flex mr-auto  fw-900 ft-12  font-avenir line-height-119">Single</p>
+          <div :class="['d-flex flex-row', i % 2 == 0 ? 'rates-header-no-bg' : 'rates-header']" v-for="i in 3" :key="i">
+            <p class="font-avenir text-black fw-500 p-2 mt-2">1 - 25</p>
+            <p class="font-avenir text-black fw-500 ml-auto p-2 mt-2">N 1000</p>
+          </div>
+
+          <p class="text-bold-pink mt-3  d-flex mr-auto fw-900 ft-12  font-avenir line-height-119">Bulk</p>
+          <div class="d-flex flex-row rates-header ">
+            <p class="font-avenir text-black fw-500 p-2 mt-2">1 - 25</p>
+            <p class="font-avenir text-black fw-500 ml-auto p-2 mt-2">N 1000</p>
+          </div>
         </div>
         <div class="col-md-3 m-lg-3 m-md-3 mt-3 mt-lg-0 mt-md-0 col-12 col-lg-4 p-3 skeleton ">
           <p class="font-avenir fw-900 ft-18 ">
             Select Gift Card Type
             <span class="float-right mt-2 font-avenir ft-10 text-pink"> Need Help ?</span>
           </p>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="skeleton col-lg-5 col-md-5 m-lg-2 m-md-2 mt-2 mt-lg-0 mt-md-0 col-12"></div>
+              <div class="skeleton col-lg-5 col-md-5 m-lg-2 m-md-2 mt-2 mt-lg-0 mt-md-0 col-12"></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -457,7 +474,8 @@ export default {
             }
           ]
         }
-      ]
+      ],
+      fadeClass: ""
     };
   },
   components: {
@@ -486,10 +504,17 @@ export default {
   },
   methods: {
     toggleCard(item) {
+      this.fadeClass = "";
       return (this.activeCard = item);
     },
     toggleCountry(item) {
+      this.fadeClass += "opaque opaque-half";
+
       return (this.activeCountry = item);
+    },
+    handleData() {
+      this.activeCard = "";
+      this.activeCountry = "";
     },
     searchItems(needle, haystack) {
       return haystack.find(item => {
@@ -497,6 +522,14 @@ export default {
           return item;
         }
       });
+    }
+  },
+  watch: {
+    merchant() {
+      if (this.merchant == "") {
+        this.activeCard = "";
+        this.activeCountry = "";
+      }
     }
   }
 };
@@ -530,6 +563,13 @@ export default {
     box-sizing: border-box;
   }
 }
+.country-card {
+  &-active {
+    border: 3px solid color(a-purple-color);
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+}
 .preview {
   background: #f5f5f9 !important;
   border-radius: 10px !important;
@@ -538,6 +578,9 @@ export default {
 .rates {
   &-header {
     background: rgb(250, 245, 255);
+    border-radius: 5px;
+  }
+  &-header-no-bg {
     border-radius: 5px;
   }
 }

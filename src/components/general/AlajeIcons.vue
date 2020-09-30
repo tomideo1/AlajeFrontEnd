@@ -18,6 +18,7 @@
     <search v-if="name === 'search'"></search>
     <select-close v-if="name === 'select-close'"></select-close>
     <caret-down v-if="name === 'caret-down'"></caret-down>
+    <passcode v-if="name === 'passcode'"></passcode>
   </span>
 </template>
 
@@ -49,7 +50,8 @@ export default {
     Elipse: () => import("@/components/__private__/media/elipse"),
     Search: () => import("@/components/__private__/media/search"),
     SelectClose: () => import("@/components/__private__/media/select-close"),
-    CaretDown: () => import("@/components/__private__/media/caret-down")
+    CaretDown: () => import("@/components/__private__/media/caret-down"),
+    passcode: () => import("@/components/__private__/media/passcode")
   }
 };
 </script>

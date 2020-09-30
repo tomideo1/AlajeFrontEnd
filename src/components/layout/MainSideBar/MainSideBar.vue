@@ -72,7 +72,7 @@ export default {
   },
   methods: {
     toggleActive(path) {
-      this.active = this.$route.path.includes(path) ? path : "Alaje";
+      this.active = this.$route.path.includes(path) ? path : path;
       this.$Bus.$emit("current", {
         title: this.active
       });

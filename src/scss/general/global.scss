@@ -528,6 +528,10 @@ Text weight
   line-height: 54px !important;
 }
 
+.line-height-119 {
+  line-height: 119.6% !important;
+}
+
 .line-height-default {
   line-height: 1.5 !important;
 }
@@ -974,3 +978,15 @@ ul.vti__dropdown-list {
     color: #fcd000 !important;
   }
 }
+
+/** Opacity */
+
+.opaque {
+  &-full {
+    opacity: 1;
+  }
+  &-half {
+    opacity: 0.5;
+  }
+}
+/** Opacity */

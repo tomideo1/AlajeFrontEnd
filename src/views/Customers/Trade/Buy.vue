@@ -3,7 +3,7 @@
     <div>
       <header-card :show-greetings="false" title="Buy GiftCards" v-if="mobileToggleSelect" shwo-wallet :wallet-amount="1000" />
       <div class="row" v-show="!selectDone">
-        <a-select class="col-md-4" :items="items" v-model="merchant"></a-select>
+        <a-select class="col-md-4" :items="items" v-model="merchant" @selected="handleData"></a-select>
         <div v-show="mobileToggleSelect" class="col-lg-8 col-12  col-md-8">
           <skeleton v-if="merchant === ''" title="Select GiftCard" size="4" width="20%" mobile-height="80px" height="90px" :max-items="4" />
           <div class="skeleton p-4" v-else>
@@ -36,7 +36,7 @@
             <p class="font-avenir text-bold-black ft-18 fw-900">Select Country/Currency</p>
 
             <div class="d-block d-lg-none d-md-none col-12">
-              <div class=" row  ">
+              <div class=" row  " v-if="activeCard !== ''">
                 <div class="   col-3  d-flex flex-column  " v-for="(item, index) in activeCard.country" :key="index">
                   <img @click="toggleCountry(item)" src="@/assets/demo-country.png" :class="['gift-card', activeCountry.title === item.title ? 'gift-card-active' : '']" />
                   <p v-if="activeCard !== ''" class="mx-auto mt-3">{{ item.title }}</p>
@@ -45,15 +45,15 @@
             </div>
 
             <div class=" d-none d-lg-block d-md-block  ">
-              <div class="row">
+              <div class="row" v-if="activeCard !== ''">
                 <div class=" col-lg-1 m-3 col-md-2  d-flex flex-column  " v-for="(item, index) in activeCard.country" :key="index">
-                  <img @click="toggleCountry(item)" width="50" src="@/assets/demo-country.png" :class="['gift-card', activeCountry.title === item.title ? 'gift-card-active' : '']" />
-                  <p v-if="activeCard !== ''" class="mx-auto mt-3">{{ item.title }}</p>
+                  <img @click="toggleCountry(item)" width="50" src="@/assets/demo-country.png" :class="['country-card', activeCountry.title === item.title ? 'country-card-active' : fadeClass]" />
+                  <p v-if="activeCard !== ''" :class="['mx-auto mt-3', activeCountry.title === item.title ? '' : fadeClass]">{{ item.title }}</p>
                 </div>
               </div>
             </div>
           </div>
-          <alaje-buttons v-if="activeCountry === ''" v-show="mobileToggleSelect" class="ml-auto mt-3" :disable="true" text_color="grey-50" text="Continue" />
+          <alaje-buttons v-if="activeCountry === '' || activeCard === '' || merchant === ''" v-show="mobileToggleSelect" class="ml-auto mt-3" :disable="true" text_color="grey-50" text="Continue" />
           <alaje-buttons @click="selectDone = true" v-else class="ml-auto mt-3" text_color="purple" text="Continue" />
         </div>
       </div>
@@ -103,7 +103,8 @@
             <p class="font-avenir  m-3 ft-18 fw-500 ml-auto pt-1">
               Order Total: <span class="text-pink fw-900 font-avenir">N {{ convertToNaira(getTotalItems) }}</span>
             </p>
-            <alaje-buttons class="m-3" size="sm" text_color="purple" text="Pay" />
+            <alaje-buttons class="m-3" size="sm" text_color="grey-50" text="Pay" v-if="getTotalItems <= 0" disable />
+            <alaje-buttons class="m-3" size="sm" text_color="purple" text="Pay" v-else />
           </div>
         </div>
       </div>
@@ -155,15 +156,7 @@ export default {
               ],
               country: [
                 {
-                  title: "NGN",
-                  logo: ""
-                },
-                {
                   title: "USA",
-                  logo: ""
-                },
-                {
-                  title: "ENG",
                   logo: ""
                 },
                 {
@@ -251,10 +244,6 @@ export default {
                 {
                   title: "ENG",
                   logo: ""
-                },
-                {
-                  title: "ARG",
-                  logo: ""
                 }
               ]
             },
@@ -285,10 +274,7 @@ export default {
                   title: "EU",
                   logo: ""
                 },
-                {
-                  title: "AUS",
-                  logo: ""
-                },
+
                 {
                   title: "LONDON",
                   logo: ""
@@ -467,7 +453,8 @@ export default {
             }
           ]
         }
-      ]
+      ],
+      fadeClass: ""
     };
   },
   components: {
@@ -496,10 +483,17 @@ export default {
   },
   methods: {
     toggleCard(item) {
+      this.fadeClass = "";
       return (this.activeCard = item);
     },
     toggleCountry(item) {
+      this.fadeClass += "opaque opaque-half";
+
       return (this.activeCountry = item);
+    },
+    handleData() {
+      this.activeCard = "";
+      this.activeCountry = "";
     },
     searchItems(needle, haystack) {
       return haystack.find(item => {
@@ -507,6 +501,14 @@ export default {
           return item;
         }
       });
+    }
+  },
+  watch: {
+    merchant() {
+      if (this.merchant === "") {
+        this.activeCard = "";
+        this.activeCountry = "";
+      }
     }
   }
 };
@@ -534,6 +536,13 @@ export default {
   border: 1px solid #e6e7ef;
 }
 .gift-card {
+  &-active {
+    border: 3px solid color(a-purple-color);
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+}
+.country-card {
   &-active {
     border: 3px solid color(a-purple-color);
     border-radius: 10px;

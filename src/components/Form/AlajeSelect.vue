@@ -115,7 +115,7 @@ export default {
       this.searched = this.selected.text;
       this.$emit("selected", this.selected.value);
       if (type === "mobile") {
-        setTimeout(() => this.toggleSearch(), 500);
+        this.toggleSearch();
       }
     },
     showOptions() {
@@ -237,6 +237,10 @@ input:focus {
     font-weight: 900;
     line-height: 150%;
     color: #cccfdf;
+    &:hover {
+      background: linear-gradient(101.54deg, rgba(181, 88, 249, 0.15) 0%, rgba(147, 44, 255, 0) 100%);
+      border-radius: 10px;
+    }
   }
 
   &-item-selected {
@@ -248,6 +252,8 @@ input:focus {
     font-weight: 900;
     line-height: 150%;
     color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <button @click="$emit('click', $event)" :class="[classes, icon ? iconClass : '']" :disabled="loading" :style="styles">
+  <button @click="$emit('click', $event)" :class="[classes, icon ? iconClass : '']" :disabled="disable" :style="styles">
     <!-- Button Text -->
     <span v-if="text">
       {{ textProp }}
@@ -221,7 +221,7 @@ button,
     color: color(a-grey-50);
     background: transparent;
     &.btn-grey-50:hover {
-      background: color(a-grey-50);
+      /*background: color(a-grey-50);*/
       color: color(a-grey-50);
     }
   }
