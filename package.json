@@ -11,6 +11,9 @@
   "dependencies": {
     "@sentry/browser": "^5.20.1",
     "@sentry/integrations": "^5.20.1",
+    "@uppy/core": "^1.13.2",
+    "@uppy/dashboard": "^1.12.8",
+    "@uppy/xhr-upload": "^1.6.4",
     "axios": "^0.19.2",
     "bootstrap": "^4.5.2",
     "bootstrap-vue": "^2.17.3",
@@ -21,6 +24,7 @@
     "node-sass": "^4.12.0",
     "register-service-worker": "^1.7.1",
     "sass-loader": "^8.0.0",
+    "uppy": "^1.21.2",
     "vue": "^2.6.11",
     "vue-ellipse-progress": "^1.2.0",
     "vue-head": "^2.2.0",

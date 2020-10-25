@@ -106,14 +106,34 @@
             Select Gift Card Type
             <span class="float-right mt-2 font-avenir ft-10 text-pink"> Need Help ?</span>
           </p>
-          <div class="container-fluid">
-            <div class="row">
-              <div class="skeleton col-lg-5 col-md-5 m-lg-2 m-md-2 mt-2 mt-lg-0 mt-md-0 col-12"></div>
-              <div class="skeleton col-lg-5 col-md-5 m-lg-2 m-md-2 mt-2 mt-lg-0 mt-md-0 col-12"></div>
+          <div class="row ml-lg-2 ml-md-2">
+            <div class="skeleton col-lg-5 col-md-5 m-lg-2 m-md-2 mt-2 mt-lg-0 mt-md-0 col-12">
+              <div class="outer-pass-box m-3 p-4 d-flex align-items-center justify-content-center">
+                <div class="pass-box p-1 p w-100  d-flex align-items-center justify-content-center">
+                  <alaje-icons name="passcode" size="xs" />
+                </div>
+              </div>
+            </div>
+            <div class="skeleton col-lg-5 col-md-5 m-lg-2 m-md-2 mt-2 mt-lg-0 mt-md-0 col-12">
+              <div class="outer-pass-box m-3 p-4 d-flex align-items-center justify-content-center">
+                <alaje-icons name="passboxpurple" size="xs" />
+              </div>
             </div>
           </div>
+          <p class="font-avenir fw-900 font-weight-bold ft-18 mt-3 text-black line-height-119">Enter Giftcard Value</p>
+          <div class="row">
+            <alaje-inputs label="Total Giftcard Value" class="col-md-6" />
+            <alaje-inputs :label="`what Yu'll Get`" disable class="col-md-6" />
+          </div>
+          <alaje-inputs label="Enter Giftcard Code" type="password" placeholder="****  ****  ****  *****" :error="[]" />
+          <alaje-buttons v-b-modal.my-modal centered text_color="purple" text="Upload Giftcard Photo" class="mx-auto text-center mt-5" />
         </div>
+
+        <b-modal id="my-modal" ok-only hide-footer hide-header size="lg" modal-class="mt-5 pt-5 ml-lg-5">
+          <uppy model-id="my-modal" model-class="uppy-class" />
+        </b-modal>
       </div>
+      <alaje-buttons v-if="selectDone" text="Continue" text_color="purple" class="ml-auto mt-3" />
     </div>
   </div>
 </template>
@@ -123,6 +143,9 @@ import HeaderCard from "../../../components/general/headerCard";
 import Skeleton from "../../../components/cards/skeleton";
 import AlajeButtons from "../../../components/Form/AlajeButtons";
 import General from "@/mixins/general";
+import AlajeIcons from "../../../components/general/AlajeIcons";
+import AlajeInputs from "../../../components/Form/AlajeInputs";
+import Uppy from "../../../components/Form/uppy";
 export default {
   mixins: [General],
   name: "Trade",
@@ -479,6 +502,9 @@ export default {
     };
   },
   components: {
+    Uppy,
+    AlajeInputs,
+    AlajeIcons,
     AlajeButtons,
     Skeleton,
     HeaderCard,
@@ -531,7 +557,8 @@ export default {
         this.activeCountry = "";
       }
     }
-  }
+  },
+  mounted() {}
 };
 </script>
 
@@ -552,10 +579,12 @@ export default {
     }
   }
 }
+
 .skeleton {
   border-radius: 10px;
   border: 1px solid #e6e7ef;
 }
+
 .gift-card {
   &-active {
     border: 3px solid color(a-purple-color);
@@ -563,6 +592,7 @@ export default {
     box-sizing: border-box;
   }
 }
+
 .country-card {
   &-active {
     border: 3px solid color(a-purple-color);
@@ -570,6 +600,7 @@ export default {
     box-sizing: border-box;
   }
 }
+
 .preview {
   background: #f5f5f9 !important;
   border-radius: 10px !important;
@@ -580,8 +611,21 @@ export default {
     background: rgb(250, 245, 255);
     border-radius: 5px;
   }
+
   &-header-no-bg {
     border-radius: 5px;
   }
+}
+
+.outer-pass-box {
+  background: rgb(250, 245, 255);
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.pass-box {
+  background: linear-gradient(101.54deg, #b558f9 0%, #932cff 100%);
+  border-radius: 5px;
+  padding: 5px;
 }
 </style>

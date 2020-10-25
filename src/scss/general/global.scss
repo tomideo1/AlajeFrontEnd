@@ -1,14 +1,9 @@
 //@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap");
-//@import url("https://github.com/Papillard/Avenir");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap");
 
 @font-face {
-  font-family: "avenir";
-  src: url("https://github.com/Papillard/Avenir/blob/master/AvenirBold.woff2") format("woff2"), url("https://github.com/Papillard/Avenir/blob/master/AvenirBold.woff") format("woff"),
-    url("https://github.com/Papillard/Avenir/blob/master/AvenirBold.eot") format("opentype");
-  font-display: auto;
-  font-style: italic;
-  font-weight: 400;
+  font-family: "Avenir";
+  src: url("~@/assets/avenir-font/Avenir-Roman.ttf");
 }
 
 * {

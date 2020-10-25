@@ -15,8 +15,8 @@
 
         <div class="items  p-2 ">
           <div v-for="(option, index) in filteredOptions" :key="index">
-            <div :class="['d-flex flex-row', selected === option ? 'items-item-selected ' : 'items-item ']">
-              <span class=" ml-2 d-flex flex-row m-2" @click="selectOption(option)" style="cursor:pointer">
+            <div @click="selectOption(option)" style="cursor:pointer" :class="['d-flex flex-row', selected === option ? 'items-item-selected ' : 'items-item ']">
+              <span class=" ml-2 d-flex flex-row m-2">
                 <img src="@/assets/addidas.svg" />
                 <p class="font-avenir  m-1 ft-14">{{ option.text }}</p>
               </span>
@@ -51,8 +51,8 @@
         </p>
         <div class="items  p-2 ">
           <div class="mt-4" v-for="(option, index) in filteredOptions" :key="index">
-            <div :class="['d-flex flex-row', selected === option ? 'items-item-selected ' : 'items-item ']">
-              <span class=" ml-2 d-flex flex-row m-2" @click="selectOption(option, 'mobile')" style="cursor:pointer">
+            <div @click="selectOption(option, 'mobile')" style="cursor:pointer" :class="['d-flex flex-row', selected === option ? 'items-item-selected ' : 'items-item ']">
+              <span class=" ml-2 d-flex flex-row m-2">
                 <img src="@/assets/addidas.svg" />
                 <p class="font-avenir  m-1 ft-16">{{ option.text }}</p>
               </span>

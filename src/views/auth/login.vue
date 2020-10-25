@@ -7,7 +7,7 @@
         </div>
         <p class="font-avenir ft-16 range-card-title text-bold-purple text-center  mt-4">Sign In</p>
         <div class="d-flex flex-column">
-          <alaje-inputs label="Email Address" type="string" v-model="form.email" class="m-1" :id="'email'" placeholder="Enter Email Address " :error="errors" />
+          <alaje-inputs label="Email Address" class="m-1" v-model="form.email" :id="'email'" placeholder="example@alajehub.com " :error="errors" />
           <alaje-inputs label="Password" v-model="form.password" iconHolder="eye" type="password" class="m-1" :id="'password'" placeholder=" •••••••• " :error="errors" />
 
           <div class="d-flex  m-3 flex-row">
@@ -47,7 +47,12 @@ export default {
   methods: {
     async handleLogin() {
       this.buttonLoader = true;
-      await setTimeout(this.$router.push({ name: "customer-dashboard" }), 30000);
+      await setTimeout(
+        this.$router.push({
+          name: "customer-dashboard"
+        }),
+        30000
+      );
     }
   }
 };

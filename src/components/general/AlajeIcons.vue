@@ -19,6 +19,7 @@
     <select-close v-if="name === 'select-close'"></select-close>
     <caret-down v-if="name === 'caret-down'"></caret-down>
     <passcode v-if="name === 'passcode'"></passcode>
+    <passboxpurple v-if="name === 'passboxpurple'"></passboxpurple>
   </span>
 </template>
 
@@ -51,7 +52,8 @@ export default {
     Search: () => import("@/components/__private__/media/search"),
     SelectClose: () => import("@/components/__private__/media/select-close"),
     CaretDown: () => import("@/components/__private__/media/caret-down"),
-    passcode: () => import("@/components/__private__/media/passcode")
+    passcode: () => import("@/components/__private__/media/passcode"),
+    passboxpurple: () => import("@/components/__private__/media/passboxpurple")
   }
 };
 </script>

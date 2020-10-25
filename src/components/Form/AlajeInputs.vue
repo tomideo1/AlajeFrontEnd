@@ -12,7 +12,7 @@
         </div>
         <input
           v-if="type === 'text'"
-          :class="['width-100 text-bold', error.length > 0 && error[0].code === '005' && error[0].source.hasOwnProperty(id) ? 'is-invalid' : success ? 'is-valid' : '']"
+          :class="['width-100 text-bold', error.length > 0 && error[0].code === '005' && error[0].source.hasOwnProperty(id) ? 'is-invalid' : success ? 'is-valid' : '', disable ? 'bg-grey-100' : '']"
           @keyup="keyup($event)"
           :value="value"
           :placeholder="placeholder"
@@ -93,7 +93,8 @@ export default {
       default: false
     },
     error: {
-      default: []
+      default: [],
+      required: false
     },
     success: {
       type: Boolean,

@@ -1,0 +1,10 @@
+Alaje Front End Todo for the week
+
+1. connect font with local installable font
+1b. build otp page
+2. finish buy and sell flow
+3. do other pages in the customer dashboard
+4. build 404 page and alert components
+5. connect login and signup to backend
+6. clean up all pages apart from landing page
+
