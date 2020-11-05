@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="container-fluid mb-4">
-      <header-card :greetings="greetings" shwo-wallet :wallet-amount="1000" />
+      <header-card :greetings="greetings" shwo-wallet :wallet-amount="1000" showWallet />
       <div class="row">
         <div class="col-md-4 col-lg-3 col-6 p-2" v-for="(item, index) in statusCards" :key="index">
           <status-card :status="item.status" :count="item.count" :statusMessage="item.message" />

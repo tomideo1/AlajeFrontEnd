@@ -11,7 +11,7 @@
     <p class="text-bold-purple ft-24 mt-lg-2 mt-md-1 mt-0 font-avenir " v-else>
       {{ title }}
     </p>
-    <div class="mt-lg-n1 mt-1 mt-lg-0 mt-md-0 ml-md-auto ml-lg-auto ml-auto" v-if="shwoWallet">
+    <div class="mt-lg-n1 mt-1 mt-lg-0 mt-md-0 ml-md-auto ml-lg-auto ml-auto" v-if="showWallet">
       <p class="font-avenir text-bold-purple  d-lg-block d-md-block d-none ft-20 wallet-card p-lg-3 p-md-3  ">
         Wallet Balance:
         <span class="text-dark-purple ft-16">{{ walletAmount }}</span>
@@ -35,7 +35,7 @@ export default {
     greetings: {
       type: Object
     },
-    shwoWallet: {
+    showWallet: {
       type: Boolean,
       default: false
     },

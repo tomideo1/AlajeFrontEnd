@@ -20,6 +20,7 @@
     <caret-down v-if="name === 'caret-down'"></caret-down>
     <passcode v-if="name === 'passcode'"></passcode>
     <passboxpurple v-if="name === 'passboxpurple'"></passboxpurple>
+    <history v-if="name === 'history'"></history>
   </span>
 </template>
 
@@ -53,7 +54,8 @@ export default {
     SelectClose: () => import("@/components/__private__/media/select-close"),
     CaretDown: () => import("@/components/__private__/media/caret-down"),
     passcode: () => import("@/components/__private__/media/passcode"),
-    passboxpurple: () => import("@/components/__private__/media/passboxpurple")
+    passboxpurple: () => import("@/components/__private__/media/passboxpurple"),
+    history: () => import("@/components/__private__/media/clock")
   }
 };
 </script>

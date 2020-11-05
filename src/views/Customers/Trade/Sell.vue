@@ -123,7 +123,7 @@
           <p class="font-avenir fw-900 font-weight-bold ft-18 mt-3 text-black line-height-119">Enter Giftcard Value</p>
           <div class="row">
             <alaje-inputs label="Total Giftcard Value" class="col-md-6" />
-            <alaje-inputs :label="`what Yu'll Get`" disable class="col-md-6" />
+            <alaje-inputs :label="`what You'll Get`" disable class="col-md-6" />
           </div>
           <alaje-inputs label="Enter Giftcard Code" type="password" placeholder="****  ****  ****  *****" :error="[]" />
           <alaje-buttons v-b-modal.my-modal centered text_color="purple" text="Upload Giftcard Photo" class="mx-auto text-center mt-5" />

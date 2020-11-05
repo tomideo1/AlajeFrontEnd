@@ -19,6 +19,15 @@ export default function() {
       to: {
         name: "customer-trade-home"
       }
+    },
+    {
+      title: "History",
+      routeIcon: "history",
+      activeIcon: "active-history",
+      identifier: "history",
+      to: {
+        name: "customer-history-home"
+      }
     }
   ];
   let appRoutes = [
