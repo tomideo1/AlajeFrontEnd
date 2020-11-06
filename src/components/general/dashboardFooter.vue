@@ -42,7 +42,7 @@
       <div class="container-fluid d-lg-none d-block d-md-none mx-auto mt-2">
         <div class="row">
           <div class=" mt-2  col-10 col-lg-10 col-md-10">
-            <p class="font-avenir text-black ft-12">&copy; 2020 Alaje Hub All Rights Reserved</p>
+            <p class="font-avenir text-center text-black ft-12">&copy; AlajeHub is a property of Alaje Hub Nigeria Limited, a company duly registered with CAC with RC Number: RC 1331517.</p>
           </div>
           <div class=" col-lg-2 col-2 col-md-2  ">
             <alaje-icons name="arrow-up" size="xs" @click="scrollTop" />
@@ -53,7 +53,7 @@
       <div class="  d-lg-block mt-2  d-md-block d-none d-md-none">
         <div class="d-flex flex-row ">
           <div class="  mt-2 ml-lg-5 " style="position: relative;">
-            <p class="font-avenir text-black ft-12">&copy; 2020 Alaje Hub All Rights Reserved</p>
+            <p class="font-avenir text-black ft-12">&copy; AlajeHub is a property of Alaje Hub Nigeria Limited, a company duly registered with CAC with RC Number: RC 1331517.</p>
           </div>
           <div class="ml-auto" style="position: relative; left: -10%">
             <alaje-icons name="arrow-up" size="xs" @click="scrollTop" />

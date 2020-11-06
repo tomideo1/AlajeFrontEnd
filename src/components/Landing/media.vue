@@ -22,7 +22,7 @@
     <div class="container mb-5">
       <div class="row">
         <div class="col-md-11 col-7">
-          <p class="font-avenir mt-2 ml-3  text-black ft-12">&copy; 2020 Alaje Hub All Rights Reserved</p>
+          <p class="font-avenir mt-2 ml-3  text-black ft-12">&copy; AlajeHub is a property of Alaje Hub Nigeria Limited, a company duly registered with CAC with RC Number: RC 1331517.</p>
         </div>
 
         <div class="col-md-1 col-3">
@@ -41,7 +41,10 @@ export default {
   },
   methods: {
     scrollTop() {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     }
   }
 };

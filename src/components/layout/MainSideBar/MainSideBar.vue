@@ -200,6 +200,7 @@ export default {
   display: block;
   color: #fff;
   font-size: 14px !important;
+  cursor: pointer;
 }
 
 .sidebar-navigation li,
@@ -214,6 +215,7 @@ export default {
 .sidebar-navigation li a:focus {
   text-decoration: none;
   outline: none;
+  cursor: pointer;
 }
 
 .sidebar-navigation li::before {
@@ -221,6 +223,7 @@ export default {
   opacity: 0.25;
   position: absolute;
   content: "";
+  cursor: pointer;
   height: 100%;
   // left: 20px;
   top: 0;

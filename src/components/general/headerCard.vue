@@ -16,7 +16,7 @@
         Wallet Balance:
         <span class="text-dark-purple ft-16">{{ walletAmount }}</span>
       </p>
-      <p class="font-avenir  d-lg-none d-md-none d-block text-bold-purple ft-10 wallet-card p-lg-3 p-md-3  ">
+      <p class="font-avenir  d-lg-none d-md-none d-block text-bold-purple ft-10 wallet-card  p-2  ">
         Wallet Balance:
         <span class="text-dark-purple ft-10">{{ walletAmount }}</span>
       </p>
