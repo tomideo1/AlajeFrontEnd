@@ -21,6 +21,10 @@
     <passcode v-if="name === 'passcode'"></passcode>
     <passboxpurple v-if="name === 'passboxpurple'"></passboxpurple>
     <history v-if="name === 'history'"></history>
+    <rates v-if="name === 'rates'"></rates>
+    <wallet v-if="name === 'wallet'"></wallet>
+    <settings v-if="name === 'settings'"></settings>
+    <bitcoin v-if="name === 'bitcoin'"></bitcoin>
   </span>
 </template>
 
@@ -55,7 +59,11 @@ export default {
     CaretDown: () => import("@/components/__private__/media/caret-down"),
     passcode: () => import("@/components/__private__/media/passcode"),
     passboxpurple: () => import("@/components/__private__/media/passboxpurple"),
-    history: () => import("@/components/__private__/media/clock")
+    history: () => import("@/components/__private__/media/clock"),
+    rates: () => import("@/components/__private__/media/rates"),
+    wallet: () => import("@/components/__private__/media/wallet"),
+    settings: () => import("@/components/__private__/media/settings"),
+    Bitcoin: () => import("@/components/__private__/media/bitcoin")
   }
 };
 </script>

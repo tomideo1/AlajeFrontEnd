@@ -21,12 +21,48 @@ export default function() {
       }
     },
     {
+      title: "Bitcoin",
+      routeIcon: "bitcoin",
+      activeIcon: "active-bitcoin",
+      identifier: "bitcoin",
+      to: {
+        name: "customer-bitcoin-home"
+      }
+    },
+    {
       title: "History",
       routeIcon: "history",
       activeIcon: "active-history",
       identifier: "history",
       to: {
         name: "customer-history-home"
+      }
+    },
+    {
+      title: "Rates",
+      routeIcon: "rates",
+      activeIcon: "active-rates",
+      identifier: "rates",
+      to: {
+        name: "customer-rates-home"
+      }
+    },
+    {
+      title: "Wallet",
+      routeIcon: "wallet",
+      activeIcon: "active-wallet",
+      identifier: "wallet",
+      to: {
+        name: "customer-wallet-home"
+      }
+    },
+    {
+      title: "Settings",
+      routeIcon: "settings",
+      activeIcon: "active-settings",
+      identifier: "settings",
+      to: {
+        name: "customer-settings-home"
       }
     }
   ];

@@ -43,11 +43,44 @@ export default [
         name: "customer-history-home",
         component: () => import("@/views/Customers/History/Home.vue"),
         meta: {}
-      },
+      }
+    ]
+  },
+  {
+    path: "/customer/rates",
+    name: "customer-rates",
+    component: History,
+    children: [
       {
-        path: "test",
-        name: "customer-history-home",
-        component: () => import("@/views/Customers/History/Home.vue"),
+        path: "home",
+        name: "customer-rates-home",
+        component: () => import("@/views/Customers/Rates/Home.vue"),
+        meta: {}
+      }
+    ]
+  },
+  {
+    path: "/customer/wallet",
+    name: "customer-wallet",
+    component: History,
+    children: [
+      {
+        path: "home",
+        name: "customer-wallet-home",
+        component: () => import("@/views/Customers/Wallet/Home.vue"),
+        meta: {}
+      }
+    ]
+  },
+  {
+    path: "/customer/settinfs",
+    name: "customer-settings",
+    component: History,
+    children: [
+      {
+        path: "home",
+        name: "customer-settings-home",
+        component: () => import("@/views/Customers/Settings/Home.vue"),
         meta: {}
       }
     ]

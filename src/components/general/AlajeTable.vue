@@ -1,6 +1,13 @@
 <template>
   <div>
     <div class="table-container table-responsive font-avenir p-4">
+      <div class="d-flex flex-row mb-4  ">
+        <h4 class=" fw-900 font-avenir">{{ title }}</h4>
+        <div class="ml-auto d-flex flex-row">
+          <b-form-select v-if="sort" class=" mr-3 col-5" v-model="sortValue" :options="soprtOptions"></b-form-select>
+          <alaje-inputs iconPosition="right" iconHolder="search" :showLabel="false" v-model="searchFilter" type="text" class=" mt-n2 " placeholder="Search" />
+        </div>
+      </div>
       <table class="table borderless ">
         <thead>
           <tr>
@@ -19,9 +26,14 @@
               :key="i"
               :class="['', field === 'box' ? 'grey-box' : field === 'status' ? `alaje-badge alaje-badge-${item[field]} ft-12 mt-2 mb-2 w-75 d-flex justify-content-center  ` : '']"
             >
-              {{ field !== "id" ? item[field] : index + 1 }}
+              <span v-if="field !== 'id' && field !== 'image'">{{ item[field] }}</span>
+              <span v-if="field === 'id'">{{ index + 1 }}</span>
+              <span v-if="field === 'image'"><img :src="item[field]"/></span>
             </td>
-            <td class="text-align-right cursor-pointer"><span class="text-pink ft-12  fw-500 font-avenir">View More</span></td>
+            <td v-if="hasActions" class="text-align-right cursor-pointer">
+              <span class="text-pink ft-12  fw-500 font-avenir" @click="sendDetails(item)">View More</span>
+              <slot v-if="hasActions" />
+            </td>
           </tr>
         </tbody>
       </table>
@@ -30,8 +42,12 @@
 </template>
 
 <script>
+import AlajeInputs from "@/components/Form/AlajeInputs";
 export default {
   name: "AlajeTable",
+  components: {
+    AlajeInputs
+  },
   props: {
     items: {
       type: Array,
@@ -41,15 +57,39 @@ export default {
     hasActions: {
       type: Boolean,
       default: false
+    },
+    search: {
+      type: Boolean,
+      default: false
+    },
+    title: {
+      type: String
+    },
+
+    sortItems: {
+      type: Array,
+      required: false
+    },
+    sort: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
-    return {};
+    return {
+      searchFilter: "",
+      sortValue: null
+    };
   },
 
   computed: {
     tableItems() {
-      return this.items;
+      const self = this;
+      return self.items.filter(function(obj) {
+        return Object.keys(obj).some(function(key) {
+          return obj[key].includes(self.searchFilter);
+        });
+      });
     },
 
     getFields() {
@@ -61,6 +101,23 @@ export default {
       }
 
       return [];
+    },
+    soprtOptions() {
+      let initial = [
+        {
+          value: null,
+          text: "Sort By"
+        }
+      ];
+      return initial.concat(this.sortItems);
+    }
+  },
+
+  methods: {
+    sendDetails(item) {
+      this.$Bus.$emit("show-table-details", {
+        details: item
+      });
     }
   }
 };

@@ -2,10 +2,12 @@
   <div>
     <div class="container-fluid mb-4">
       <div class="d-flex flex-row">
-        <tabs tab-type="tabbed" :tabs="tabs" />
+        <tabs tab-type="tabbed" :tabs="tabs" :current-tab="currentTab" />
         <header-card class="ml-auto" :wallet-amount="1000" showWallet :show-greetings="false" />
       </div>
-      <alaje-table v-if="currentTab === 'home'" :items="items" hasActions />
+      <alaje-table search title="All Transactions" v-if="currentTab === 'home'" :items="items" hasActions>
+        <p>Hello</p>
+      </alaje-table>
     </div>
   </div>
 </template>
@@ -36,14 +38,16 @@ export default {
       items: [
         {
           id: "u3929292892920",
+          image: `@/assets/demo-card.png`,
           name: "sksksk",
           date: "ssksksk",
           status: "pending"
         },
         {
-          id: "2729108301020",
-          name: "skskskkskssksk",
-          date: "ssksksk",
+          id: "u3929292892920",
+          image: `@/assets/demo-card.png`,
+          name: "Ayotomide",
+          date: "29/102/2003",
           status: "success"
         }
       ]

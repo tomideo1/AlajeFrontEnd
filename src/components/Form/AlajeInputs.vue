@@ -93,7 +93,7 @@ export default {
       default: false
     },
     error: {
-      default: [],
+      default: "",
       required: false
     },
     success: {
