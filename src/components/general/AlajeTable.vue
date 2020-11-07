@@ -14,7 +14,7 @@
       <div class=" mb-4 d-lg-none d-md-none d-block ">
         <h4 class=" fw-900 font-avenir">{{ title }}</h4>
         <div class="mt-3">
-          <b-form-select v-if="sort" class=" mr-3 col-5" v-model="sortValue" :options="soprtOptions"></b-form-select>
+          <b-form-select v-if="sort" class=" mr-3 col-5 mb-4" v-model="sortValue" :options="soprtOptions"></b-form-select>
           <alaje-inputs iconPosition="right" iconHolder="search" :showLabel="false" v-model="searchFilter" type="text" class=" mt-n2 " placeholder="Search" />
         </div>
       </div>
