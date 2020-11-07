@@ -25,6 +25,8 @@
     <wallet v-if="name === 'wallet'"></wallet>
     <settings v-if="name === 'settings'"></settings>
     <bitcoin v-if="name === 'bitcoin'"></bitcoin>
+    <close v-if="name === 'close'"></close>
+    <tick v-if="name === 'tick'"></tick>
   </span>
 </template>
 
@@ -63,7 +65,9 @@ export default {
     rates: () => import("@/components/__private__/media/rates"),
     wallet: () => import("@/components/__private__/media/wallet"),
     settings: () => import("@/components/__private__/media/settings"),
-    Bitcoin: () => import("@/components/__private__/media/bitcoin")
+    Bitcoin: () => import("@/components/__private__/media/bitcoin"),
+    Close: () => import("@/components/__private__/media/close"),
+    Tick: () => import("@/components/__private__/media/tick")
   }
 };
 </script>

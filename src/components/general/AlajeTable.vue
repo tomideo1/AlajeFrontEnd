@@ -1,9 +1,19 @@
 <template>
   <div>
     <div class="table-container table-responsive font-avenir p-4">
-      <div class="d-flex flex-row mb-4  ">
+      <div class="d-lg-block d-md-block d-none">
+        <div class="d-flex flex-row mb-4  ">
+          <h4 class=" fw-900 font-avenir">{{ title }}</h4>
+          <div class="ml-auto d-flex flex-row">
+            <b-form-select v-if="sort" class=" mr-3 col-5" v-model="sortValue" :options="soprtOptions"></b-form-select>
+            <alaje-inputs iconPosition="right" iconHolder="search" :showLabel="false" v-model="searchFilter" type="text" class=" mt-n2 " placeholder="Search" />
+          </div>
+        </div>
+      </div>
+
+      <div class=" mb-4 d-lg-none d-md-none d-block ">
         <h4 class=" fw-900 font-avenir">{{ title }}</h4>
-        <div class="ml-auto d-flex flex-row">
+        <div class="mt-3">
           <b-form-select v-if="sort" class=" mr-3 col-5" v-model="sortValue" :options="soprtOptions"></b-form-select>
           <alaje-inputs iconPosition="right" iconHolder="search" :showLabel="false" v-model="searchFilter" type="text" class=" mt-n2 " placeholder="Search" />
         </div>
@@ -11,7 +21,7 @@
       <table class="table borderless ">
         <thead>
           <tr>
-            <th v-for="(item, index) in getFields" :key="index" :style="item === 'name' ? 'width:50%' : ''" :class="['text-black fw-900', item === 'box' ? 'grey-box' : '']" scope="col">
+            <th v-for="(item, index) in getFields" :key="index" :class="['text-black fw-900', item === 'box' ? 'grey-box' : '']" scope="col">
               {{ item !== "box" ? item.toUpperCase() : "" }}
             </th>
             <!--<th class="grey-box" scope="col"></th>-->
@@ -31,21 +41,51 @@
               <span v-if="field === 'image'"><img :src="item[field]"/></span>
             </td>
             <td v-if="hasActions" class="text-align-right cursor-pointer">
-              <span class="text-pink ft-12  fw-500 font-avenir" @click="sendDetails(item)">View More</span>
-              <slot v-if="hasActions" />
+              <span class="text-pink ft-12  fw-500 font-avenir" @click="showModal(item.id)">View More</span>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
+
+    <b-modal :id="`modal`" centered hide-footer hide-header class="p-3">
+      <span class="d-flex flex-row">
+        <p class="font-avenir fw-900 font-weight-bold text-bold-black ft-24 line-height-119">Tracking Details</p>
+        <span class="ml-auto" @click="$bvModal.hide('modal')">
+          <alaje-icons name="close" size="sm" />
+        </span>
+      </span>
+
+      <ul class="step-progressbar pt-3 pb-4">
+        <li class="step-progressbar__item step-progressbar__item--complete font-avenir fw-800 ft-12 line-heigh-119 text-bold-black">Giftcard Order Placed</li>
+        <li class="step-progressbar__item step-progressbar__item--active font-avenir fw-800 ft-12 line-heigh-119 text-bold-black">Giftcard Oder Confirmed</li>
+        <li class="step-progressbar__item font-avenir fw-800 ft-12 line-heigh-119 text-bold-black">Giftcar Order Delivered</li>
+      </ul>
+
+      <div class="d-flex flex-row">
+        <p class="font-avenir fw-800 ft-24 line-height-119 text-bold-black pt-3">Adidas Gift Card</p>
+        <p class="font-avenir fw-800 ft-24 line-height-119 text-bold-pink pt-3 ml-auto">N50000</p>
+      </div>
+      <div class="d-flex flex-row">
+        <span class="d-flex flex-column">
+          <p class="font-avenir fw-500 ft-14 line-height-119 text-bold-black pt-3">Darnell Steward</p>
+
+          <p class="font-avenir fw-500 ft-14 line-height-119 text-grey-25">7/11/20</p>
+        </span>
+
+        <p :class="`alaje-badge alaje-badge-success ml-auto ft-12   d-flex justify-content-center mt-4`" style="height:40px">Success</p>
+      </div>
+    </b-modal>
   </div>
 </template>
 
 <script>
 import AlajeInputs from "@/components/Form/AlajeInputs";
+import AlajeIcons from "./AlajeIcons";
 export default {
   name: "AlajeTable",
   components: {
+    AlajeIcons,
     AlajeInputs
   },
   props: {
@@ -114,10 +154,9 @@ export default {
   },
 
   methods: {
-    sendDetails(item) {
-      this.$Bus.$emit("show-table-details", {
-        details: item
-      });
+    // eslint-disable-next-line no-unused-vars
+    showModal(id) {
+      this.$bvModal.show(`modal`);
     }
   }
 };
@@ -148,5 +187,77 @@ export default {
   // width: 40px;
   float: left;
   // height: 40px;
+}
+
+.modal {
+  background: #ffffff !important;
+  border-radius: 10px !important;
+
+  .modal-header {
+    border-bottom: none !important;
+    border-top: none !important;
+  }
+}
+
+.step-progressbar {
+  list-style: none;
+  counter-reset: step;
+  display: flex;
+  padding: 0;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    text-align: center;
+    position: relative;
+
+    &:before {
+      width: 3em;
+      height: 3em;
+      content: counter(step);
+      counter-increment: step;
+      align-self: center;
+      background: #e5e7ef;
+      color: #fff;
+      border-radius: 100%;
+      line-height: 3em;
+      margin-bottom: 0.5em;
+    }
+
+    &:after {
+      height: 2px;
+      width: calc(100% - 4em);
+      content: "";
+      background: #e5e7ef;
+      position: absolute;
+      top: 1.5em;
+      left: calc(50% + 2em);
+    }
+
+    &:last-child {
+      &:after {
+        content: none;
+      }
+    }
+
+    &--active {
+      &:before {
+        background: #e5e7ef;
+      }
+    }
+
+    &--complete {
+      &:before {
+        content: url("~@/assets/tick.svg");
+        color: #ffffff;
+        background: linear-gradient(95.36deg, #03da8d 1.64%, #09efa3 100%);
+      }
+    }
+  }
+}
+
+.modal-content {
+  border-radius: 10px !important;
 }
 </style>

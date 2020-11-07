@@ -73,7 +73,7 @@ export default [
     ]
   },
   {
-    path: "/customer/settinfs",
+    path: "/customer/settings",
     name: "customer-settings",
     component: History,
     children: [
