@@ -28,7 +28,7 @@ export default {
       type: String,
       default: "sm",
       validator: value => {
-        return ["xs", "sm", "md", "lg", "xl", "lg-2"].indexOf(value) !== -1;
+        return ["xs", "sm", "md", "lg", "xl", "lg-2", "lg-3"].indexOf(value) !== -1;
       }
     }
   },
@@ -89,6 +89,11 @@ export default {
   &.avatar-lg-2 {
     height: 5rem !important;
     width: 5rem !important;
+    font-size: 2rem;
+  }
+  &.avatar-lg-3 {
+    height: 137px !important;
+    width: 137px !important;
     font-size: 2rem;
   }
   &.avatar-xl {

@@ -82,6 +82,12 @@ export default [
         name: "customer-settings-home",
         component: () => import("@/views/Customers/Settings/Home.vue"),
         meta: {}
+      },
+      {
+        path: "notification",
+        name: "customer-settings-notifications",
+        component: () => import("@/views/Customers/Settings/Notification.vue"),
+        meta: {}
       }
     ]
   },
