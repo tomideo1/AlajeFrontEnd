@@ -81,7 +81,7 @@
 
 <script>
 import AlajeInputs from "@/components/Form/AlajeInputs";
-import AlajeIcons from "./AlajeIcons";
+import AlajeIcons from "../general/AlajeIcons";
 import Aselect from "../Form/Aselect";
 export default {
   name: "AlajeTable",
@@ -192,64 +192,6 @@ export default {
   .modal-header {
     border-bottom: none !important;
     border-top: none !important;
-  }
-}
-
-.step-progressbar {
-  list-style: none;
-  counter-reset: step;
-  display: flex;
-  padding: 0;
-
-  &__item {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    text-align: center;
-    position: relative;
-
-    &:before {
-      width: 3em;
-      height: 3em;
-      content: counter(step);
-      counter-increment: step;
-      align-self: center;
-      background: #e5e7ef;
-      color: #fff;
-      border-radius: 100%;
-      line-height: 3em;
-      margin-bottom: 0.5em;
-    }
-
-    &:after {
-      height: 2px;
-      width: calc(100% - 4em);
-      content: "";
-      background: #e5e7ef;
-      position: absolute;
-      top: 1.5em;
-      left: calc(50% + 2em);
-    }
-
-    &:last-child {
-      &:after {
-        content: none;
-      }
-    }
-
-    &--active {
-      &:before {
-        background: #e5e7ef;
-      }
-    }
-
-    &--complete {
-      &:before {
-        content: url("~@/assets/tick.svg");
-        color: #ffffff;
-        background: linear-gradient(95.36deg, #03da8d 1.64%, #09efa3 100%);
-      }
-    }
   }
 }
 

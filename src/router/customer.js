@@ -84,5 +84,18 @@ export default [
         meta: {}
       }
     ]
+  },
+  {
+    path: "/customer/bitcoin",
+    name: "customer-bitcoin",
+    component: History,
+    children: [
+      {
+        path: "home",
+        name: "customer-bitcoin-home",
+        component: () => import("@/views/Customers/Bitcoin/Home.vue"),
+        meta: {}
+      }
+    ]
   }
 ];

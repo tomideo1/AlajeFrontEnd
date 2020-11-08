@@ -11,7 +11,7 @@
         <section class="col-md-5  col-lg-5 col-12">
           <div class="box-cover p-4">
             <p class=" box-title ft-14">Wallet Balance:</p>
-            <p class="mt-2  text-bold-pink " style="font-size: 48px;">N1000</p>
+            <p class="mt-2  text-bold-pink " style="font-size: 48px; word-break:break-word">N1000</p>
             <div class="pt-4 pb-4"></div>
             <div class="row ">
               <alaje-buttons class="m-2 ft-10 ml-auto" text_color="purple" text="Fund Wallet" />
@@ -96,7 +96,7 @@ export default {
     &:last-child {
       text-align: right;
       font-family: fonts(Avenir);
-      padding-bottom: 55px !important;
+      padding-bottom: 35px !important;
       font-style: normal;
       font-weight: 500;
       font-size: 18px;
@@ -119,7 +119,7 @@ export default {
 
     > div:last-child {
       text-align: left;
-      border-left: 2px solid #c4c4c4;
+      border-left: 1px solid #c4c4c4;
     }
   }
 
@@ -136,7 +136,7 @@ export default {
 
     > div:last-child {
       text-align: left;
-      border-left: 2px solid #c4c4c4;
+      border-left: 1px solid #c4c4c4;
     }
 
     .timeline-content > h2 {

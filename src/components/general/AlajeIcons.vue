@@ -27,6 +27,7 @@
     <bitcoin v-if="name === 'bitcoin'"></bitcoin>
     <close v-if="name === 'close'"></close>
     <tick v-if="name === 'tick'"></tick>
+    <btc v-if="name === 'btc'"></btc>
   </span>
 </template>
 
@@ -67,7 +68,8 @@ export default {
     settings: () => import("@/components/__private__/media/settings"),
     Bitcoin: () => import("@/components/__private__/media/bitcoin"),
     Close: () => import("@/components/__private__/media/close"),
-    Tick: () => import("@/components/__private__/media/tick")
+    Tick: () => import("@/components/__private__/media/tick"),
+    Btc: () => import("@/components/__private__/media/btc")
   }
 };
 </script>
