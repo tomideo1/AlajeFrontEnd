@@ -45,11 +45,11 @@ export default {
       tabs: [
         {
           name: "Profile",
-          route: "home"
+          value: "home"
         },
         {
           name: "Notifications",
-          route: "notification"
+          value: "notification"
         }
       ],
       currentTab: "home",

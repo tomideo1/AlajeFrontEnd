@@ -13,8 +13,8 @@
       </span>
       <ul class="navbar-nav ml-lg-auto ml-auto ml-md-auto mt-lg-1 mt-md-1   ">
         <li class="nav-item pr-lg-3 pr-md-3  d-none d-lg-block d-md-none ">
-          <span class="m-3">
-            <p class="text-white position-absolute p-2 mt-n2 noty  text-center">You’re almost there! Click here to finish setting up your account</p>
+          <span class="m-1 w-100">
+            <p style="margin-top: -18px!important;" class="text-white position-absolute p-2  noty  text-center ">You’re almost there! Click here to finish setting up your account</p>
           </span>
         </li>
       </ul>

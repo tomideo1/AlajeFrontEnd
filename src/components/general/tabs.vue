@@ -2,7 +2,7 @@
   <div>
     <div class="d-none d-lg-block d-md-block">
       <div class="mt-4" v-if="tabType === 'route'">
-        <span :class="['p-2 tab m-lg-2 m-md-2', isActiveRoute(tab.route) ? 'tab-active' : 'tab-inactive']" v-for="(tab, index) in tabs" :key="index">
+        <span :class="['p-2 tab m-lg-2 m-md-2', isActiveRoute(tab.value) ? 'tab-active' : 'tab-inactive']" v-for="(tab, index) in tabs" :key="index">
           <span :to="tab.value" style="cursor: pointer!important; text-decoration: none;" @click="checkActive(tab)">
             {{ tab.name }}
           </span>
@@ -48,7 +48,7 @@ export default {
   methods: {
     checkActive(tab) {
       if (this.tabType === "route") {
-        return this.$router.push(tab.route);
+        return this.$router.push(tab.value).catch(() => {});
       } else {
         this.$Bus.$emit("current-tab", {
           tab: tab.value
@@ -64,7 +64,7 @@ export default {
     },
     checkActiveEvent(event) {
       if (this.tabType === "route") {
-        return this.$router.push(event.target.route);
+        return this.$router.push(event.target.value).catch(() => {});
       } else {
         this.$Bus.$emit("current-tab", {
           tab: event.target.value

@@ -10,17 +10,17 @@
     <div class="container-fluid mb-4">
       <div class="d-none d-md-block d-lg-block">
         <div class="d-flex flex-row">
-          <avatar size="lg-3 " :user="{ name: 'Alaje' }" />
+          <avatar size="lg-3" :user="{ name: 'Alaje' }" />
           <span class="d-flex flex-column">
             <p class="profile-title-name ml-3" style="font-size: 48px">Mosope Coker</p>
             <p class="ml-3 mt-n3 font-avenir ft-14 ">mosopecoker@gmail.com</p>
-            <alaje-buttons class="ml-3 col-6" text_color="purple" text="Edit Profile" />
+            <alaje-buttons class="ml-3 " text_color="purple" text="Edit Profile" />
           </span>
         </div>
       </div>
       <div class="d-block d-md-none d-lg-none">
         <div class="d-flex flex-row">
-          <avatar size="lg-2 " :user="{ name: 'Alaje' }" />
+          <avatar size="lg-2" :user="{ name: 'Alaje' }" />
           <span class="d-flex flex-column">
             <p class="profile-title-name ml-3 mt-n3" style="font-size: 22px">Mosope Coker</p>
             <p class="ml-3 mt-n4 font-avenir ft-12 ">mosopecoker@gmail.com</p>
@@ -33,7 +33,7 @@
         <alaje-inputs class="col-md-4 col-lg-4 col-12 " disable label="Firstname" placeholder="Mosope" />
         <alaje-inputs class="col-md-4 col-lg-4 col-12  " disable label="Lastname" placeholder="Coker" />
         <alaje-inputs class="col-md-4 col-lg-4 col-12 " disable label="Email Address" placeholder="MosopeCoker@gmail.com" />
-        <alaje-inputs disable label="Phone Number" class="col-md-4 col-lg-4 col-12 mt-3 " :id="'phone_number'" type="phone" :error="errors" />
+        <alaje-inputs disable label="Phone Number" class="col-md-4 col-lg-4 col-12 mt-3 " :id="'phone_number'" type="phone" />
       </div>
       <alaje-buttons text="Reset Password" text_color="purple" class="ml-auto col-md-2 col-lg-2 mt-3" />
     </div>
@@ -54,11 +54,11 @@ export default {
       tabs: [
         {
           name: "Profile",
-          route: "home"
+          value: "home"
         },
         {
           name: "Notifications",
-          route: "notification"
+          value: "notification"
         }
       ],
       currentTab: "home"
