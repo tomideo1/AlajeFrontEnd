@@ -5,7 +5,7 @@
         <tabs tab-type="tabbed" :tabs="tabs" :current-tab="currentTab" />
         <header-card class="ml-auto" :wallet-amount="1000" showWallet :show-greetings="false" />
       </div>
-      <alaje-table search title="All Transactions" v-if="currentTab === 'home'" :items="items" hasActions sort />
+      <alaje-table search title="All Transactions" v-if="currentTab === 'home'" :items="items" hasActions />
     </div>
   </div>
 </template>

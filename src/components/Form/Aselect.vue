@@ -2,8 +2,9 @@
   <div>
     <div>
       <label v-if="showLabel" class="font-avenir ft-12 label-class ml-1">{{ label }}</label>
-      <select class="styled-select">
+      <select class="styled-select" v-model="currentOption" @change="onSelectedEvent(currentOption)" @input="$emit('input', $event.target.value)">
         <option class="select-placeholder" value="" disabled selected>{{ placeholder }}</option>
+        <option v-for="(item, index) in options" :value="item.value" :key="index">{{ defaultSelectedValue }}{{ item.text || item.name }}</option>
       </select>
     </div>
   </div>
@@ -17,11 +18,24 @@ export default {
       type: Boolean,
       default: true
     },
+    value: {
+      type: String
+    },
+
     label: {
       type: String,
       default: ""
     },
+    onSelectedEvent: Function,
     placeholder: {
+      type: String,
+      default: ""
+    },
+    options: {
+      type: Array,
+      required: true
+    },
+    defaultSelectedValue: {
       type: String,
       default: ""
     }
@@ -31,14 +45,17 @@ export default {
   },
   data() {
     return {
-      password: "password",
-      string: "string",
-      inputOptions: {
-        showDialCode: true
-      },
-      passwordPoints: 0,
-      strengthClasses: ""
+      currentOption: ""
     };
+  },
+  watch: {
+    value: function(newValue) {
+      this.currentOption = newValue;
+    }
+  },
+
+  mounted() {
+    this.currentOption = this.defaultSelectedValue;
   }
 };
 </script>
@@ -96,6 +113,6 @@ export default {
 
   /* 50% Grey */
 
-  color: #cccfdf;
+  color: #cccfdf !important;
 }
 </style>

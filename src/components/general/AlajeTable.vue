@@ -5,7 +5,7 @@
         <div class="d-flex flex-row mb-4  ">
           <h4 class=" fw-900 font-avenir">{{ title }}</h4>
           <div class="ml-auto d-flex flex-row">
-            <b-form-select v-if="sort" class=" mr-3 col-5" v-model="sortValue" :options="soprtOptions"></b-form-select>
+            <aselect :showLabel="false" v-model="sortValue" class="mr-3 col-5 mt-n2" :options="sortOptions" v-if="sort" placeholder="Sort By" />
             <alaje-inputs iconPosition="right" iconHolder="search" :showLabel="false" v-model="searchFilter" type="text" class=" mt-n2 " placeholder="Search" />
           </div>
         </div>
@@ -14,7 +14,7 @@
       <div class=" mb-4 d-lg-none d-md-none d-block ">
         <h4 class=" fw-900 font-avenir">{{ title }}</h4>
         <div class="mt-3">
-          <b-form-select v-if="sort" class=" mr-3 col-5 mb-4" v-model="sortValue" :options="soprtOptions"></b-form-select>
+          <aselect :showLabel="false" v-model="sortValue" class="mr-3 col-12 mb-4" v-if="sort" :options="sortOptions" placeholder="Sort By" />
           <alaje-inputs iconPosition="right" iconHolder="search" :showLabel="false" v-model="searchFilter" type="text" class=" mt-n2 " placeholder="Search" />
         </div>
       </div>
@@ -82,9 +82,11 @@
 <script>
 import AlajeInputs from "@/components/Form/AlajeInputs";
 import AlajeIcons from "./AlajeIcons";
+import Aselect from "../Form/Aselect";
 export default {
   name: "AlajeTable",
   components: {
+    Aselect,
     AlajeIcons,
     AlajeInputs
   },
@@ -142,14 +144,8 @@ export default {
 
       return [];
     },
-    soprtOptions() {
-      let initial = [
-        {
-          value: null,
-          text: "Sort By"
-        }
-      ];
-      return initial.concat(this.sortItems);
+    sortOptions() {
+      return this.sortItems;
     }
   },
 
