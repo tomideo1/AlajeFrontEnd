@@ -129,7 +129,7 @@
           <alaje-buttons v-b-modal.my-modal centered text_color="purple" text="Upload Giftcard Photo" class="mx-auto text-center mt-5" />
         </div>
 
-        <b-modal id="my-modal" ok-only hide-footer hide-header size="lg" modal-class="mt-5 pt-5 ml-lg-5">
+        <b-modal id="my-modal" ok-only hide-footer size="lg" modal-class="mt-5 pt-5 ml-lg-5">
           <uppy model-id="my-modal" model-class="uppy-class" />
         </b-modal>
       </div>

@@ -152,7 +152,7 @@
         </div>
       </b-modal>
 
-      <b-modal id="upload-modal" centered ok-only hide-footer hide-header size="lg" modal-class="mt-5 pt-5 ml-lg-5">
+      <b-modal id="upload-modal" centered ok-only hide-footer size="lg" modal-class="mt-5 pt-5 ml-lg-5">
         <uppy model-id="upload-modal" model-class="uppy-class" />
       </b-modal>
     </div>
