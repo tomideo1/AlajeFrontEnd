@@ -29,6 +29,8 @@
           <p class="mt-3  col-3 pl-5"><Switches name="noty-wallet" v-model="showWallet" /></p>
         </span>
       </div>
+
+      <alaje-buttons text_color="purple" text="Update" class="ml-auto mt-3 " />
     </section>
   </div>
 </template>
@@ -37,9 +39,10 @@
 import HeaderCard from "../../../components/general/headerCard";
 import Tabs from "../../../components/general/tabs";
 import Switches from "../../../components/Form/Switches";
+import AlajeButtons from "../../../components/Form/AlajeButtons";
 export default {
   name: "Home",
-  components: { Switches, Tabs, HeaderCard },
+  components: { AlajeButtons, Switches, Tabs, HeaderCard },
   data() {
     return {
       tabs: [

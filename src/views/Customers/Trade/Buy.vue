@@ -104,7 +104,7 @@
               Order Total: <span class="text-pink fw-900 font-avenir">N {{ convertToNaira(getTotalItems) }}</span>
             </p>
             <alaje-buttons class="m-3" size="sm" text_color="grey-50" text="Pay" v-if="getTotalItems <= 0" disable />
-            <alaje-buttons class="m-3" size="sm" text_color="purple" text="Pay" v-else />
+            <alaje-buttons class="m-3" size="sm" text_color="purple" text="Pay" v-else @click="handlePayment" />
           </div>
         </div>
       </div>
@@ -500,6 +500,13 @@ export default {
         if (Object.values(item).includes(needle)) {
           return item;
         }
+      });
+    },
+    handlePayment() {
+      this.$Bus.$emit("notify", {
+        title: "Transaction Failed",
+        type: "error",
+        message: "Your Transaction was not successful"
       });
     }
   },

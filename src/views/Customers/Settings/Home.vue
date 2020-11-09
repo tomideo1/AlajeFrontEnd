@@ -35,7 +35,10 @@
         <alaje-inputs class="col-md-4 col-lg-4 col-12 " disable label="Email Address" placeholder="MosopeCoker@gmail.com" />
         <alaje-inputs disable label="Phone Number" class="col-md-4 col-lg-4 col-12 mt-3 " :id="'phone_number'" type="phone" />
       </div>
-      <alaje-buttons text="Reset Password" text_color="purple" class="ml-auto col-md-2 col-lg-2 mt-3" />
+      <div class="d-flex flex-row">
+        <alaje-buttons text="Reset Password" text_color="purple" class="ml-auto m-2 col-md-2 col-lg-2 mt-3" />
+        <alaje-buttons text="Deactivate Account" text_color="red" class=" m-2  col-md-3 col-lg-3 mt-3" />
+      </div>
     </div>
   </div>
 </template>

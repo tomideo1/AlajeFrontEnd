@@ -5,6 +5,7 @@
     </component>
   </div>
 </template>
+
 <script>
 export default {
   computed: {
@@ -14,6 +15,7 @@ export default {
   }
 };
 </script>
+
 <style lang="scss">
 @import "scss/main";
 </style>

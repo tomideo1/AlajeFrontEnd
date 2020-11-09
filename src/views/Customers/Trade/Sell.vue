@@ -552,7 +552,7 @@ export default {
   },
   watch: {
     merchant() {
-      if (this.merchant == "") {
+      if (this.merchant === "") {
         this.activeCard = "";
         this.activeCountry = "";
       }

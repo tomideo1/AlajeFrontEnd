@@ -9,7 +9,7 @@
 <script>
 const sizes = ["xs", "sm", "md", "lg"];
 const types = ["inverse", "filled", "outline"];
-const colors = ["purple", "green", "white", "black", "grey-25", "grey-50", "green", "yellow", "blue", "pink"];
+const colors = ["purple", "green", "white", "black", "grey-25", "grey-50", "green", "yellow", "blue", "pink", "red"];
 
 export default {
   name: "AlajeButtons",
@@ -196,6 +196,16 @@ button,
     background: transparent;
     &.btn-blue:hover {
       background: color(a-blue);
+      color: color(a-white);
+    }
+  }
+
+  &.btn-red {
+    color: color(a-danger);
+    border: 1px solid color(a-grey-25);
+    background: transparent;
+    &.btn-red:hover {
+      background: color(a-danger);
       color: color(a-white);
     }
   }
