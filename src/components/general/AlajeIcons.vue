@@ -28,6 +28,7 @@
     <close v-if="name === 'close'"></close>
     <tick v-if="name === 'tick'"></tick>
     <btc v-if="name === 'btc'"></btc>
+    <logout v-if="name === 'logout'"></logout>
   </span>
 </template>
 
@@ -69,7 +70,8 @@ export default {
     Bitcoin: () => import("@/components/__private__/media/bitcoin"),
     Close: () => import("@/components/__private__/media/close"),
     Tick: () => import("@/components/__private__/media/tick"),
-    Btc: () => import("@/components/__private__/media/btc")
+    Btc: () => import("@/components/__private__/media/btc"),
+    Logout: () => import("@/components/__private__/media/logout")
   }
 };
 </script>

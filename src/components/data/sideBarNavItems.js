@@ -1,6 +1,22 @@
 // import store from "@/store/index"
 
 export default function() {
+  let mobileViewRoutes = [
+    {
+      title: "Notifications",
+      routeIcon: "bell",
+      to: {
+        name: "notifications"
+      }
+    },
+    {
+      title: "Logout",
+      routeIcon: "logout",
+      to: {
+        name: "logout"
+      }
+    }
+  ];
   let customerRoutes = [
     {
       title: "Dashboard",
@@ -73,6 +89,6 @@ export default function() {
     }
   ];
 
-  appRoutes[0].items = [...customerRoutes];
+  appRoutes[0].items = [...customerRoutes, ...mobileViewRoutes];
   return appRoutes[0].items;
 }

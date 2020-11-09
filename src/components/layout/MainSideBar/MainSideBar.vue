@@ -10,10 +10,18 @@
       <div v-if="items" class="px-3 py-2   mt-lg-0 mt-md-0">
         <ul class="sidebar-navigation">
           <li v-for="(item, index) in items" :key="index" :class="$route.path.includes(item.identifier) ? 'active' : ''" @click="toggleActive(item.identifier)">
-            <a @click="$router.push(item.to)">
-              <alaje-icons :class="$route.path.includes(item.identifier) ? 'active-icon' : ''" size="xs" :name="item.routeIcon"></alaje-icons>
-              {{ item.title }}
-            </a>
+            <div class="d-none d-lg-block d-md-block">
+              <a @click="$router.push(item.to)" v-if="item.title !== 'Logout' && item.title !== 'Notifications'">
+                <alaje-icons :class="$route.path.includes(item.identifier) ? 'active-icon' : ''" size="xs" :name="item.routeIcon"></alaje-icons>
+                {{ item.title }}
+              </a>
+            </div>
+            <div class="d-block d-lg-none d-md-none">
+              <a @click="$router.push(item.to)">
+                <alaje-icons :class="$route.path.includes(item.identifier) ? 'active-icon' : ''" size="xs" :name="item.routeIcon"></alaje-icons>
+                {{ item.title }}
+              </a>
+            </div>
           </li>
         </ul>
       </div>

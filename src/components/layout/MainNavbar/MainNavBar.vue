@@ -24,7 +24,19 @@
           <alaje-icon @click="$router.push({ name: 'login' })" name="bell" size="sm" />
         </li>
         <li class="nav-item mt-n1 pr-md-3  pl-lg-4 pl-md-3 d-none d-lg-block d-md-none ">
-          <avatar size="md" class="avatar" :user="{ name: 'ALAJE' }" />
+          <div class="User-area">
+            <div class="User-avtar" @click="dropDownShow = !dropDownShow">
+              <avatar size="md" class="avatar" :user="{ name: 'ALAJE' }" />
+            </div>
+            <ul class="User-Dropdown U-open" v-show="dropDownShow">
+              <div class="d-flex flex-row m-2">
+                <avatar size="lg" class="avatar" :user="{ name: 'ALAJE' }" />
+                <p class=" ft-16 m-3 text-bold-black text-uppercase">Ayotomide</p>
+              </div>
+              <li><alaje-buttons text_color="purple" text="Profile" class="m-1 mb-4 p-0 ft-12 w-100  " /></li>
+              <li><alaje-buttons text_color="purple" text="Logout" class="m-1 mb-4 ft-12 p-0  w-100 " /></li>
+            </ul>
+          </div>
         </li>
         <li class="nav-item mt-n1  pl-lg-4 pl-md-3 d-block d-lg-none d-md-block ">
           <b-button @click="toggleSidebar" style="background: transparent!important;">
@@ -44,16 +56,19 @@
 
 <script>
 import General from "@/mixins/general";
+import AlajeButtons from "../../Form/AlajeButtons";
 export default {
   mixins: [General],
   name: "MainNavBar",
   data() {
     return {
       toggled: false,
-      currentNav: null
+      currentNav: null,
+      dropDownShow: false
     };
   },
   components: {
+    AlajeButtons,
     AlajeIcon: () => import("@/components/general/AlajeIcons"),
     avatar: () => import("@/components/general/avatar")
   },
@@ -253,5 +268,87 @@ export default {
 .noty {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 50px;
+}
+
+.User-area {
+  width: 45px;
+  height: 45px;
+  position: relative;
+  cursor: pointer;
+  > .User-avtar {
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    > img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.User-Dropdown {
+  &:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin-left: -0.5em;
+    right: 0px;
+    box-sizing: border-box;
+    border: 7px solid black;
+    border-color: transparent transparent #ffffff #ffffff;
+    transform-origin: 0 0;
+    transform: rotate(135deg);
+    box-shadow: -3px 3px 3px -3px rgba(214, 214, 214, 0.78);
+  }
+  display: none;
+  position: absolute;
+  border-radius: 7px;
+  background: #fff;
+  box-shadow: 0px 0px 8px rgba(214, 214, 214, 0.78);
+  list-style: none;
+  padding: 0 20px;
+  width: 300px;
+  margin: 0;
+  top: 70px;
+  right: -9%;
+  &.U-open {
+    display: block;
+  }
+  > li {
+    padding: 0px;
+    line-height: 47px;
+    border-bottom: 1px solid rgba(215, 215, 215, 0.17);
+    &:last-child {
+      border-bottom: 0px;
+    }
+    > a {
+      /*font-size: 13px;*/
+      /*padding: 15px 25px 16px 10px;*/
+      text-decoration: none;
+      color: #1787e0;
+      transition: all 0.2s ease-out;
+    }
+  }
+  span {
+    background: #16d67a;
+    padding: 3px 10px;
+    color: #fff;
+    border-radius: 30px;
+    font-size: 13px;
+  }
+  > li {
+    &:before {
+      content: "";
+      width: 0px;
+      height: 40px;
+      position: absolute;
+      background: #2196f3;
+      margin-top: 4px;
+      border-radius: 0 1px 1px 0;
+      left: 0px;
+      transition: all 0.2s ease;
+    }
+  }
 }
 </style>
